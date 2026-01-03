@@ -1,0 +1,33 @@
+{
+  "name": "Help Ibrahim Ali - ibrahim.help",
+  "short_name": "Help Ibrahim",
+  "description": "Urgent medical fundraising campaign for Ibrahim Ali, Islamic scholar and founder of islamland.com. 20 years serving the Ummah.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d6b4b",
+  "theme_color": "#0d6b4b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png?v=2",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png?v=2",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png?v=2",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["health", "medical", "charity", "humanitarian", "islamic"],
+  "lang": "en",
+  "dir": "auto",
+  "id": "https://ibrahim.help",
+  "scope": "/"
+}

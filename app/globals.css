@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Islamic Green & Gold Theme */
+  --islamic-green: #0d6b4b;
+  --islamic-green-dark: #094d36;
+  --islamic-green-light: #10805a;
+  --islamic-gold: #c9a227;
+  --islamic-gold-light: #e8c547;
+  --cream: #faf6f0;
+  --cream-light: #f5efe5;
+  --cream-dark: #e8dfd0;
+
+  --background: oklch(0.98 0.01 85);
+  --foreground: oklch(0.15 0.02 165);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 165);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 165);
+  --primary: oklch(0.35 0.12 165);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.97 0.01 85);
+  --secondary-foreground: oklch(0.2 0.02 165);
+  --muted: oklch(0.97 0.01 85);
+  --muted-foreground: oklch(0.5 0.02 165);
+  --accent: oklch(0.65 0.15 85);
+  --accent-foreground: oklch(0.15 0.02 165);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0.01 85);
+  --border: oklch(0.92 0.01 165);
+  --input: oklch(0.92 0.01 165);
+  --ring: oklch(0.35 0.12 165);
+  --chart-1: oklch(0.35 0.12 165);
+  --chart-2: oklch(0.65 0.15 85);
+  --chart-3: oklch(0.5 0.1 120);
+  --chart-4: oklch(0.7 0.12 60);
+  --chart-5: oklch(0.45 0.1 200);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.15 0.02 165);
+  --foreground: oklch(0.98 0.01 85);
+  --card: oklch(0.18 0.02 165);
+  --card-foreground: oklch(0.98 0.01 85);
+  --popover: oklch(0.15 0.02 165);
+  --popover-foreground: oklch(0.98 0.01 85);
+  --primary: oklch(0.98 0.01 85);
+  --primary-foreground: oklch(0.2 0.02 165);
+  --secondary: oklch(0.25 0.02 165);
+  --secondary-foreground: oklch(0.98 0.01 85);
+  --muted: oklch(0.25 0.02 165);
+  --muted-foreground: oklch(0.7 0.02 165);
+  --accent: oklch(0.65 0.15 85);
+  --accent-foreground: oklch(0.98 0.01 85);
+  --destructive: oklch(0.45 0.2 27);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.25 0.02 165);
+  --input: oklch(0.25 0.02 165);
+  --ring: oklch(0.5 0.1 165);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
+  --font-arabic: "Noto Kufi Arabic", "Amiri", "Traditional Arabic", serif;
+  --font-arabic-script: "Amiri", "Traditional Arabic", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-islamic-green: #0d6b4b;
+  --color-islamic-green-dark: #094d36;
+  --color-islamic-green-light: #10805a;
+  --color-islamic-gold: #c9a227;
+  --color-islamic-gold-light: #e8c547;
+  --color-cream: #faf6f0;
+  --color-cream-light: #f5efe5;
+  --color-cream-dark: #e8dfd0;
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Proper 8-point Islamic star pattern */
+.bg-islamic-pattern {
+  background-color: var(--color-islamic-green);
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpolygon points='40,5 45,25 65,20 50,35 65,50 45,45 40,65 35,45 15,50 30,35 15,20 35,25'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Arabic Font Support */
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap");
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.font-arabic-script {
+  font-family: var(--font-arabic-script);
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Better text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* RTL Support - Fixed to not reverse all flex containers */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+/* Only reverse specific navigation elements, not all flex containers */
+[dir="rtl"] .flex-row-reverse-rtl {
+  flex-direction: row-reverse;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
