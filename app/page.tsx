@@ -24,6 +24,7 @@ import { DuaCircle } from "@/components/dua-circle"
 import { SolidarityDashboard } from "@/components/solidarity-dashboard"
 import { PrayerTimes } from "@/components/prayer-times"
 import { PilgrimageCarriers } from "@/components/pilgrimage-carriers"
+import { SponsorGrid } from "@/components/sponsor-grid"
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("ar")
@@ -304,6 +305,9 @@ export default function Home() {
           <DocumentGallery lang={lang} />
         </div>
       </section>
+
+      {/* Sponsor Grid */}
+      <SponsorGrid lang={lang} />
 
       {/* Donation Options */}
       <section className="py-12 sm:py-16 bg-cream-dark">

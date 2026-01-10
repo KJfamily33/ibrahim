@@ -227,7 +227,7 @@ export function PrayerTimes({ lang }: PrayerTimesProps) {
           <div className="text-center mb-6">
             <p className="text-islamic-gold font-arabic text-lg">
               {ibrahimPrayers.date.hijri.weekday[lang === "ar" ? "ar" : "en"]} •{" "}
-              {ibrahimPrayers.date.hijri.day || ibrahimPrayers.date.hijri.date.split("-")[0]}{" "}
+              {ibrahimPrayers.date.hijri.date.split("-")[0]}{" "}
               {ibrahimPrayers.date.hijri.month[lang === "ar" ? "ar" : "en"]}{" "}
               {ibrahimPrayers.date.hijri.year}
             </p>

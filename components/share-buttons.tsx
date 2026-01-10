@@ -74,7 +74,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
       <h3 className="font-semibold text-lg text-white">{t.share}</h3>
 
       {/* Native Share API (Mobile) */}
-      {typeof navigator !== "undefined" && navigator.share && (
+      {typeof navigator !== "undefined" && typeof navigator.share === "function" && (
         <Button onClick={handleShare} className="w-full bg-islamic-gold hover:bg-islamic-gold/90 text-white">
           <Share2 className="h-4 w-4 mr-2" />
           {t.share}
