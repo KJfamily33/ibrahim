@@ -18,6 +18,10 @@ import {
 import { ShareButtons } from "@/components/share-buttons"
 import { DonationOptions } from "@/components/donation-options"
 import { DocumentGallery } from "@/components/document-gallery"
+import { TasbihCounter } from "@/components/tasbih-counter"
+import { JourneyMap } from "@/components/journey-map"
+import { DuaCircle } from "@/components/dua-circle"
+import { SolidarityDashboard } from "@/components/solidarity-dashboard"
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("ar")
@@ -217,6 +221,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Solidarity Dashboard */}
+      <SolidarityDashboard lang={lang} />
+
+      {/* Tasbih Counter */}
+      <TasbihCounter lang={lang} />
+
+      {/* Journey Map */}
+      <JourneyMap lang={lang} />
+
       {/* About Section */}
       <section className="py-12 sm:py-16 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -291,6 +304,9 @@ export default function Home() {
           <DonationOptions lang={lang} />
         </div>
       </section>
+
+      {/* Dua Circle */}
+      <DuaCircle lang={lang} />
 
       {/* Contact Section */}
       <section id="contact" className="py-12 sm:py-16 bg-islamic-green text-white">
