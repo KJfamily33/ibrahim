@@ -22,6 +22,8 @@ import { TasbihCounter } from "@/components/tasbih-counter"
 import { JourneyMap } from "@/components/journey-map"
 import { DuaCircle } from "@/components/dua-circle"
 import { SolidarityDashboard } from "@/components/solidarity-dashboard"
+import { PrayerTimes } from "@/components/prayer-times"
+import { PilgrimageCarriers } from "@/components/pilgrimage-carriers"
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("ar")
@@ -225,7 +227,12 @@ export default function Home() {
       <SolidarityDashboard lang={lang} />
 
       {/* Tasbih Counter */}
-      <TasbihCounter lang={lang} />
+      <section id="tasbih">
+        <TasbihCounter lang={lang} />
+      </section>
+
+      {/* Prayer Times */}
+      <PrayerTimes lang={lang} />
 
       {/* Journey Map */}
       <JourneyMap lang={lang} />
@@ -307,6 +314,9 @@ export default function Home() {
 
       {/* Dua Circle */}
       <DuaCircle lang={lang} />
+
+      {/* Pilgrimage Carriers */}
+      <PilgrimageCarriers lang={lang} />
 
       {/* Contact Section */}
       <section id="contact" className="py-12 sm:py-16 bg-islamic-green text-white">
