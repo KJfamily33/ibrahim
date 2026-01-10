@@ -31,8 +31,8 @@ export function SolidarityDashboard({ lang }: SolidarityDashboardProps) {
       title: "لوحة التضامن",
       raised: "تم جمعه",
       of: "من",
-      sponsors: "داعم",
-      joined: "انضموا",
+      sponsors: "يد",
+      joined: "تحمل",
       praying: "يصلون",
       forIbrahim: "لإبراهيم",
       shares: "مشاركة",
@@ -44,8 +44,8 @@ export function SolidarityDashboard({ lang }: SolidarityDashboardProps) {
       title: "Solidarity Dashboard",
       raised: "RAISED",
       of: "of",
-      sponsors: "SPONSORS",
-      joined: "joined",
+      sponsors: "HANDS",
+      joined: "carrying",
       praying: "PRAYING",
       forIbrahim: "for Ibrahim",
       shares: "SHARES",
@@ -67,13 +67,13 @@ export function SolidarityDashboard({ lang }: SolidarityDashboardProps) {
 
   const feedMessages = {
     ar: {
-      donation: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} تبرع بـ €${item.amount}`,
+      donation: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} أضاف يده للثوب 💚`,
       prayer: (item: FeedItem) => `${item.name} أضاف صلاة 📿`,
       share: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} شارك القصة`,
       dua: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} انضم لدائرة الدعاء`,
     },
     en: {
-      donation: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} contributed €${item.amount}`,
+      donation: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} added their hand to the cloth 💚`,
       prayer: (item: FeedItem) => `${item.name} added prayers 📿`,
       share: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} shared the story`,
       dua: (item: FeedItem) => `${item.name}${item.location ? ` (${item.location})` : ""} joined dua circle`,
