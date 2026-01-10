@@ -16,8 +16,9 @@ import {
   ExternalLink,
   Star,
 } from "lucide-react"
-import { SacredHero } from "@/components/sacred-hero"
-import { SacredJourney } from "@/components/sacred-journey"
+import { FalconHero } from "@/components/falcon-hero"
+import { FlightPath } from "@/components/flight-path"
+import { FeatherWings } from "@/components/feather-wings"
 import { ShareButtons } from "@/components/share-buttons"
 import { DonationOptions } from "@/components/donation-options"
 import { DocumentGallery } from "@/components/document-gallery"
@@ -30,10 +31,9 @@ import { SponsorGrid } from "@/components/sponsor-grid"
 import { QuranKhatm } from "@/components/quran-khatm"
 
 export default function Home() {
-  const [lang, setLang] = useState<"ar" | "en">("ar")
+  const [lang, setLang] = useState<"ar" | "en">("en")
   const [scrolled, setScrolled] = useState(false)
 
-  // Track scroll for header styling
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -44,57 +44,60 @@ export default function Home() {
 
   const content = {
     ar: {
+      storyTitle: "قصة الصقر",
+      storySubtitle: "رحلة عشرين عامًا في خدمة الأمة",
       aboutTitle: "من هو إبراهيم؟",
       aboutDesc:
-        "إبراهيم علي عالم إسلامي ليبي أسس موقع islamland.com — منصة تعليمية إسلامية شاملة تخدم أكثر من 140 لغة، تقدم محتوى إسلامي أصيل للمسلمين حول العالم. لأكثر من عقدين، كرّس حياته للدعوة الإسلامية دون أي مقابل مادي.",
-      medicalTitle: "الحالة الطبية",
+        "كالصقر الحر، حلّق إبراهيم علي فوق أمة الإسلام لعقدين من الزمن. أسس موقع islamland.com — منارة تنير طريق الملايين بأكثر من 140 لغة. لم يأخذ درهمًا واحدًا. خدم بقلبه وروحه.",
+      aboutQuote: "الآن الصقر يحتاج أجنحة الأمة ليحمله",
+      medicalTitle: "الجناح المكسور",
       medicalDesc:
-        "تم تشخيص إبراهيم بورم كبير في المستقيم يسد المجرى بشكل شبه كامل. يحتاج إلى جراحة عاجلة لإنقاذ حياته. الموارد الطبية في ليبيا محدودة، وبسبب أزمة السيولة المصرفية، لا يستطيع الوصول إلى أمواله الخاصة للعلاج في الخارج.",
-      achievementsTitle: "إنجازاته",
+        "تم تشخيص إبراهيم بورم كبير في المستقيم يسد المجرى بشكل شبه كامل. يحتاج إلى جراحة عاجلة لإنقاذ حياته. البنوك الليبية في أزمة — لا يستطيع الوصول حتى إلى أمواله الخاصة.",
       achievements: [
-        "أسس islamland.com بأكثر من 140 لغة",
-        "شارك في تأليف كتب مع د. منقذ السقار",
-        "خدم عقودين في الدعوة الإسلامية",
-        "أثر إيجابي على ملايين المسلمين عالمياً",
+        "أسس islamland.com — ١٤٠+ لغة",
+        "شارك في تأليف كتب إسلامية علمية",
+        "٢٠ عامًا من الدعوة بلا مقابل",
+        "ملايين المسلمين استفادوا من علمه",
       ],
-      diagnosis: "التشخيص الطبي:",
-      diagnosisDesc: "ورم فطري كبير في المستقيم على بُعد 8 سم من فتحة الشرج، يسد المجرى بشكل شبه كامل. يحتاج إلى تدخل جراحي عاجل.",
-      documentsTitle: "الوثائق الرسمية",
-      documentsDesc: "وثائق طبية ورسمية موثقة",
-      contactSectionTitle: "تواصل مع إبراهيم مباشرة",
+      diagnosis: "التشخيص:",
+      diagnosisDesc: "ورم في المستقيم على بُعد ٨ سم، يسد المجرى. يحتاج تدخل جراحي عاجل.",
+      documentsTitle: "وثائق موثقة",
+      documentsDesc: "كل شيء شفاف ومُثبت",
+      contactSectionTitle: "تواصل مع إبراهيم",
       phone: "الهاتف",
-      email: "البريد الإلكتروني",
+      email: "البريد",
       whatsapp: "واتساب",
       location: "الموقع",
       locationValue: "طرابلس، ليبيا",
       callNow: "اتصل الآن",
       sendEmail: "أرسل بريد",
-      openWhatsApp: "افتح واتساب",
+      openWhatsApp: "واتساب",
       visitIslamland: "islamland.com",
-      shareTitle: "شارك قصته",
-      footerText: "ندعو الله أن يشفي إبراهيم ويجزي كل من ساعده خير الجزاء",
-      madeWith: "صُنع بمحبة لأخينا إبراهيم",
-      prayerRequest: "اللهم اشفه وعافه",
+      shareTitle: "انشر قصته",
+      footerQuote: "اللهم اشفه وعافه واجعل كل من ساعده في ميزان حسناته",
+      footerTagline: "رحلة الصقر الحاج",
     },
     en: {
+      storyTitle: "The Falcon's Story",
+      storySubtitle: "Twenty years soaring in service of the Ummah",
       aboutTitle: "Who is Ibrahim?",
       aboutDesc:
-        "Ibrahim Ali is a Libyan Islamic scholar who founded islamland.com — a comprehensive Islamic educational platform serving 140+ languages, providing authentic Islamic content to Muslims worldwide. For over two decades, he has dedicated his life to Islamic dawah without any financial compensation.",
-      medicalTitle: "Medical Condition",
+        "Like a free falcon, Ibrahim Ali soared across the Muslim Ummah for two decades. He founded islamland.com — a beacon lighting the way for millions in 140+ languages. He never took a single dirham. He served with his heart and soul.",
+      aboutQuote: "Now the falcon needs the Ummah's wings to carry him",
+      medicalTitle: "The Broken Wing",
       medicalDesc:
-        "Ibrahim has been diagnosed with a large fungating rectal tumor that is nearly obstructing the lumen. He requires urgent surgery to save his life. Medical resources in Libya are limited, and due to the banking liquidity crisis, he cannot access his own funds for treatment abroad.",
-      achievementsTitle: "His Achievements",
+        "Ibrahim has been diagnosed with a large rectal tumor nearly obstructing the passage. He requires urgent surgery to save his life. Libya's banks are in crisis — he cannot even access his own funds.",
       achievements: [
-        "Founded islamland.com serving 140+ languages",
-        "Co-authored scholarly works with Dr. Munqith Al-Saqqar",
-        "Two decades of dedicated Islamic dawah work",
-        "Positive impact on millions of Muslims globally",
+        "Founded islamland.com — 140+ languages",
+        "Co-authored Islamic scholarly works",
+        "20 years of dawah with no pay",
+        "Millions of Muslims benefited from his knowledge",
       ],
-      diagnosis: "Medical Diagnosis:",
-      diagnosisDesc: "Large fungating tumor mass in rectum at 8cm from anal verge, nearly obstructing the lumen. Scope couldn't pass further. Requires urgent surgical intervention.",
-      documentsTitle: "Official Documentation",
-      documentsDesc: "Verified medical and official documents",
-      contactSectionTitle: "Contact Ibrahim Directly",
+      diagnosis: "Diagnosis:",
+      diagnosisDesc: "Rectal tumor at 8cm, obstructing passage. Requires urgent surgical intervention.",
+      documentsTitle: "Verified Documents",
+      documentsDesc: "Everything transparent and verified",
+      contactSectionTitle: "Contact Ibrahim",
       phone: "Phone",
       email: "Email",
       whatsapp: "WhatsApp",
@@ -102,12 +105,11 @@ export default function Home() {
       locationValue: "Tripoli, Libya",
       callNow: "Call Now",
       sendEmail: "Send Email",
-      openWhatsApp: "Open WhatsApp",
+      openWhatsApp: "WhatsApp",
       visitIslamland: "islamland.com",
       shareTitle: "Share His Story",
-      footerText: "May Allah heal Ibrahim and reward everyone who helps him",
-      madeWith: "Made with love for our brother Ibrahim",
-      prayerRequest: "O Allah, heal and cure him",
+      footerQuote: "O Allah, heal him and make every helper's deed weigh heavy on their scales",
+      footerTagline: "The Pilgrim Falcon's Journey",
     },
   }
 
@@ -115,14 +117,14 @@ export default function Home() {
 
   return (
     <div
-      className={`min-h-screen bg-sacred-cream ${lang === "ar" ? "font-arabic" : "font-sans"}`}
+      className={`min-h-screen ${lang === "ar" ? "font-arabic" : "font-sans"}`}
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
-      {/* Sacred Header */}
+      {/* Floating Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "sacred-header py-2"
+            ? "bg-islamic-green-dark/95 backdrop-blur-md py-2 shadow-lg"
             : "bg-transparent py-4"
         }`}
       >
@@ -135,7 +137,7 @@ export default function Home() {
                 className={`rounded-full transition-all duration-300 ${scrolled ? "h-9 w-9" : "h-11 w-11"}`}
               />
               {!scrolled && (
-                <div className="absolute inset-0 rounded-full ring-2 ring-sacred-gold/50 animate-pulse" />
+                <div className="absolute inset-0 rounded-full ring-2 ring-islamic-gold/50 golden-glow" />
               )}
             </div>
             <span className={`font-bold text-white hidden sm:block transition-all duration-300 ${scrolled ? "text-base" : "text-lg"}`}>
@@ -145,12 +147,12 @@ export default function Home() {
 
           <div className="flex items-center gap-3 sm:gap-4">
             {/* Language Toggle */}
-            <div className="flex gap-0.5 bg-white/10 backdrop-blur-sm rounded-full p-0.5 border border-white/10">
+            <div className="flex gap-0.5 glass-card rounded-full p-0.5">
               <button
                 onClick={() => setLang("en")}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
                   lang === "en"
-                    ? "bg-sacred-gold text-sacred-night"
+                    ? "bg-islamic-gold text-islamic-green-dark"
                     : "text-white/80 hover:text-white"
                 }`}
               >
@@ -160,7 +162,7 @@ export default function Home() {
                 onClick={() => setLang("ar")}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
                   lang === "ar"
-                    ? "bg-sacred-gold text-sacred-night"
+                    ? "bg-islamic-gold text-islamic-green-dark"
                     : "text-white/80 hover:text-white"
                 }`}
               >
@@ -172,7 +174,7 @@ export default function Home() {
               href="https://islamland.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-white/80 hover:text-sacred-gold transition-colors"
+              className="flex items-center gap-2 text-sm text-white/80 hover:text-islamic-gold transition-colors"
             >
               <Globe className="h-4 w-4" />
               <span className="hidden sm:inline">{t.visitIslamland}</span>
@@ -181,16 +183,83 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Sacred Hero Section */}
-      <SacredHero lang={lang} />
+      {/* FALCON HERO - The Grand Opening */}
+      <FalconHero lang={lang} />
 
-      {/* Solidarity Dashboard */}
-      <section id="solidarity">
-        <SolidarityDashboard lang={lang} />
+      {/* FLIGHT PATH - The Journey */}
+      <FlightPath lang={lang} />
+
+      {/* FEATHER WINGS - Community Support Visualization */}
+      <FeatherWings lang={lang} />
+
+      {/* Story Section - The Falcon's Tale */}
+      <section id="story" className="py-16 sm:py-24 bg-cream relative overflow-hidden">
+        <div className="absolute inset-0 sacred-geometry opacity-10" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1 rounded-full bg-islamic-gold/20 text-islamic-gold text-sm font-medium mb-4">
+              {t.storyTitle}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-islamic-green mb-4">{t.aboutTitle}</h2>
+          </div>
+
+          <Card className="border-islamic-green/20 shadow-xl overflow-hidden">
+            <CardContent className="p-6 sm:p-10">
+              <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                {t.aboutDesc}
+              </p>
+              <p className="text-islamic-gold font-medium text-xl text-center italic rumi-quote mb-8">
+                "{t.aboutQuote}"
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {t.achievements.map((achievement, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-islamic-green/5 rounded-xl border border-islamic-green/10 transition-all hover:border-islamic-gold/30"
+                  >
+                    <div className="flex-shrink-0 w-8 h-8 bg-islamic-gold rounded-lg flex items-center justify-center">
+                      <Star className="h-4 w-4 text-islamic-green-dark" />
+                    </div>
+                    <p className="text-gray-700 text-sm">{achievement}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
-      {/* Sacred Journey Map */}
-      <SacredJourney lang={lang} progress={12} />
+      {/* Medical Urgency - The Broken Wing */}
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-cream to-cream-dark">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="border-red-300 bg-gradient-to-br from-white to-red-50 shadow-xl overflow-hidden relative">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-red-600" />
+            <CardHeader>
+              <CardTitle className="text-2xl sm:text-3xl text-red-700 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center heartbeat">
+                  <AlertCircle className="h-5 w-5 text-red-600" />
+                </div>
+                {t.medicalTitle}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-6 sm:p-8">
+              <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                {t.medicalDesc}
+              </p>
+              <div className="p-5 bg-white rounded-xl border border-red-200 shadow-inner">
+                <p className="text-sm text-red-700 font-semibold mb-2 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-red-500 heartbeat" />
+                  {t.diagnosis}
+                </p>
+                <p className="text-gray-600">{t.diagnosisDesc}</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Solidarity Dashboard */}
+      <SolidarityDashboard lang={lang} />
 
       {/* Tasbih Counter */}
       <section id="tasbih">
@@ -200,95 +269,31 @@ export default function Home() {
       {/* Prayer Times */}
       <PrayerTimes lang={lang} />
 
-      {/* About Section */}
-      <section id="about" className="py-16 sm:py-24 bg-sacred-cream relative">
-        <div className="absolute inset-0 sacred-pattern opacity-30" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="sacred-glass-light overflow-hidden">
-            <CardHeader className="bg-gradient-to-r from-sacred-emerald/5 to-sacred-gold/5 border-b border-sacred-emerald/10">
-              <CardTitle className="text-2xl sm:text-3xl text-sacred-emerald flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-sacred-gold/20 flex items-center justify-center">
-                  <Users className="h-5 w-5 text-sacred-gold" />
-                </div>
-                {t.aboutTitle}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-6 sm:p-8">
-              <p className="text-sacred-night/80 leading-relaxed text-base sm:text-lg mb-8">
-                {t.aboutDesc}
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {t.achievements.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-4 bg-gradient-to-r from-sacred-emerald/5 to-transparent rounded-xl border border-sacred-emerald/10 transition-all hover:border-sacred-gold/30 hover:shadow-md"
-                  >
-                    <div className="flex-shrink-0 w-8 h-8 bg-sacred-gold rounded-lg flex items-center justify-center shadow-sm">
-                      <Star className="h-4 w-4 text-sacred-night" />
-                    </div>
-                    <p className="text-sacred-night/80 text-sm leading-relaxed">{achievement}</p>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Medical Condition - Urgent */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-sacred-cream to-sacred-cream-warm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-sacred-ruby/30 bg-gradient-to-br from-white to-red-50/50 shadow-xl overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sacred-ruby to-sacred-ruby-light" />
-            <CardHeader>
-              <CardTitle className="text-2xl sm:text-3xl text-sacred-ruby flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-sacred-ruby/10 flex items-center justify-center">
-                  <AlertCircle className="h-5 w-5 text-sacred-ruby" />
-                </div>
-                {t.medicalTitle}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-6 sm:p-8">
-              <p className="text-sacred-night/80 leading-relaxed text-base sm:text-lg mb-6">
-                {t.medicalDesc}
-              </p>
-              <div className="p-5 bg-white rounded-xl border border-sacred-ruby/20 shadow-inner">
-                <p className="text-sm text-sacred-ruby font-semibold mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-sacred-ruby animate-pulse" />
-                  {t.diagnosis}
-                </p>
-                <p className="text-sacred-night/70 leading-relaxed">
-                  {t.diagnosisDesc}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Documents Section */}
-      <section className="py-16 sm:py-24 bg-sacred-cream">
+      {/* Documents */}
+      <section id="documents" className="py-16 sm:py-24 bg-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-sacred-gold/20 flex items-center justify-center">
-                <FileText className="h-5 w-5 text-sacred-gold" />
+              <div className="w-10 h-10 rounded-xl bg-islamic-gold/20 flex items-center justify-center">
+                <FileText className="h-5 w-5 text-islamic-gold" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-sacred-emerald">
+              <h2 className="text-2xl sm:text-3xl font-bold text-islamic-green">
                 {t.documentsTitle}
               </h2>
             </div>
-            <p className="text-sacred-night/60">{t.documentsDesc}</p>
+            <p className="text-gray-600">{t.documentsDesc}</p>
           </div>
           <DocumentGallery lang={lang} />
         </div>
       </section>
 
-      {/* Sponsor Grid */}
-      <SponsorGrid lang={lang} />
+      {/* Sponsor Grid - Ways to Help */}
+      <section id="donate">
+        <SponsorGrid lang={lang} />
+      </section>
 
       {/* Donation Options */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-sacred-cream-warm to-sacred-cream">
+      <section className="py-16 sm:py-24 bg-cream-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <DonationOptions lang={lang} />
         </div>
@@ -304,88 +309,71 @@ export default function Home() {
       <PilgrimageCarriers lang={lang} />
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 bg-gradient-to-b from-sacred-emerald to-sacred-emerald-deep relative overflow-hidden">
-        <div className="absolute inset-0 sacred-stars opacity-40" />
+      <section id="contact" className="py-16 sm:py-24 falcon-sky relative overflow-hidden">
+        <div className="absolute inset-0 sacred-geometry opacity-20" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-10">
             {t.contactSectionTitle}
           </h2>
 
-          <Card className="sacred-glass border-sacred-gold/20 text-white">
+          <Card className="glass-card text-white">
             <CardContent className="p-6 sm:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Phone */}
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-sacred-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-sacred-gold rounded-xl flex items-center justify-center shadow-lg">
-                    <Phone className="h-5 w-5 text-sacred-night" />
+                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
+                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
+                    <Phone className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-sacred-cream/60">{t.phone}</p>
+                    <p className="text-sm text-cream-light/60">{t.phone}</p>
                     <p className="font-bold text-lg" dir="ltr">+218 91-669-5689</p>
                   </div>
                 </div>
 
-                {/* Email */}
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-sacred-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-sacred-gold rounded-xl flex items-center justify-center shadow-lg">
-                    <Mail className="h-5 w-5 text-sacred-night" />
+                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
+                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
+                    <Mail className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-sacred-cream/60">{t.email}</p>
+                    <p className="text-sm text-cream-light/60">{t.email}</p>
                     <p className="font-bold text-base break-all">Abraabre731@gmail.com</p>
                   </div>
                 </div>
 
-                {/* WhatsApp */}
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-sacred-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-sacred-gold rounded-xl flex items-center justify-center shadow-lg">
-                    <MessageCircle className="h-5 w-5 text-sacred-night" />
+                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
+                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
+                    <MessageCircle className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-sacred-cream/60">{t.whatsapp}</p>
+                    <p className="text-sm text-cream-light/60">{t.whatsapp}</p>
                     <p className="font-bold text-lg" dir="ltr">+218 91-669-5689</p>
                   </div>
                 </div>
 
-                {/* Location */}
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-sacred-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-sacred-gold rounded-xl flex items-center justify-center shadow-lg">
-                    <MapPin className="h-5 w-5 text-sacred-night" />
+                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
+                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
+                    <MapPin className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-sacred-cream/60">{t.location}</p>
+                    <p className="text-sm text-cream-light/60">{t.location}</p>
                     <p className="font-bold text-lg">{t.locationValue}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                <Button
-                  asChild
-                  size="lg"
-                  className="sacred-btn bg-sacred-gold hover:bg-sacred-gold-warm text-sacred-night font-semibold shadow-lg"
-                >
+                <Button asChild size="lg" className="bg-islamic-gold hover:bg-islamic-gold/90 text-islamic-green-dark font-semibold golden-glow">
                   <a href="tel:+218916695689">
                     <Phone className="h-5 w-5 mr-2" />
                     {t.callNow}
                   </a>
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  className="sacred-btn bg-sacred-gold hover:bg-sacred-gold-warm text-sacred-night font-semibold shadow-lg"
-                >
+                <Button asChild size="lg" className="bg-islamic-gold hover:bg-islamic-gold/90 text-islamic-green-dark font-semibold">
                   <a href="mailto:Abraabre731@gmail.com">
                     <Mail className="h-5 w-5 mr-2" />
                     {t.sendEmail}
                   </a>
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  className="sacred-btn bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg"
-                >
+                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white font-semibold">
                   <a href="https://wa.me/218916695689" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5 mr-2" />
                     {t.openWhatsApp}
@@ -397,10 +385,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Share Section */}
-      <section id="share" className="py-16 sm:py-24 bg-sacred-cream">
+      {/* Share */}
+      <section id="share" className="py-16 sm:py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-sacred-emerald text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-islamic-green text-center mb-10">
             {t.shareTitle}
           </h2>
           <ShareButtons lang={lang} />
@@ -408,34 +396,38 @@ export default function Home() {
       </section>
 
       {/* Sacred Footer */}
-      <footer className="bg-sacred-night text-white py-12 relative overflow-hidden">
-        <div className="absolute inset-0 sacred-stars opacity-30" />
+      <footer className="falcon-sky text-white py-12 relative overflow-hidden">
+        <div className="absolute inset-0 sacred-geometry opacity-10" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Prayer */}
-          <p className="bismillah text-sacred-gold mb-4">{t.prayerRequest}</p>
-          <p className="text-sacred-cream/70 text-sm mb-6 max-w-md mx-auto">
-            {t.footerText}
+          {/* Falcon Icon */}
+          <div className="mb-6">
+            <svg viewBox="0 0 60 40" className="w-16 h-10 mx-auto text-islamic-gold opacity-50">
+              <path
+                fill="currentColor"
+                d="M30,5 L20,12 L5,10 L15,18 L2,22 L18,22 L10,32 L22,25 L30,38 L38,25 L50,32 L42,22 L58,22 L45,18 L55,10 L40,12 Z"
+              />
+            </svg>
+          </div>
+
+          <p className="text-islamic-gold font-arabic-script text-xl mb-4 rumi-quote">
+            {t.footerQuote}
           </p>
 
-          {/* Links */}
-          <div className="flex items-center justify-center gap-6 text-sacred-cream/50 text-sm mb-8">
-            <span>{t.madeWith}</span>
-            <span className="text-sacred-gold">•</span>
+          <div className="flex items-center justify-center gap-6 text-cream-light/50 text-sm mb-6">
+            <span>{t.footerTagline}</span>
+            <span className="text-islamic-gold">•</span>
             <a
               href="https://islamland.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-sacred-gold flex items-center gap-1 transition-colors"
+              className="hover:text-islamic-gold flex items-center gap-1 transition-colors"
             >
               islamland.com <ExternalLink className="h-3 w-3" />
             </a>
           </div>
 
-          {/* Sacred divider */}
-          <div className="sacred-divider mx-auto mb-6" />
-
-          <p className="text-sacred-cream/30 text-xs">
-            ibrahim.help — A journey of faith and healing
+          <p className="text-cream-light/30 text-xs">
+            ibrahim.help — The Pilgrim Falcon's Journey
           </p>
         </div>
       </footer>

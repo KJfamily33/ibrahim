@@ -193,3 +193,185 @@ body {
     font-size: 14px;
   }
 }
+
+/* ============================================
+   THE PILGRIM FALCON THEME
+   "Beating your wings and feathers,
+    you broke free from this cage." - Rumi
+   ============================================ */
+
+/* Sacred Night Sky Gradient */
+.falcon-sky {
+  background: linear-gradient(
+    180deg,
+    #051a14 0%,
+    #0a2e24 25%,
+    #094d36 50%,
+    #0d6b4b 75%,
+    #10805a 100%
+  );
+}
+
+/* Golden Hour Gradient */
+.falcon-dawn {
+  background: linear-gradient(
+    135deg,
+    #094d36 0%,
+    #0d6b4b 30%,
+    #c9a227 70%,
+    #e8c547 100%
+  );
+}
+
+/* Falcon Feather Shimmer */
+@keyframes feather-shimmer {
+  0%, 100% { opacity: 0.6; transform: translateY(0) rotate(0deg); }
+  50% { opacity: 1; transform: translateY(-5px) rotate(2deg); }
+}
+
+.feather-float {
+  animation: feather-shimmer 3s ease-in-out infinite;
+}
+
+/* Heartbeat Urgency Pulse */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  14% { transform: scale(1.1); opacity: 0.9; }
+  28% { transform: scale(1); opacity: 1; }
+  42% { transform: scale(1.08); opacity: 0.9; }
+  56% { transform: scale(1); opacity: 1; }
+}
+
+.heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Falcon Soaring Animation */
+@keyframes falcon-soar {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  25% { transform: translateY(-10px) translateX(5px) rotate(2deg); }
+  50% { transform: translateY(-15px) translateX(0) rotate(0deg); }
+  75% { transform: translateY(-10px) translateX(-5px) rotate(-2deg); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+
+.falcon-soar {
+  animation: falcon-soar 6s ease-in-out infinite;
+}
+
+/* Star Twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.star-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Golden Glow Pulse */
+@keyframes golden-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 162, 39, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(201, 162, 39, 0.6), 0 0 60px rgba(201, 162, 39, 0.3); }
+}
+
+.golden-glow {
+  animation: golden-pulse 3s ease-in-out infinite;
+}
+
+/* Sacred Geometry Pattern - 8-fold star */
+.sacred-geometry {
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='0.15' stroke-width='0.5'%3E%3Ccircle cx='60' cy='60' r='50'/%3E%3Ccircle cx='60' cy='60' r='35'/%3E%3Ccircle cx='60' cy='60' r='20'/%3E%3Cpath d='M60,10 L60,110 M10,60 L110,60 M18,18 L102,102 M102,18 L18,102'/%3E%3Cpolygon points='60,10 75,35 110,35 85,55 95,90 60,70 25,90 35,55 10,35 45,35'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Crescent Moon Accent */
+.crescent-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45,30 A20,20 0 1,1 45,30.01 A15,15 0 1,0 45,30' fill='%23c9a227' fill-opacity='0.1'/%3E%3C/svg%3E");
+}
+
+/* Floating Particles (Stars) */
+@keyframes float-up {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-islamic-gold);
+  border-radius: 50%;
+  animation: float-up linear infinite;
+}
+
+/* Text Shadow for Rumi Quotes */
+.rumi-quote {
+  text-shadow: 0 2px 20px rgba(201, 162, 39, 0.3);
+  font-style: italic;
+}
+
+/* Falcon Wing Spread Effect */
+@keyframes wing-spread {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.05); }
+}
+
+.wing-spread {
+  animation: wing-spread 4s ease-in-out infinite;
+}
+
+/* Journey Path Glow */
+.journey-path {
+  filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.5));
+}
+
+/* Supporter Feather Entry */
+@keyframes feather-arrive {
+  0% { transform: translateY(-50px) rotate(-45deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+
+.feather-arrive {
+  animation: feather-arrive 0.8s ease-out forwards;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+/* Progress Bar Glow */
+.progress-glow {
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Ethereal Border */
+.ethereal-border {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--color-islamic-green-dark), var(--color-islamic-green-dark)) padding-box,
+              linear-gradient(135deg, var(--color-islamic-gold), transparent, var(--color-islamic-gold)) border-box;
+}
+
+/* Scroll-triggered fade in */
+@keyframes fade-rise {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-rise {
+  animation: fade-rise 0.8s ease-out forwards;
+}
+
+/* Counter Number Animation */
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); color: var(--color-islamic-gold); }
+}
+
+.count-pulse {
+  animation: count-pulse 0.5s ease-out;
+}
