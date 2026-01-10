@@ -250,12 +250,15 @@ export function FlightPath({ lang }: FlightPathProps) {
           {activeStage === 1 && (
             <div className="mt-6 pt-6 border-t border-white/10">
               <div className="flex justify-between text-sm mb-2">
-                <span className="text-cream-light/70">{t.raisedLabel}: <span className="text-islamic-gold font-bold">€2,450</span></span>
+                <span className="text-cream-light/70">{t.raisedLabel}: <span className="text-islamic-gold font-bold">€0</span></span>
                 <span className="text-cream-light/70">{t.goalLabel}: <span className="text-white font-bold">€20,000</span></span>
               </div>
               <div className="h-3 bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full bg-islamic-gold rounded-full progress-glow" style={{ width: "12%" }} />
+                <div className="h-full bg-islamic-gold rounded-full progress-glow" style={{ width: "0%" }} />
               </div>
+              <p className="text-center text-cream-light/60 text-xs mt-3">
+                {lang === "ar" ? "كن أول من يبدأ الرحلة" : "Be the first to start the journey"}
+              </p>
             </div>
           )}
         </Card>
@@ -270,7 +273,7 @@ export function FlightPath({ lang }: FlightPathProps) {
           <div className="glass-card rounded-xl p-4 text-center">
             <span className="text-xl block mb-1">🤲</span>
             <p className="text-cream-light/60 text-xs">{t.prayerCount}</p>
-            <p className="text-white font-bold">1,247</p>
+            <p className="text-white font-bold">0</p>
           </div>
         </div>
       </div>

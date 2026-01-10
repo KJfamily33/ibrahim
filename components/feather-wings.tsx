@@ -19,24 +19,8 @@ interface Supporter {
   timestamp: Date
 }
 
-// Mock data - would be real-time from database
-const MOCK_SUPPORTERS: Supporter[] = [
-  { id: 1, name: "Ahmed M.", location: "Kuwait", amount: 100, type: "donor", timestamp: new Date() },
-  { id: 2, name: "Fatima K.", location: "Malaysia", type: "prayer", timestamp: new Date() },
-  { id: 3, name: "Omar S.", location: "UK", amount: 50, type: "donor", timestamp: new Date() },
-  { id: 4, name: "Aisha R.", location: "Egypt", type: "prayer", timestamp: new Date() },
-  { id: 5, name: "Yusuf A.", location: "USA", amount: 200, type: "donor", timestamp: new Date() },
-  { id: 6, name: "Maryam H.", location: "Indonesia", type: "prayer", timestamp: new Date() },
-  { id: 7, name: "Khalid B.", location: "Saudi Arabia", amount: 500, type: "donor", timestamp: new Date() },
-  { id: 8, name: "Zainab N.", location: "Pakistan", type: "prayer", timestamp: new Date() },
-  { id: 9, name: "Hassan T.", location: "Turkey", amount: 75, type: "donor", timestamp: new Date() },
-  { id: 10, name: "Noor J.", location: "Canada", type: "prayer", timestamp: new Date() },
-  { id: 11, name: "Ibrahim W.", location: "Germany", amount: 150, type: "donor", timestamp: new Date() },
-  { id: 12, name: "Salma D.", location: "UAE", type: "prayer", timestamp: new Date() },
-]
-
 export function FeatherWings({ lang }: FeatherWingsProps) {
-  const [supporters, setSupporters] = useState<Supporter[]>(MOCK_SUPPORTERS)
+  const [supporters, setSupporters] = useState<Supporter[]>([])
   const [newName, setNewName] = useState("")
   const [newLocation, setNewLocation] = useState("")
   const [showForm, setShowForm] = useState(false)
@@ -45,7 +29,7 @@ export function FeatherWings({ lang }: FeatherWingsProps) {
     ar: {
       title: "أجنحة الأمة",
       subtitle: "كل داعم يضيف ريشة لجناحيه",
-      description: "انضم لآلاف المسلمين الذين يحملون إبراهيم بدعائهم وتبرعاتهم",
+      description: "كن من أوائل من يحملون إبراهيم بدعائهم وتبرعاتهم",
       totalSupporters: "داعم",
       donors: "متبرع",
       prayers: "داعٍ",
@@ -63,7 +47,7 @@ export function FeatherWings({ lang }: FeatherWingsProps) {
     en: {
       title: "Wings of the Ummah",
       subtitle: "Each supporter adds a feather to his wings",
-      description: "Join thousands of Muslims carrying Ibrahim with their prayers and donations",
+      description: "Be among the first to carry Ibrahim with your prayers and support",
       totalSupporters: "Supporters",
       donors: "Donors",
       prayers: "Praying",

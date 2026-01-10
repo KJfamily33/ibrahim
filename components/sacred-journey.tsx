@@ -20,7 +20,7 @@ interface JourneyStage {
   status: "completed" | "current" | "upcoming"
 }
 
-export function SacredJourney({ lang, progress = 12 }: SacredJourneyProps) {
+export function SacredJourney({ lang, progress = 0 }: SacredJourneyProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [animatedProgress, setAnimatedProgress] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -164,7 +164,7 @@ export function SacredJourney({ lang, progress = 12 }: SacredJourneyProps) {
             <div>
               <p className="text-sm opacity-70">{t.raised}</p>
               <p className="text-2xl sm:text-3xl font-bold text-sacred-gold">
-                {t.currency}2,450
+                {t.currency}0
               </p>
             </div>
             <div className="text-right">

@@ -19,11 +19,11 @@ interface FeedItem {
 
 export function SolidarityDashboard({ lang }: SolidarityDashboardProps) {
   const [stats, setStats] = useState({
-    raised: 2450,
+    raised: 0,
     target: 20000,
-    sponsors: 47,
-    praying: 1247,
-    shares: 2341,
+    sponsors: 0,
+    praying: 0,
+    shares: 0,
   })
 
   const content = {
@@ -57,13 +57,7 @@ export function SolidarityDashboard({ lang }: SolidarityDashboardProps) {
 
   const t = content[lang]
 
-  const [feed, setFeed] = useState<FeedItem[]>([
-    { id: "1", type: "donation", name: "Sister Amina", location: "Dubai", amount: 100, timeAgo: "2m" },
-    { id: "2", type: "prayer", name: "Anonymous", timeAgo: "5m" },
-    { id: "3", type: "dua", name: "Brother Yusuf", location: "London", timeAgo: "8m" },
-    { id: "4", type: "share", name: "Khadija M.", location: "Toronto", timeAgo: "12m" },
-    { id: "5", type: "donation", name: "Anonymous", amount: 50, timeAgo: "15m" },
-  ])
+  const [feed, setFeed] = useState<FeedItem[]>([])
 
   const feedMessages = {
     ar: {
@@ -148,16 +142,25 @@ export function SolidarityDashboard({ lang }: SolidarityDashboardProps) {
         <div className="bg-white/5 rounded-xl p-4">
           <h3 className="text-white/80 text-sm font-medium mb-3">{t.liveFeed}:</h3>
           <div className="space-y-2">
-            {feed.slice(0, 5).map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center gap-3 text-white/90 text-sm"
-              >
-                <span className="text-xs text-white/50 w-8">{item.timeAgo}</span>
-                <span>{getIcon(item.type)}</span>
-                <span>{feedMessages[lang][item.type](item)}</span>
+            {feed.length === 0 ? (
+              <div className="text-center py-4">
+                <span className="text-2xl mb-2 block">🤲</span>
+                <p className="text-white/70 text-sm">
+                  {lang === "ar" ? "كن أول من يضع يده على الثوب" : "Be the first to put your hand on the cloth"}
+                </p>
               </div>
-            ))}
+            ) : (
+              feed.slice(0, 5).map((item) => (
+                <div
+                  key={item.id}
+                  className="flex items-center gap-3 text-white/90 text-sm"
+                >
+                  <span className="text-xs text-white/50 w-8">{item.timeAgo}</span>
+                  <span>{getIcon(item.type)}</span>
+                  <span>{feedMessages[lang][item.type](item)}</span>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
