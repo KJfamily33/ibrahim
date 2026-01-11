@@ -3,188 +3,133 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Heart, Phone, ChevronDown } from "lucide-react"
+import Image from "next/image"
 
 interface FalconHeroProps {
   lang: "ar" | "en"
 }
 
 export function FalconHero({ lang }: FalconHeroProps) {
-  const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const content = {
     ar: {
-      bismillah: "بسم الله الرحمن الرحيم",
-      rumiQuote: "خفقت بجناحيك وريشك، فتحررت من هذا القفص",
-      rumiAttrib: "— جلال الدين الرومي",
-      pilgrimFalcon: "الصقر الحاج",
-      tagline: "رحلة إبراهيم المقدسة",
-      subtitle: "عشرون عامًا حلّق فوق الأمة حاملاً رسالة الله",
-      subtitle2: "الآن يحتاج الأمة لتحمله",
+      bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+      title: "امشِ مع إبراهيم",
+      subtitle: "الأمة تحمل عالِمها",
+      description: "عشرون عامًا خدم الأمة عبر islamland.com — الآن يحتاج عملية جراحية عاجلة",
       name: "إبراهيم علي أبو القاسم",
       founder: "مؤسس islamland.com",
       languages: "١٤٠+ لغة",
       urgent: "حالة طبية عاجلة",
       joinFlight: "انضم للرحلة",
-      contact: "تواصل مع إبراهيم",
+      contact: "تواصل معنا",
       scrollDown: "اكتشف قصته",
+      hadith: "من نفّس عن مؤمن كربة من كرب الدنيا، نفّس الله عنه كربة من كرب يوم القيامة",
     },
     en: {
       bismillah: "In the Name of Allah, the Most Gracious, the Most Merciful",
-      rumiQuote: "Beating your wings and feathers, you broke free from this cage",
-      rumiAttrib: "— Jalal ad-Din Rumi",
-      pilgrimFalcon: "The Pilgrim Falcon",
-      tagline: "Ibrahim's Sacred Journey",
-      subtitle: "For twenty years he soared across the Ummah, carrying Allah's message",
-      subtitle2: "Now the Ummah must carry him",
+      title: "Walk With Ibrahim",
+      subtitle: "The Ummah Carries Its Scholar",
+      description: "20 years serving the Ummah through islamland.com — Now he needs urgent surgery",
       name: "Ibrahim Ali Abu Al-Qasim",
       founder: "Founder of islamland.com",
       languages: "140+ Languages",
-      urgent: "URGENT MEDICAL CASE",
-      joinFlight: "Join the Flight",
-      contact: "Contact Ibrahim",
+      urgent: "URGENT MEDICAL",
+      joinFlight: "Join the Journey",
+      contact: "Contact Us",
       scrollDown: "Discover His Story",
+      hadith: "Whoever relieves a believer's distress, Allah will relieve their distress on the Day of Resurrection",
     },
   }
 
   const t = content[lang]
-
-  // Generate stars
-  const stars = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    delay: `${Math.random() * 3}s`,
-    size: Math.random() * 2 + 1,
-  }))
+  const isRTL = lang === "ar"
 
   return (
-    <section className="relative min-h-screen falcon-sky overflow-hidden">
-      {/* Sacred Geometry Background */}
-      <div className="absolute inset-0 sacred-geometry opacity-30" />
-
-      {/* Animated Stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {mounted && stars.map((star) => (
-          <div
-            key={star.id}
-            className="absolute rounded-full bg-islamic-gold star-twinkle"
-            style={{
-              left: star.left,
-              top: star.top,
-              width: star.size,
-              height: star.size,
-              animationDelay: star.delay,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Crescent Moon */}
-      <div
-        className="absolute top-20 right-10 sm:right-20 w-32 h-32 opacity-20"
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      >
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <path
-            d="M80,50 A35,35 0 1,1 80,50.01 A28,28 0 1,0 80,50"
-            fill="#c9a227"
-          />
-        </svg>
-      </div>
-
-      {/* Falcon Silhouette - Soaring */}
-      <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 falcon-soar opacity-10"
-        style={{ transform: `translateY(${-scrollY * 0.3}px) translateX(-50%)` }}
-      >
-        <svg viewBox="0 0 200 100" className="w-64 sm:w-96 h-auto">
-          <path
-            d="M100,20 L60,35 L10,30 L40,45 L5,55 L50,55 L30,70 L60,60 L80,75 L90,55 L100,60 L110,55 L120,75 L140,60 L170,70 L150,55 L195,55 L160,45 L190,30 L140,35 Z"
-            fill="#c9a227"
-          />
-        </svg>
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Hero Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-journey.png"
+          alt="Walk With Ibrahim - Journey from Libya to Tunisia"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={90}
+        />
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-islamic-green-dark/90" />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16">
+      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-16 ${isRTL ? 'text-right' : 'text-left'}`} dir={isRTL ? 'rtl' : 'ltr'}>
+
         {/* Bismillah */}
-        <p className="text-islamic-gold/80 text-center text-sm sm:text-base mb-8 font-arabic-script">
+        <p className="text-islamic-gold/90 text-center text-lg sm:text-xl mb-6 font-medium">
           {t.bismillah}
         </p>
 
-        {/* Rumi Quote */}
-        <div className="text-center mb-12">
-          <blockquote className="rumi-quote text-xl sm:text-2xl md:text-3xl text-cream-light/90 max-w-3xl mx-auto leading-relaxed">
-            "{t.rumiQuote}"
-          </blockquote>
-          <p className="text-islamic-gold/60 mt-4 text-sm">{t.rumiAttrib}</p>
-        </div>
-
-        {/* Title Treatment */}
-        <div className="text-center mb-10">
-          <span className="inline-block px-4 py-1 rounded-full bg-islamic-gold/20 text-islamic-gold text-xs sm:text-sm font-medium mb-4 tracking-wider">
-            {t.pilgrimFalcon}
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
-            {t.tagline}
+        {/* Main Title */}
+        <div className="text-center mb-8">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight drop-shadow-2xl">
+            {t.title}
           </h1>
-          <p className="text-lg sm:text-xl text-cream-light/80 max-w-2xl mx-auto mb-2">
+          <p className="text-2xl sm:text-3xl md:text-4xl text-islamic-gold font-semibold drop-shadow-lg">
             {t.subtitle}
           </p>
-          <p className="text-lg sm:text-xl text-islamic-gold font-medium">
-            {t.subtitle2}
-          </p>
         </div>
 
-        {/* Ibrahim's Image with Heartbeat Effect */}
-        <div className="flex justify-center mb-10">
-          <div className="relative">
-            {/* Outer Glow Ring */}
-            <div className="absolute inset-0 rounded-full bg-islamic-gold/20 golden-glow scale-110" />
+        {/* Ibrahim's Photo Card */}
+        <div className="flex justify-center mb-8">
+          <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 max-w-md w-full border border-white/20 shadow-2xl">
+            <div className="flex flex-col items-center">
+              {/* Photo */}
+              <div className="relative mb-4">
+                <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-islamic-gold shadow-xl overflow-hidden">
+                  <Image
+                    src="/images/ibrahim-headshot.jpg"
+                    alt={t.name}
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: "50% 25%" }}
+                  />
+                </div>
+                {/* Urgent Badge */}
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap shadow-lg animate-pulse">
+                  {t.urgent}
+                </div>
+              </div>
 
-            {/* Image Container */}
-            <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full border-4 border-islamic-gold shadow-2xl overflow-hidden heartbeat">
-              <img
-                src="/images/ibrahim-headshot.jpg"
-                alt={t.name}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "50% 25%" }}
-              />
-            </div>
-
-            {/* Urgent Badge */}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap shadow-lg">
-              {t.urgent}
+              {/* Name & Title */}
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-1 text-center">{t.name}</h2>
+              <p className="text-cream-light/80 text-sm mb-2">{t.founder}</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-islamic-gold/20 text-sm">
+                <span className="text-islamic-gold font-medium">{t.languages}</span>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Name & Title */}
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{t.name}</h2>
-          <p className="text-cream-light/70">{t.founder}</p>
-          <div className="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full bg-white/10 text-sm">
-            <span className="text-islamic-gold">{t.languages}</span>
-          </div>
-        </div>
+        {/* Description */}
+        <p className="text-center text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow-lg">
+          {t.description}
+        </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button
             asChild
             size="lg"
-            className="bg-islamic-gold hover:bg-islamic-gold/90 text-islamic-green-dark font-bold text-lg px-8 py-6 golden-glow"
+            className="bg-islamic-gold hover:bg-islamic-gold-light text-islamic-green-dark font-bold text-lg px-10 py-7 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
           >
             <a href="#donate">
-              <Heart className="h-5 w-5 mr-2" />
+              <Heart className="h-6 w-6 mr-2" />
               {t.joinFlight}
             </a>
           </Button>
@@ -192,26 +137,36 @@ export function FalconHero({ lang }: FalconHeroProps) {
             asChild
             size="lg"
             variant="outline"
-            className="border-white/50 text-white hover:bg-white/10 bg-transparent font-semibold px-8 py-6"
+            className="border-2 border-white text-white hover:bg-white hover:text-islamic-green-dark bg-white/10 backdrop-blur-sm font-semibold px-10 py-7 transition-all"
           >
-            <a href="#contact">
+            <a href="https://wa.me/218916695689" target="_blank" rel="noopener noreferrer">
               <Phone className="h-5 w-5 mr-2" />
               {t.contact}
             </a>
           </Button>
         </div>
 
+        {/* Hadith Quote */}
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <blockquote className="text-white/80 text-sm sm:text-base italic leading-relaxed px-4">
+            "{t.hadith}"
+            <footer className="text-islamic-gold/70 mt-2 text-sm not-italic">
+              — Prophet Muhammad ﷺ
+            </footer>
+          </blockquote>
+        </div>
+
         {/* Scroll Indicator */}
-        <div className="text-center animate-bounce">
-          <a href="#story" className="inline-flex flex-col items-center text-cream-light/50 hover:text-islamic-gold transition-colors">
+        <div className="text-center">
+          <a href="#story" className="inline-flex flex-col items-center text-white/60 hover:text-islamic-gold transition-colors animate-bounce">
             <span className="text-sm mb-2">{t.scrollDown}</span>
             <ChevronDown className="h-6 w-6" />
           </a>
         </div>
       </div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-islamic-green-dark to-transparent" />
+      {/* Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a3d2e] to-transparent" />
     </section>
   )
 }
