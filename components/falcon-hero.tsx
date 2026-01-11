@@ -104,14 +104,13 @@ export function FalconHero({ lang }: FalconHeroProps) {
             {/* Photo + Badge */}
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-islamic-gold shadow-2xl overflow-hidden bg-white/10 gold-glow">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-islamic-gold shadow-2xl overflow-hidden bg-[#0d6b4b] gold-glow">
                   <Image
-                    src="/images/ibrahim-headshot.jpg"
+                    src="/images/ibrahim-profile.png"
                     alt={t.name}
                     width={176}
                     height={176}
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: "50% 20%" }}
+                    className="w-full h-full object-contain p-2"
                     priority
                   />
                 </div>
