@@ -52,43 +52,59 @@ export function FalconHero({ lang }: FalconHeroProps) {
   const isRTL = lang === "ar"
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#062a1f]">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#041f17] via-[#062a1f] to-[#0a3d2e]" />
+    <section className="relative min-h-screen overflow-hidden bg-islamic-green-deep">
+      {/* Gradient Background with depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#031f15] via-islamic-green-dark to-islamic-green" />
 
-      {/* Subtle Pattern Overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.5'%3E%3Cpath d='M30 5l5 10 10-5-5 10 10 5-10 5 5 10-10-5-5 10-5-10-10 5 5-10-10-5 10-5-5-10 10 5z'/%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+      {/* Radial glow from center */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-islamic-gold/5 via-transparent to-transparent" />
+
+      {/* Subtle geometric pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0 sacred-geometry" />
+      </div>
+
+      {/* Animated golden particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-islamic-gold rounded-full opacity-40"
+            style={{
+              left: `${15 + i * 15}%`,
+              animation: `float-up ${15 + i * 3}s linear infinite`,
+              animationDelay: `${i * 2}s`,
+            }}
+          />
+        ))}
       </div>
 
       {/* Main Content */}
-      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-12`} dir={isRTL ? 'rtl' : 'ltr'}>
+      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-16`} dir={isRTL ? 'rtl' : 'ltr'}>
 
         {/* Bismillah */}
-        <p className="text-[#d4af37] text-center text-base sm:text-lg mb-8 tracking-wide">
+        <p className="text-islamic-gold text-center text-lg sm:text-xl mb-10 tracking-wide font-arabic-script animate-fade-in-up">
           {t.bismillah}
         </p>
 
         {/* Title Section */}
-        <div className="text-center mb-10">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-3 tracking-tight">
+        <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight leading-[0.9]">
             {t.title}
           </h1>
-          <p className="text-2xl sm:text-3xl md:text-4xl text-[#d4af37] font-semibold">
+          <p className="text-2xl sm:text-3xl md:text-4xl text-islamic-gold font-display font-semibold">
             {t.subtitle}
           </p>
         </div>
 
         {/* Profile Card */}
-        <div className="flex justify-center mb-10">
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 max-w-lg w-full border border-[#d4af37]/20 shadow-2xl">
+        <div className="flex justify-center mb-12 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <div className="luminous-card rounded-3xl p-8 sm:p-10 max-w-lg w-full">
 
             {/* Photo + Badge */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-8">
               <div className="relative">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-[#d4af37] shadow-2xl overflow-hidden bg-white/10">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-islamic-gold shadow-2xl overflow-hidden bg-white/10 gold-glow">
                   <Image
                     src="/images/ibrahim-headshot.jpg"
                     alt={t.name}
@@ -100,48 +116,48 @@ export function FalconHero({ lang }: FalconHeroProps) {
                   />
                 </div>
                 {/* Urgent Badge */}
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-red-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg heartbeat">
                   {t.urgent}
                 </div>
               </div>
             </div>
 
             {/* Name & Role */}
-            <div className="text-center mb-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{t.name}</h2>
-              <div className="flex items-center justify-center gap-2 text-[#d4af37]">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 font-display">{t.name}</h2>
+              <div className="flex items-center justify-center gap-2 text-islamic-gold">
                 <Globe className="w-4 h-4" />
-                <span className="text-sm sm:text-base">{t.role}</span>
+                <span className="text-base">{t.role}</span>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-[#d4af37]">{t.stat1}</div>
-                <div className="text-xs sm:text-sm text-gray-300">{t.stat1Label}</div>
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="text-center p-3 rounded-xl bg-white/5">
+                <div className="text-2xl sm:text-3xl font-bold text-islamic-gold font-display">{t.stat1}</div>
+                <div className="text-xs sm:text-sm text-cream/80 mt-1">{t.stat1Label}</div>
               </div>
-              <div className="text-center border-x border-white/10">
-                <div className="text-2xl sm:text-3xl font-bold text-[#d4af37]">{t.stat2}</div>
-                <div className="text-xs sm:text-sm text-gray-300">{t.stat2Label}</div>
+              <div className="text-center p-3 rounded-xl bg-white/5 border-x border-white/10">
+                <div className="text-2xl sm:text-3xl font-bold text-islamic-gold font-display">{t.stat2}</div>
+                <div className="text-xs sm:text-sm text-cream/80 mt-1">{t.stat2Label}</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-[#d4af37]">{t.stat3}</div>
-                <div className="text-xs sm:text-sm text-gray-300">{t.stat3Label}</div>
+              <div className="text-center p-3 rounded-xl bg-white/5">
+                <div className="text-2xl sm:text-3xl font-bold text-islamic-gold font-display">{t.stat3}</div>
+                <div className="text-xs sm:text-sm text-cream/80 mt-1">{t.stat3Label}</div>
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-center text-gray-200 text-sm sm:text-base leading-relaxed mb-6">
+            <p className="text-center text-cream/90 text-base sm:text-lg leading-relaxed mb-8">
               {t.description}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 asChild
                 size="lg"
-                className="flex-1 bg-[#d4af37] hover:bg-[#e8c547] text-[#062a1f] font-bold text-base py-6 shadow-lg hover:shadow-xl transition-all"
+                className="flex-1 bg-islamic-gold hover:bg-islamic-gold-light text-islamic-green-dark font-bold text-base py-7 shadow-lg gold-glow transition-all hover:scale-[1.02]"
               >
                 <a href="#donate">
                   <Heart className="h-5 w-5 mr-2" />
@@ -152,7 +168,7 @@ export function FalconHero({ lang }: FalconHeroProps) {
                 asChild
                 size="lg"
                 variant="outline"
-                className="flex-1 border-2 border-white/30 text-white hover:bg-white/10 bg-transparent font-semibold py-6 transition-all"
+                className="flex-1 border-2 border-cream/30 text-cream hover:bg-white/10 bg-transparent font-semibold py-7 transition-all hover:border-cream/50"
               >
                 <a href="https://wa.me/218916695689" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5 mr-2" />
@@ -164,20 +180,20 @@ export function FalconHero({ lang }: FalconHeroProps) {
         </div>
 
         {/* Hadith Quote */}
-        <div className="text-center mb-10 max-w-2xl mx-auto">
-          <blockquote className="text-gray-300 text-sm sm:text-base italic leading-relaxed">
+        <div className="text-center mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+          <blockquote className="text-cream/90 text-base sm:text-lg leading-relaxed sacred-text">
             "من نفّس عن مؤمن كربة من كرب الدنيا، نفّس الله عنه كربة من كرب يوم القيامة"
           </blockquote>
-          <p className="text-[#d4af37]/70 text-sm mt-2">
+          <p className="text-islamic-gold/80 text-sm mt-3 font-display">
             — Prophet Muhammad ﷺ
           </p>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="text-center">
+        <div className="text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <a
             href="#story"
-            className="inline-flex flex-col items-center text-gray-400 hover:text-[#d4af37] transition-colors group"
+            className="inline-flex flex-col items-center text-cream/70 hover:text-islamic-gold transition-colors group"
           >
             <span className="text-sm mb-2 group-hover:translate-y-1 transition-transform">{t.scroll}</span>
             <ChevronDown className="h-6 w-6 animate-bounce" />
@@ -186,7 +202,7 @@ export function FalconHero({ lang }: FalconHeroProps) {
       </div>
 
       {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#062a1f] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent" />
     </section>
   )
 }

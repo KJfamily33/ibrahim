@@ -11,7 +11,8 @@ import {
   Heart,
   Droplets,
   Utensils,
-  Car
+  Car,
+  Check
 } from "lucide-react"
 
 interface SponsorGridProps {
@@ -179,12 +180,13 @@ export function SponsorGrid({ lang }: SponsorGridProps) {
 
   const t = content[lang]
 
-  const getCategoryColor = (category: SponsorItem["category"]) => {
+  // High contrast badge classes
+  const getCategoryBadgeClass = (category: SponsorItem["category"]) => {
     switch (category) {
-      case "travel": return "bg-blue-500/20 text-blue-300 border-blue-500/30"
-      case "medical": return "bg-red-500/20 text-red-300 border-red-500/30"
-      case "stay": return "bg-purple-500/20 text-purple-300 border-purple-500/30"
-      case "care": return "bg-islamic-gold/20 text-islamic-gold border-islamic-gold/30"
+      case "travel": return "badge-travel"
+      case "medical": return "badge-medical"
+      case "stay": return "badge-stay"
+      case "care": return "badge-care"
     }
   }
 
@@ -197,21 +199,38 @@ export function SponsorGrid({ lang }: SponsorGridProps) {
     }
   }
 
+  const getIconBg = (category: SponsorItem["category"], isSelected: boolean) => {
+    if (isSelected) return "bg-islamic-gold text-islamic-green-dark"
+    switch (category) {
+      case "travel": return "bg-blue-500/20 text-blue-400"
+      case "medical": return "bg-red-500/20 text-red-400"
+      case "stay": return "bg-purple-500/20 text-purple-400"
+      case "care": return "bg-islamic-gold/20 text-islamic-gold"
+    }
+  }
+
   const selectedItemData = SPONSOR_ITEMS.find(item => item.id === selectedItem)
   const totalAmount = selectedItemData ? selectedItemData.amount * quantity : 0
 
   return (
-    <section className="py-12 sm:py-16 bg-gradient-to-b from-islamic-green to-islamic-green-dark">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 section-green relative overflow-hidden">
+      {/* Subtle geometric pattern */}
+      <div className="absolute inset-0 sacred-geometry opacity-5" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">{t.title}</h2>
-          <p className="text-cream-light/80 max-w-2xl mx-auto">{t.subtitle}</p>
+        <div className="text-center mb-12">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            {t.title}
+          </h2>
+          <p className="text-lg text-cream/90 max-w-2xl mx-auto">
+            {t.subtitle}
+          </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {SPONSOR_ITEMS.map((item) => {
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 mb-10">
+          {SPONSOR_ITEMS.map((item, index) => {
             const remaining = item.total - item.claimed
             const progress = (item.claimed / item.total) * 100
             const isSelected = selectedItem === item.id
@@ -219,59 +238,65 @@ export function SponsorGrid({ lang }: SponsorGridProps) {
             return (
               <Card
                 key={item.id}
-                className={`relative overflow-hidden cursor-pointer transition-all duration-300 ${
+                className={`relative overflow-hidden cursor-pointer transition-all duration-300 hover-lift animate-fade-in-up ${
                   isSelected
-                    ? "bg-islamic-gold/20 border-islamic-gold ring-2 ring-islamic-gold"
-                    : "bg-white/10 border-white/20 hover:bg-white/15"
+                    ? "luminous-card ring-2 ring-islamic-gold"
+                    : "glass-card hover:border-islamic-gold/50"
                 }`}
+                style={{ animationDelay: `${index * 50}ms` }}
                 onClick={() => {
                   setSelectedItem(item.id)
                   setQuantity(1)
                 }}
               >
-                <div className="p-4">
-                  {/* Category Badge */}
-                  <div className={`absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] border ${getCategoryColor(item.category)}`}>
+                <div className="p-4 sm:p-5">
+                  {/* Category Badge - High Contrast */}
+                  <div className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wide ${getCategoryBadgeClass(item.category)}`}>
                     {t.categories[item.category]}
                   </div>
 
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
-                    isSelected ? "bg-islamic-gold text-islamic-green-dark" : "bg-white/10 text-islamic-gold"
-                  }`}>
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 transition-all ${getIconBg(item.category, isSelected)}`}>
                     {item.icon}
                   </div>
 
                   {/* Name & Price */}
-                  <h3 className="text-white font-semibold text-sm mb-1">
+                  <h3 className="text-white font-semibold text-sm sm:text-base mb-1.5 leading-tight">
                     {lang === "ar" ? item.nameAr : item.nameEn}
                   </h3>
-                  <p className="text-islamic-gold font-bold text-lg mb-2">
+                  <p className="text-islamic-gold font-bold text-xl sm:text-2xl mb-3 font-display">
                     {t.currency}{item.amount}
                   </p>
 
                   {/* Description */}
-                  <p className="text-cream-light/70 text-xs mb-3 line-clamp-2">
+                  <p className="text-cream/80 text-xs sm:text-sm mb-4 line-clamp-2 leading-relaxed">
                     {lang === "ar" ? item.descAr : item.descEn}
                   </p>
 
                   {/* Progress */}
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     <div className="flex justify-between text-xs">
-                      <span className="text-cream-light/60">
+                      <span className="text-cream/90 font-medium">
                         {remaining} {t.available}
                       </span>
-                      <span className="text-cream-light/60">
+                      <span className="text-cream/70">
                         {item.claimed}/{item.total}
                       </span>
                     </div>
-                    <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                       <div
-                        className={`h-full rounded-full transition-all ${getProgressColor(item.category)}`}
+                        className={`h-full rounded-full transition-all duration-500 ${getProgressColor(item.category)}`}
                         style={{ width: `${progress}%` }}
                       />
                     </div>
                   </div>
+
+                  {/* Selection indicator */}
+                  {isSelected && (
+                    <div className="absolute top-3 left-3 w-6 h-6 rounded-full bg-islamic-gold flex items-center justify-center">
+                      <Check className="w-4 h-4 text-islamic-green-dark" />
+                    </div>
+                  )}
                 </div>
               </Card>
             )
@@ -280,36 +305,42 @@ export function SponsorGrid({ lang }: SponsorGridProps) {
 
         {/* Selection Panel */}
         {selectedItemData && (
-          <Card className="bg-white/10 border-islamic-gold/50 overflow-hidden">
-            <div className="p-6">
-              <div className="flex flex-col sm:flex-row items-center gap-6">
+          <Card className="luminous-card overflow-hidden animate-fade-in-up">
+            <div className="p-6 sm:p-8">
+              <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
                 {/* Selected Item Info */}
-                <div className="flex items-center gap-4 flex-1">
-                  <div className="w-16 h-16 rounded-xl bg-islamic-gold/20 flex items-center justify-center text-islamic-gold">
+                <div className="flex items-center gap-5 flex-1">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-islamic-gold/20 flex items-center justify-center text-islamic-gold gold-glow">
                     {selectedItemData.icon}
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg">
+                    <h3 className="text-white font-bold text-lg sm:text-xl font-display">
                       {lang === "ar" ? selectedItemData.nameAr : selectedItemData.nameEn}
                     </h3>
-                    <p className="text-cream-light/70 text-sm">
-                      {t.currency}{selectedItemData.amount} × {quantity} = {t.currency}{totalAmount}
+                    <p className="text-cream/80 text-sm sm:text-base mt-1">
+                      {t.currency}{selectedItemData.amount} × {quantity} = <span className="text-islamic-gold font-bold">{t.currency}{totalAmount}</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Quantity Selector */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                   <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors flex items-center justify-center"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setQuantity(Math.max(1, quantity - 1))
+                    }}
+                    className="w-12 h-12 rounded-full bg-white/15 text-white hover:bg-white/25 transition-all flex items-center justify-center text-xl font-semibold border border-white/20"
                   >
                     −
                   </button>
-                  <span className="text-white font-bold text-xl w-12 text-center">{quantity}</span>
+                  <span className="text-white font-bold text-2xl w-12 text-center font-display">{quantity}</span>
                   <button
-                    onClick={() => setQuantity(Math.min(selectedItemData.total - selectedItemData.claimed, quantity + 1))}
-                    className="w-10 h-10 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors flex items-center justify-center"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setQuantity(Math.min(selectedItemData.total - selectedItemData.claimed, quantity + 1))
+                    }}
+                    className="w-12 h-12 rounded-full bg-white/15 text-white hover:bg-white/25 transition-all flex items-center justify-center text-xl font-semibold border border-white/20"
                   >
                     +
                   </button>
@@ -318,13 +349,13 @@ export function SponsorGrid({ lang }: SponsorGridProps) {
                 {/* CTA */}
                 <Button
                   size="lg"
-                  className="bg-islamic-gold hover:bg-islamic-gold/90 text-islamic-green-dark font-bold px-8"
+                  className="bg-islamic-gold hover:bg-islamic-gold-light text-islamic-green-dark font-bold px-8 py-6 text-base gold-glow transition-all hover:scale-105"
                 >
                   {t.proceedToDonate} ({t.currency}{totalAmount})
                 </Button>
               </div>
 
-              <p className="text-center text-cream-light/60 text-sm mt-4">
+              <p className="text-center text-cream/70 text-sm mt-6 sacred-text">
                 {t.impactMessage}
               </p>
             </div>
