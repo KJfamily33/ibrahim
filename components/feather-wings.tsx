@@ -111,17 +111,17 @@ export function FeatherWings({ lang }: FeatherWingsProps) {
           <div className="text-center glass-card rounded-xl p-4">
             <Users className="h-6 w-6 text-islamic-gold mx-auto mb-2" />
             <p className="text-2xl sm:text-3xl font-bold text-white">{supporters.length}</p>
-            <p className="text-cream-light/60 text-sm">{t.totalSupporters}</p>
+            <p className="text-cream/80 text-sm">{t.totalSupporters}</p>
           </div>
           <div className="text-center glass-card rounded-xl p-4">
             <Heart className="h-6 w-6 text-red-400 mx-auto mb-2" />
             <p className="text-2xl sm:text-3xl font-bold text-white">{totalDonors}</p>
-            <p className="text-cream-light/60 text-sm">{t.donors}</p>
+            <p className="text-cream/80 text-sm">{t.donors}</p>
           </div>
           <div className="text-center glass-card rounded-xl p-4">
             <span className="text-2xl mb-2 block">🤲</span>
             <p className="text-2xl sm:text-3xl font-bold text-white">{totalPrayers}</p>
-            <p className="text-cream-light/60 text-sm">{t.prayers}</p>
+            <p className="text-cream/80 text-sm">{t.prayers}</p>
           </div>
         </div>
 
@@ -214,13 +214,13 @@ export function FeatherWings({ lang }: FeatherWingsProps) {
                 placeholder={t.yourName}
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
-                className="bg-white/10 border-white/30 text-white placeholder:text-white/50"
+                className="bg-white/10 border-white/30 text-white placeholder:text-white/80"
               />
               <Input
                 placeholder={t.yourLocation}
                 value={newLocation}
                 onChange={(e) => setNewLocation(e.target.value)}
-                className="bg-white/10 border-white/30 text-white placeholder:text-white/50"
+                className="bg-white/10 border-white/30 text-white placeholder:text-white/80"
               />
               <div className="flex gap-2">
                 <Button
@@ -244,7 +244,7 @@ export function FeatherWings({ lang }: FeatherWingsProps) {
 
         {/* Recent Activity */}
         <div className="mt-12 text-center">
-          <p className="text-cream-light/50 text-sm mb-4">{t.recentSupporters}</p>
+          <p className="text-cream/70 text-sm mb-4">{t.recentSupporters}</p>
           <div className="flex flex-wrap justify-center gap-2">
             {supporters.slice(0, 5).map((supporter) => (
               <div
@@ -253,8 +253,8 @@ export function FeatherWings({ lang }: FeatherWingsProps) {
               >
                 <span>{supporter.type === "donor" ? "💛" : "🤲"}</span>
                 <span className="font-medium">{supporter.name}</span>
-                <span className="text-cream-light/40">•</span>
-                <span className="text-cream-light/50">{supporter.location}</span>
+                <span className="text-cream/60">•</span>
+                <span className="text-cream/70">{supporter.location}</span>
               </div>
             ))}
           </div>

@@ -202,10 +202,10 @@ export function PilgrimageCarriers({ lang }: PilgrimageCarriersProps) {
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <span className="text-white font-medium">{carrier.name}</span>
-                          <span className="text-cream-light/60 text-sm">({carrier.country})</span>
+                          <span className="text-cream/80 text-sm">({carrier.country})</span>
                         </div>
                         <div className="flex items-center gap-2 mt-1">
-                          <span className="text-cream-light/60 text-xs">
+                          <span className="text-cream/80 text-xs">
                             {t.departing}: {new Date(carrier.departureDate).toLocaleDateString()}
                           </span>
                           {carrier.willBringZamzam && (
@@ -265,14 +265,14 @@ export function PilgrimageCarriers({ lang }: PilgrimageCarriersProps) {
                   placeholder={t.form.name}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/80"
                   required
                 />
                 <Input
                   placeholder={t.form.country}
                   value={formData.country}
                   onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/80"
                   required
                 />
                 <Input

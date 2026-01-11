@@ -214,7 +214,7 @@ export function DocumentGallery({ lang }: DocumentGalleryProps) {
               <p className="text-white font-medium text-lg">
                 {lang === "ar" ? documents[lightboxIndex].titleAr : documents[lightboxIndex].titleEn}
               </p>
-              <p className="text-white/60 text-sm mt-2">
+              <p className="text-white/85 text-sm mt-2">
                 {lightboxIndex + 1} {t.docOf} {documents.length}
               </p>
             </div>

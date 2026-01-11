@@ -127,7 +127,7 @@ export function HeroSimple({ lang }: HeroSimpleProps) {
             <div className="text-3xl sm:text-4xl font-bold text-[#c9a227]">
               {t.goal}
             </div>
-            <div className="text-white/60 text-sm">
+            <div className="text-white/85 text-sm">
               needed
             </div>
           </div>
@@ -136,7 +136,7 @@ export function HeroSimple({ lang }: HeroSimpleProps) {
             <div className="text-3xl sm:text-4xl font-bold text-white">
               {supporters.toLocaleString()}
             </div>
-            <div className="text-white/60 text-sm">
+            <div className="text-white/85 text-sm">
               {t.supporters}
             </div>
           </div>
@@ -175,7 +175,7 @@ export function HeroSimple({ lang }: HeroSimpleProps) {
           mounted ? "opacity-100" : "opacity-0"
         }`}
       >
-        <span className="text-white/50 text-sm">{t.scroll}</span>
+        <span className="text-white/80 text-sm">{t.scroll}</span>
         <ChevronDown className="h-5 w-5 text-[#c9a227] animate-bounce" />
       </div>
     </section>

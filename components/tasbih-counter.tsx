@@ -223,7 +223,7 @@ export function TasbihCounter({ lang }: TasbihCounterProps) {
                   ? '"من قال سبحان الله وبحمده في يوم مائة مرة حُطت خطاياه وإن كانت مثل زبد البحر"'
                   : '"Whoever says SubhanAllahi wa bihamdihi 100 times a day will have his sins forgiven even if they were as much as the foam of the sea"'}
               </p>
-              <p className="text-xs text-cream-light/60 mt-2">
+              <p className="text-xs text-cream/80 mt-2">
                 — {lang === "ar" ? "صحيح البخاري" : "Sahih al-Bukhari"}
               </p>
             </div>

@@ -228,7 +228,7 @@ export function CinematicHero({ lang }: CinematicHeroProps) {
               <span className="text-sacred-gold font-bold text-xl">{prayersSent.toLocaleString()}</span>
               <span className="text-white/70 text-sm">{t.prayersSent}</span>
             </div>
-            <span className="text-white/50 text-xs">{t.joinPrayer}</span>
+            <span className="text-white/80 text-xs">{t.joinPrayer}</span>
           </div>
         </div>
 

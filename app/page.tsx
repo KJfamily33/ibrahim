@@ -25,7 +25,7 @@ import { DocumentGallery } from "@/components/document-gallery"
 import { TasbihCounter } from "@/components/tasbih-counter"
 import { DuaCircle } from "@/components/dua-circle"
 import { SolidarityDashboard } from "@/components/solidarity-dashboard"
-import { PrayerTimes } from "@/components/prayer-times"
+// PrayerTimes removed - was requesting user location
 import { PilgrimageCarriers } from "@/components/pilgrimage-carriers"
 import { SponsorGrid } from "@/components/sponsor-grid"
 import { QuranKhatm } from "@/components/quran-khatm"
@@ -267,8 +267,7 @@ export default function Home() {
         <TasbihCounter lang={lang} />
       </section>
 
-      {/* Prayer Times */}
-      <PrayerTimes lang={lang} />
+      {/* Prayer Times removed - was requesting user location */}
 
       {/* Documents */}
       <section id="documents" className="py-16 sm:py-24 bg-cream">
@@ -328,7 +327,7 @@ export default function Home() {
                     <Phone className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream-light/60">{t.phone}</p>
+                    <p className="text-sm text-cream/80">{t.phone}</p>
                     <p className="font-bold text-lg" dir="ltr">+218 91-669-5689</p>
                   </div>
                 </div>
@@ -338,7 +337,7 @@ export default function Home() {
                     <Mail className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream-light/60">{t.email}</p>
+                    <p className="text-sm text-cream/80">{t.email}</p>
                     <p className="font-bold text-base break-all">Abraabre731@gmail.com</p>
                   </div>
                 </div>
@@ -348,7 +347,7 @@ export default function Home() {
                     <MessageCircle className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream-light/60">{t.whatsapp}</p>
+                    <p className="text-sm text-cream/80">{t.whatsapp}</p>
                     <p className="font-bold text-lg" dir="ltr">+218 91-669-5689</p>
                   </div>
                 </div>
@@ -358,7 +357,7 @@ export default function Home() {
                     <MapPin className="h-5 w-5 text-islamic-green-dark" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream-light/60">{t.location}</p>
+                    <p className="text-sm text-cream/80">{t.location}</p>
                     <p className="font-bold text-lg">{t.locationValue}</p>
                   </div>
                 </div>
@@ -417,7 +416,7 @@ export default function Home() {
             {t.footerQuote}
           </p>
 
-          <div className="flex items-center justify-center gap-6 text-cream-light/50 text-sm mb-6">
+          <div className="flex items-center justify-center gap-6 text-cream/70 text-sm mb-6">
             <span>{t.footerTagline}</span>
             <span className="text-islamic-gold">•</span>
             <a
@@ -430,7 +429,7 @@ export default function Home() {
             </a>
           </div>
 
-          <p className="text-cream-light/30 text-xs">
+          <p className="text-cream/60 text-xs">
             ibrahim.help — The Pilgrim Falcon's Journey
           </p>
         </div>

@@ -174,7 +174,7 @@ export function HealingDuas({ lang }: HealingDuasProps) {
               </Button>
 
               <div className="flex items-center gap-3">
-                <span className="text-cream-light/60 text-sm">
+                <span className="text-cream/80 text-sm">
                   {currentIndex + 1} {t.duaOf} {HEALING_DUAS.length}
                 </span>
                 <Button

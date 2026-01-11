@@ -182,7 +182,7 @@ export function QuranKhatm({ lang }: QuranKhatmProps) {
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
-            <div className="flex justify-between text-sm mt-2 text-cream-light/60">
+            <div className="flex justify-between text-sm mt-2 text-cream/80">
               <span>{completedCount} {t.completed}</span>
               <span>{claimedCount} {t.claimed}</span>
               <span>{30 - completedCount - claimedCount} {t.available}</span>
@@ -257,7 +257,7 @@ export function QuranKhatm({ lang }: QuranKhatmProps) {
                     placeholder={t.yourName}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 w-full sm:w-48"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/80 w-full sm:w-48"
                   />
                   <div className="flex gap-2">
                     <Button
@@ -305,7 +305,7 @@ export function QuranKhatm({ lang }: QuranKhatmProps) {
                   </div>
                   <div className="flex-1">
                     <p className="text-white text-sm font-medium">{claim.claimedBy}</p>
-                    <p className="text-cream-light/60 text-xs">
+                    <p className="text-cream/80 text-xs">
                       {claim.completed ? t.completedBy : t.claimedByLabel}
                     </p>
                   </div>

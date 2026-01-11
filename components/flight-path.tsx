@@ -158,7 +158,7 @@ export function FlightPath({ lang }: FlightPathProps) {
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">{t.title}</h2>
           <p className="text-xl text-islamic-gold">{t.subtitle}</p>
-          <p className="text-cream-light/60 mt-4 italic rumi-quote">"{t.rumiQuote}"</p>
+          <p className="text-cream/80 mt-4 italic rumi-quote">"{t.rumiQuote}"</p>
         </div>
 
         {/* Journey Visualization */}
@@ -203,7 +203,7 @@ export function FlightPath({ lang }: FlightPathProps) {
                       ? "bg-islamic-gold text-islamic-green-dark"
                       : stage.status === "current"
                       ? "bg-islamic-gold/30 text-islamic-gold border-2 border-islamic-gold golden-glow"
-                      : "bg-white/10 text-cream-light/50 border border-white/20"
+                      : "bg-white/10 text-cream/70 border border-white/20"
                   }`}
                 >
                   {t.stages[index].icon}
@@ -218,7 +218,7 @@ export function FlightPath({ lang }: FlightPathProps) {
                   >
                     {t.stages[index].title}
                   </p>
-                  <p className="text-[10px] sm:text-xs text-cream-light/50 hidden sm:block">
+                  <p className="text-[10px] sm:text-xs text-cream/70 hidden sm:block">
                     {t.stages[index].subtitle}
                   </p>
                 </div>
@@ -256,7 +256,7 @@ export function FlightPath({ lang }: FlightPathProps) {
               <div className="h-3 bg-white/10 rounded-full overflow-hidden">
                 <div className="h-full bg-islamic-gold rounded-full progress-glow" style={{ width: "0%" }} />
               </div>
-              <p className="text-center text-cream-light/60 text-xs mt-3">
+              <p className="text-center text-cream/80 text-xs mt-3">
                 {lang === "ar" ? "كن أول من يبدأ الرحلة" : "Be the first to start the journey"}
               </p>
             </div>
@@ -267,12 +267,12 @@ export function FlightPath({ lang }: FlightPathProps) {
         <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto mt-8">
           <div className="glass-card rounded-xl p-4 text-center">
             <MapPin className="h-5 w-5 text-islamic-gold mx-auto mb-2" />
-            <p className="text-cream-light/60 text-xs">{t.distanceLabel}</p>
+            <p className="text-cream/80 text-xs">{t.distanceLabel}</p>
             <p className="text-white font-bold">{t.distance}</p>
           </div>
           <div className="glass-card rounded-xl p-4 text-center">
             <span className="text-xl block mb-1">🤲</span>
-            <p className="text-cream-light/60 text-xs">{t.prayerCount}</p>
+            <p className="text-cream/80 text-xs">{t.prayerCount}</p>
             <p className="text-white font-bold">0</p>
           </div>
         </div>
