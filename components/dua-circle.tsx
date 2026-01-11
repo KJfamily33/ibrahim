@@ -12,12 +12,8 @@ interface DuaCircleProps {
 
 const STORAGE_KEY = "ibrahim-dua-circle"
 
-// Base names to show community
-const BASE_NAMES = [
-  "Ahmed", "Fatima", "Yusuf", "Aisha", "Omar", "Khadija", "Ali", "Maryam",
-  "Hassan", "Zaynab", "Ibrahim", "Nour", "Mustafa", "Sara", "Khalid", "Layla",
-  "Bilal", "Amina", "Tariq", "Hana", "Rashid", "Dina", "Samir", "Rania"
-]
+// Start with empty - only show real names that people add
+const BASE_NAMES: string[] = []
 
 export function DuaCircle({ lang }: DuaCircleProps) {
   const [name, setName] = useState("")

@@ -53,13 +53,8 @@ const JUZ_NAMES: { [key: number]: { ar: string; en: string } } = {
   30: { ar: "النبأ - الناس", en: "An-Naba - An-Nas" },
 }
 
-// Pre-claimed juz to show community momentum
-const BASE_CLAIMS: JuzClaim[] = [
-  { juz: 1, claimedBy: "Sister Maryam", completed: true, claimedAt: "2026-01-05" },
-  { juz: 13, claimedBy: "Brother Omar", completed: true, claimedAt: "2026-01-06" },
-  { juz: 30, claimedBy: "Imam Hassan", completed: false, claimedAt: "2026-01-08" },
-  { juz: 15, claimedBy: "Sister Aisha", completed: false, claimedAt: "2026-01-08" },
-]
+// Start with empty - only show real claims that people add
+const BASE_CLAIMS: JuzClaim[] = []
 
 export function QuranKhatm({ lang }: QuranKhatmProps) {
   const [claims, setClaims] = useState<JuzClaim[]>(BASE_CLAIMS)

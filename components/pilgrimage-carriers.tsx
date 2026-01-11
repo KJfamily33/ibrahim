@@ -22,34 +22,8 @@ interface Carrier {
 
 const STORAGE_KEY = "ibrahim-pilgrimage-carriers"
 
-// Base carriers to show momentum
-const BASE_CARRIERS: Carrier[] = [
-  {
-    id: "1",
-    name: "Sister Fatima",
-    country: "UAE",
-    departureDate: "2026-02-02",
-    status: "preparing",
-    willBringZamzam: true,
-  },
-  {
-    id: "2",
-    name: "Brother Ahmed",
-    country: "UK",
-    departureDate: "2026-02-15",
-    status: "preparing",
-    willBringZamzam: false,
-  },
-  {
-    id: "3",
-    name: "Brother Khalid",
-    country: "Malaysia",
-    departureDate: "2026-01-05",
-    status: "completed",
-    willBringZamzam: true,
-    testimony: "I made dua for Ibrahim while looking at the Kaaba. May Allah heal him.",
-  },
-]
+// Start with empty - only show real carriers that people add
+const BASE_CARRIERS: Carrier[] = []
 
 export function PilgrimageCarriers({ lang }: PilgrimageCarriersProps) {
   const [carriers, setCarriers] = useState<Carrier[]>(BASE_CARRIERS)

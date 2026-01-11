@@ -16,11 +16,11 @@ interface TasbihCounts {
 
 const STORAGE_KEY = "ibrahim-tasbih-counts"
 
-// Start with base counts to show community momentum
+// Start with zero - only show real prayers that people add
 const BASE_COUNTS: TasbihCounts = {
-  subhanallah: 33842,
-  alhamdulillah: 48291,
-  allahuakbar: 65196,
+  subhanallah: 0,
+  alhamdulillah: 0,
+  allahuakbar: 0,
 }
 
 export function TasbihCounter({ lang }: TasbihCounterProps) {
