@@ -41,7 +41,7 @@ const SPONSOR_ITEMS: SponsorItem[] = [
     descEn: "Cover one night of his hospital stay",
     amount: 40,
     total: 14,
-    claimed: 3,
+    claimed: 0,
     category: "stay",
   },
   {
@@ -65,7 +65,7 @@ const SPONSOR_ITEMS: SponsorItem[] = [
     descEn: "Contribute to the surgical procedure costs",
     amount: 500,
     total: 20,
-    claimed: 2,
+    claimed: 0,
     category: "medical",
   },
   {
@@ -77,7 +77,7 @@ const SPONSOR_ITEMS: SponsorItem[] = [
     descEn: "Cover his medications for one day",
     amount: 25,
     total: 30,
-    claimed: 8,
+    claimed: 0,
     category: "medical",
   },
   {
@@ -89,7 +89,7 @@ const SPONSOR_ITEMS: SponsorItem[] = [
     descEn: "Help provide a blood unit for surgery",
     amount: 75,
     total: 8,
-    claimed: 2,
+    claimed: 0,
     category: "medical",
   },
   {
@@ -101,7 +101,7 @@ const SPONSOR_ITEMS: SponsorItem[] = [
     descEn: "Provide a meal for his accompanying family",
     amount: 15,
     total: 60,
-    claimed: 12,
+    claimed: 0,
     category: "care",
   },
   {
@@ -113,7 +113,7 @@ const SPONSOR_ITEMS: SponsorItem[] = [
     descEn: "Cover a trip to/from the hospital",
     amount: 20,
     total: 20,
-    claimed: 5,
+    claimed: 0,
     category: "travel",
   },
   {
@@ -125,7 +125,7 @@ const SPONSOR_ITEMS: SponsorItem[] = [
     descEn: "Cover his complete care for one day",
     amount: 100,
     total: 30,
-    claimed: 4,
+    claimed: 0,
     category: "care",
   },
 ]
