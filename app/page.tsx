@@ -29,6 +29,7 @@ import { PrayerTimes } from "@/components/prayer-times"
 import { PilgrimageCarriers } from "@/components/pilgrimage-carriers"
 import { SponsorGrid } from "@/components/sponsor-grid"
 import { QuranKhatm } from "@/components/quran-khatm"
+import { HealingDuas } from "@/components/healing-duas"
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("en")
@@ -301,6 +302,9 @@ export default function Home() {
 
       {/* Dua Circle */}
       <DuaCircle lang={lang} />
+
+      {/* Healing Duas */}
+      <HealingDuas lang={lang} />
 
       {/* Quran Khatm */}
       <QuranKhatm lang={lang} />
