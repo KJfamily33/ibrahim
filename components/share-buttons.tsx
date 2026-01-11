@@ -71,7 +71,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
 
   return (
     <div className="space-y-4">
-      <h3 className="font-semibold text-lg text-white">{t.share}</h3>
+      <h3 className="font-semibold text-lg text-islamic-green">{t.share}</h3>
 
       {/* Native Share API (Mobile) */}
       {typeof navigator !== "undefined" && typeof navigator.share === "function" && (
@@ -85,7 +85,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
         <Button
           asChild
           variant="outline"
-          className="border-white/50 text-white hover:bg-white hover:text-islamic-green bg-transparent"
+          className="border-islamic-green/30 text-islamic-green hover:bg-islamic-green hover:text-white"
         >
           <a href={shareLinks.whatsapp} target="_blank" rel="noopener noreferrer">
             <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
         <Button
           asChild
           variant="outline"
-          className="border-white/50 text-white hover:bg-white hover:text-islamic-green bg-transparent"
+          className="border-islamic-green/30 text-islamic-green hover:bg-islamic-green hover:text-white"
         >
           <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer">
             <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -111,7 +111,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
         <Button
           asChild
           variant="outline"
-          className="border-white/50 text-white hover:bg-white hover:text-islamic-green bg-transparent"
+          className="border-islamic-green/30 text-islamic-green hover:bg-islamic-green hover:text-white"
         >
           <a href={shareLinks.telegram} target="_blank" rel="noopener noreferrer">
             <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
         <Button
           asChild
           variant="outline"
-          className="border-white/50 text-white hover:bg-white hover:text-islamic-green bg-transparent"
+          className="border-islamic-green/30 text-islamic-green hover:bg-islamic-green hover:text-white"
         >
           <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
             <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
         <Button
           asChild
           variant="outline"
-          className="border-white/50 text-white hover:bg-white hover:text-islamic-green bg-transparent"
+          className="border-islamic-green/30 text-islamic-green hover:bg-islamic-green hover:text-white"
         >
           <a href={shareLinks.email}>
             <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ export function ShareButtons({ lang }: ShareButtonsProps) {
         <Button
           onClick={copyToClipboard}
           variant="outline"
-          className="border-white/50 text-white hover:bg-white hover:text-islamic-green bg-transparent"
+          className="border-islamic-green/30 text-islamic-green hover:bg-islamic-green hover:text-white"
         >
           {copied ? <Check className="h-4 w-4 mr-2" /> : <Share2 className="h-4 w-4 mr-2" />}
           {copied ? t.copied : t.copyLink}

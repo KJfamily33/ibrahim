@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Google Fonts - Refined Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
 /* Uthmani Quran Font - Traditional Arabic Calligraphy */
 @font-face {
   font-family: 'Uthmani';
@@ -13,15 +16,18 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Islamic Green & Gold Theme */
-  --islamic-green: #0d6b4b;
-  --islamic-green-dark: #094d36;
-  --islamic-green-light: #10805a;
-  --islamic-gold: #c9a227;
-  --islamic-gold-light: #e8c547;
-  --cream: #faf6f0;
-  --cream-light: #f5efe5;
-  --cream-dark: #e8dfd0;
+  /* Islamic Green & Gold Theme - Enhanced for contrast */
+  --islamic-green: #0a5c40;
+  --islamic-green-dark: #063d2a;
+  --islamic-green-light: #0d7a55;
+  --islamic-green-deep: #042e1f;
+  --islamic-gold: #d4a012;
+  --islamic-gold-light: #f0c342;
+  --islamic-gold-glow: #ffd54f;
+  --cream: #fdfbf7;
+  --cream-light: #ffffff;
+  --cream-warm: #f8f4ec;
+  --cream-dark: #ede6d9;
 
   --background: oklch(0.98 0.01 85);
   --foreground: oklch(0.15 0.02 165);
@@ -94,7 +100,8 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
   --font-arabic: "Noto Kufi Arabic", "Amiri", "Traditional Arabic", serif;
   --font-arabic-script: "Amiri", "Traditional Arabic", serif;
@@ -124,14 +131,17 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
 
-  --color-islamic-green: #0d6b4b;
-  --color-islamic-green-dark: #094d36;
-  --color-islamic-green-light: #10805a;
-  --color-islamic-gold: #c9a227;
-  --color-islamic-gold-light: #e8c547;
-  --color-cream: #faf6f0;
-  --color-cream-light: #f5efe5;
-  --color-cream-dark: #e8dfd0;
+  --color-islamic-green: #0a5c40;
+  --color-islamic-green-dark: #063d2a;
+  --color-islamic-green-light: #0d7a55;
+  --color-islamic-green-deep: #042e1f;
+  --color-islamic-gold: #d4a012;
+  --color-islamic-gold-light: #f0c342;
+  --color-islamic-gold-glow: #ffd54f;
+  --color-cream: #fdfbf7;
+  --color-cream-light: #ffffff;
+  --color-cream-warm: #f8f4ec;
+  --color-cream-dark: #ede6d9;
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
@@ -346,11 +356,30 @@ body {
   animation: feather-arrive 0.8s ease-out forwards;
 }
 
-/* Glassmorphism Cards */
+/* Glassmorphism Cards - Enhanced contrast */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 160, 18, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* High contrast card variant for dark backgrounds */
+.glass-card-solid {
+  background: rgba(4, 46, 31, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 160, 18, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Luminous card for featured content */
+.luminous-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 160, 18, 0.35);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Progress Bar Glow */
@@ -383,4 +412,111 @@ body {
 
 .count-pulse {
   animation: count-pulse 0.5s ease-out;
+}
+
+/* ============================================
+   ENHANCED CONTRAST UTILITIES
+   ============================================ */
+
+/* High contrast text on dark backgrounds */
+.text-contrast-high {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.text-contrast-cream {
+  color: #fdfbf7;
+}
+
+/* Category badge styles with proper contrast */
+.badge-travel {
+  background: rgba(59, 130, 246, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(96, 165, 250, 0.5);
+}
+
+.badge-medical {
+  background: rgba(239, 68, 68, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(252, 165, 165, 0.5);
+}
+
+.badge-stay {
+  background: rgba(168, 85, 247, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(196, 181, 253, 0.5);
+}
+
+.badge-care {
+  background: rgba(212, 160, 18, 0.95);
+  color: #042e1f;
+  border: 1px solid rgba(240, 195, 66, 0.5);
+}
+
+/* Display font utility */
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Stat card gradient backgrounds */
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced gold glow effect */
+.gold-glow {
+  box-shadow:
+    0 0 20px rgba(212, 160, 18, 0.4),
+    0 0 40px rgba(212, 160, 18, 0.2);
+}
+
+/* Subtle entrance animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Card hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Sacred text styling for Quranic/Hadith quotes */
+.sacred-text {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+}
+
+/* Refined section backgrounds */
+.section-cream {
+  background: linear-gradient(180deg, #fdfbf7 0%, #f8f4ec 100%);
+}
+
+.section-green {
+  background: linear-gradient(180deg, #0a5c40 0%, #063d2a 100%);
 }
