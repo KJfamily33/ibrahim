@@ -29,3 +29,6 @@ next-env.d.ts
 readhtisbro/
 *.mp4
 mux-access-token-ibrahim.env
+
+# ZakatSeal donation data (private)
+/data/

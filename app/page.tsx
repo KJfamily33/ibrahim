@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { Heart, Globe, Copy, Check, Phone, Mail, MessageCircle, MapPin, ExternalLink, ChevronDown } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Heart, Phone, Mail, MessageCircle, MapPin, ExternalLink, ChevronDown } from "lucide-react"
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("en")
@@ -96,7 +96,7 @@ export default function Home() {
       }`}>
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/images/mainlogo-500.png" alt="" className="h-9 w-9 rounded-full" />
+            <img src="/images/mainlogo-500.png" alt="Ibrahim.help logo" className="h-9 w-9 rounded-full" />
             <span className="text-white font-medium hidden sm:block">ibrahim.help</span>
           </div>
           <div className="flex items-center gap-4">
