@@ -3,13 +3,6 @@
 import { useState, useEffect } from "react"
 import { Heart, Phone, Mail, MessageCircle, MapPin, ExternalLink, ChevronDown } from "lucide-react"
 
-// Import the soul
-import { SponsorGrid } from "@/components/sponsor-grid"
-import { DocumentGallery } from "@/components/document-gallery"
-import { HealingDuas } from "@/components/healing-duas"
-import { QuranKhatm } from "@/components/quran-khatm"
-import { PilgrimageCarriers } from "@/components/pilgrimage-carriers"
-
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("en")
   const [scrolled, setScrolled] = useState(false)
@@ -62,9 +55,6 @@ export default function Home() {
       or: "أو تواصل معه مباشرة",
       contact: "تواصل مع إبراهيم",
       footer: "من نفّس عن مؤمن كربة، نفّس الله عنه كربة من كرب يوم القيامة",
-      docsTitle: "الأمانة",
-      docsSub: "كل شيء موثق وشفاف",
-      docsText: "تقارير طبية، خطابات رسمية، وثائق من المستشفى — كل شيء متاح للاطلاع",
     },
     en: {
       urgent: "HE WANTS TO FAST THIS RAMADAN",
@@ -89,9 +79,6 @@ export default function Home() {
       or: "Or contact him directly",
       contact: "Contact Ibrahim",
       footer: "Whoever relieves a believer's distress, Allah will relieve his distress on the Day of Resurrection",
-      docsTitle: "THE TRUST",
-      docsSub: "Everything documented and transparent",
-      docsText: "Medical reports, official letters, hospital documents — everything available for review",
     },
   }[lang]
 
@@ -161,7 +148,7 @@ export default function Home() {
           </p>
 
           <a
-            href="#sponsor"
+            href="#donate"
             className="inline-flex items-center gap-2 bg-[#c9a227] hover:bg-[#d4af37] text-black font-semibold px-8 py-4 rounded-full text-lg transition-all hover:scale-105"
           >
             <Heart className="h-5 w-5" />
@@ -221,37 +208,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== DOCUMENTS - THE TRUST ==================== */}
-      <section id="docs" className="relative py-24 bg-[#faf6f0]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className={`text-4xl sm:text-5xl font-bold text-[#0a3d3d] mb-4 ${isRTL ? "font-arabic" : ""}`}>
-              {t.docsTitle}
-            </h2>
-            <p className={`text-xl text-[#0a3d3d]/70 mb-4 ${isRTL ? "font-arabic" : ""}`}>
-              {t.docsSub}
-            </p>
-            <p className={`text-lg text-[#0a3d3d]/60 max-w-2xl mx-auto ${isRTL ? "font-arabic" : ""}`}>
-              {t.docsText}
-            </p>
-          </div>
-          <DocumentGallery lang={lang} />
+      {/* ==================== DOCS - THE TRUST ==================== */}
+      <section className="relative min-h-[80vh] flex items-center justify-center py-24">
+        <div
+          className={`absolute inset-0 bg-cover bg-center ${!isMobile ? 'bg-fixed' : ''}`}
+          style={{ backgroundImage: `url(/images/journey/${isMobile ? 'section-docs-portrait' : 'section-docs-desktop'}.jpg)` }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-[#c9a227] mb-4 ${isRTL ? "font-arabic" : ""}`}>
+            {isRTL ? "الأمانة" : "THE TRUST"}
+          </h2>
+          <p className={`text-xl text-white/80 mb-8 ${isRTL ? "font-arabic" : ""}`}>
+            {isRTL ? "كل شيء موثق وشفاف" : "Everything documented and transparent"}
+          </p>
+          <p className={`text-lg text-white/70 ${isRTL ? "font-arabic" : ""}`}>
+            {isRTL
+              ? "تقارير طبية، خطابات رسمية، وثائق من المستشفى — كل شيء متاح للاطلاع"
+              : "Medical reports, official letters, hospital documents — everything available for review"}
+          </p>
         </div>
       </section>
-
-      {/* ==================== SPONSOR GRID - CARRY WITH US ==================== */}
-      <section id="sponsor">
-        <SponsorGrid lang={lang} />
-      </section>
-
-      {/* ==================== HEALING DUAS ==================== */}
-      <HealingDuas lang={lang} />
-
-      {/* ==================== QURAN KHATM ==================== */}
-      <QuranKhatm lang={lang} />
-
-      {/* ==================== PILGRIMAGE CARRIERS ==================== */}
-      <PilgrimageCarriers lang={lang} />
 
       {/* ==================== DONATE - BE HIS ZAMZAM ==================== */}
       <section id="donate" className="relative min-h-screen flex items-center justify-center py-24">
@@ -332,22 +310,23 @@ export default function Home() {
             {t.contact}
           </h2>
 
-          {/* Phone number with call/WhatsApp options */}
-          <div className="bg-white/10 p-6 rounded-xl mb-4">
-            <p className="text-white font-medium text-lg mb-4" dir="ltr">+218 91-669-5689</p>
-            <div className="flex gap-3">
-              <a href="tel:+218916695689" className="flex-1 flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors">
-                <Phone className="h-5 w-5 text-[#c9a227]" />
-                <span className="text-white text-sm">Call</span>
-              </a>
-              <a href="https://wa.me/218916695689" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-[#25D366]/20 hover:bg-[#25D366]/30 p-3 rounded-lg transition-colors">
-                <MessageCircle className="h-5 w-5 text-[#25D366]" />
-                <span className="text-white text-sm">WhatsApp</span>
-              </a>
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="tel:+218916695689" className="flex items-center gap-4 bg-white/10 hover:bg-white/15 p-5 rounded-xl transition-colors">
+              <Phone className="h-6 w-6 text-[#c9a227]" />
+              <div>
+                <p className="text-white/50 text-sm">Phone</p>
+                <p className="text-white font-medium" dir="ltr">+218 91-669-5689</p>
+              </div>
+            </a>
+
+            <a href="https://wa.me/218916695689" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white/10 hover:bg-white/15 p-5 rounded-xl transition-colors">
+              <MessageCircle className="h-6 w-6 text-[#c9a227]" />
+              <div>
+                <p className="text-white/50 text-sm">WhatsApp</p>
+                <p className="text-white font-medium" dir="ltr">+218 91-669-5689</p>
+              </div>
+            </a>
+
             <a href="mailto:Abraabre731@gmail.com" className="flex items-center gap-4 bg-white/10 hover:bg-white/15 p-5 rounded-xl transition-colors">
               <Mail className="h-6 w-6 text-[#c9a227]" />
               <div>
