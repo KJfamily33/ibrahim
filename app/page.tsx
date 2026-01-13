@@ -30,6 +30,7 @@ import { PilgrimageCarriers } from "@/components/pilgrimage-carriers"
 import { SponsorGrid } from "@/components/sponsor-grid"
 import { QuranKhatm } from "@/components/quran-khatm"
 import { HealingDuas } from "@/components/healing-duas"
+import { DirectSponsor } from "@/components/direct-sponsor"
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("en")
@@ -291,6 +292,9 @@ export default function Home() {
       <section id="donate">
         <SponsorGrid lang={lang} />
       </section>
+
+      {/* Direct Sponsor - For Major Donors */}
+      <DirectSponsor lang={lang} />
 
       {/* Donation Options */}
       <section className="py-16 sm:py-24 bg-cream-dark">

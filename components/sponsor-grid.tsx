@@ -348,10 +348,17 @@ export function SponsorGrid({ lang }: SponsorGridProps) {
 
                 {/* CTA */}
                 <Button
+                  asChild
                   size="lg"
                   className="bg-islamic-gold hover:bg-islamic-gold-light text-islamic-green-dark font-bold px-8 py-6 text-base gold-glow transition-all hover:scale-105"
                 >
-                  {t.proceedToDonate} ({t.currency}{totalAmount})
+                  <a
+                    href={`https://wa.me/218916695689?text=${encodeURIComponent(`Assalamu Alaikum Ibrahim, I want to help sponsor: ${lang === "ar" ? selectedItemData.nameAr : selectedItemData.nameEn} x${quantity} = €${totalAmount}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.proceedToDonate} ({t.currency}{totalAmount})
+                  </a>
                 </Button>
               </div>
 

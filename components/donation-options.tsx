@@ -1,18 +1,51 @@
 "use client"
 
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Building2, Mail, HeartHandshake, MapPin, Phone, MessageCircle, ArrowRight, AlertTriangle } from "lucide-react"
+import { Building2, Mail, HeartHandshake, MapPin, Phone, MessageCircle, ArrowRight, AlertTriangle, Copy, Check, Wallet, CreditCard, ExternalLink } from "lucide-react"
 
 interface DonationOptionsProps {
   lang: "ar" | "en"
 }
 
+// Crypto addresses - Jesse as intermediary bridge
+const CRYPTO_ADDRESSES = {
+  ton: "UQBZenh5TFhBoxH4VPv1HDS16XcZ9_2XVZcUSMhmnzxTJUxf",
+  usdc: "0x14E6076eAC2420e56b4E2E18c815b2DD52264D54", // Base network
+}
+
 export function DonationOptions({ lang }: DonationOptionsProps) {
+  const [copiedAddress, setCopiedAddress] = useState<string | null>(null)
+
+  const copyToClipboard = (address: string, type: string) => {
+    navigator.clipboard.writeText(address)
+    setCopiedAddress(type)
+    setTimeout(() => setCopiedAddress(null), 2000)
+  }
+
   const content = {
     ar: {
       title: "خيارات الدعم المالي",
       subtitle: "بسبب أزمة البنوك الليبية، هذه هي الطرق المتاحة لإيصال المساعدة",
+
+      // NEW: Direct donation options
+      donateNowTitle: "تبرع الآن",
+      donateNowSubtitle: "طرق مباشرة للتبرع",
+
+      launchgoodTitle: "تبرع عبر LaunchGood",
+      launchgoodDesc: "منصة التمويل الجماعي الإسلامية - تقبل البطاقات والتحويلات",
+      launchgoodButton: "تبرع عبر LaunchGood",
+      launchgoodNote: "الحملة قيد الإعداد - سيتم التحديث قريباً",
+
+      cryptoTitle: "تبرع بالعملات الرقمية",
+      cryptoDesc: "تحويل فوري بدون وسيط مصرفي",
+      tonLabel: "TON (تيليجرام)",
+      usdcLabel: "USDC (شبكة Base)",
+      copyAddress: "نسخ العنوان",
+      copied: "تم النسخ!",
+      cryptoNote: "التبرعات تُحوَّل لإبراهيم عبر وسيط موثوق",
+
       directContact: "تواصل مباشر مع إبراهيم",
       directContactDesc: "للتنسيق المباشر مع إبراهيم شخصياً",
       charityPartner: "عبر الجمعيات الخيرية",
@@ -36,10 +69,29 @@ export function DonationOptions({ lang }: DonationOptionsProps) {
       westernUnion: "ويسترن يونيون / موني غرام",
       westernUnionDesc: "متاح في بعض المناطق - تواصل مع إبراهيم للتأكد",
       recommended: "موصى به",
+      otherOptions: "خيارات إضافية",
     },
     en: {
       title: "Financial Support Options",
       subtitle: "Due to Libya's banking crisis, these are the available ways to get help to Ibrahim",
+
+      // NEW: Direct donation options
+      donateNowTitle: "Donate Now",
+      donateNowSubtitle: "Direct ways to donate",
+
+      launchgoodTitle: "Donate via LaunchGood",
+      launchgoodDesc: "Islamic crowdfunding platform - accepts cards and transfers",
+      launchgoodButton: "Donate on LaunchGood",
+      launchgoodNote: "Campaign being set up - will update soon",
+
+      cryptoTitle: "Donate with Crypto",
+      cryptoDesc: "Instant transfer, no bank intermediary needed",
+      tonLabel: "TON (Telegram)",
+      usdcLabel: "USDC (Base Network)",
+      copyAddress: "Copy Address",
+      copied: "Copied!",
+      cryptoNote: "Donations forwarded to Ibrahim via trusted intermediary",
+
       directContact: "Direct Contact with Ibrahim",
       directContactDesc: "Coordinate directly with Ibrahim personally",
       charityPartner: "Through Islamic Charities",
@@ -63,6 +115,7 @@ export function DonationOptions({ lang }: DonationOptionsProps) {
       westernUnion: "Western Union / MoneyGram",
       westernUnionDesc: "Available in some areas - contact Ibrahim to confirm",
       recommended: "Recommended",
+      otherOptions: "Additional Options",
     },
   }
 
@@ -73,6 +126,103 @@ export function DonationOptions({ lang }: DonationOptionsProps) {
       <div className="text-center mb-10">
         <h2 className="font-display text-3xl sm:text-4xl font-bold text-islamic-green mb-4">{t.title}</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t.subtitle}</p>
+      </div>
+
+      {/* PRIMARY DONATION OPTIONS */}
+      <div className="space-y-5 mb-10">
+        {/* LaunchGood - Primary CTA */}
+        <Card className="p-6 sm:p-8 border-2 border-islamic-gold bg-gradient-to-br from-islamic-gold/10 to-amber-50 shadow-xl rounded-2xl relative overflow-hidden">
+          <div className="absolute top-4 right-4 bg-islamic-gold text-islamic-green-dark text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+            <span>⭐</span> {t.recommended}
+          </div>
+
+          <div className="flex items-start gap-5">
+            <div className="bg-islamic-gold text-islamic-green-dark p-4 rounded-2xl shadow-md">
+              <CreditCard className="h-7 w-7" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display font-bold text-2xl text-islamic-green mb-2">{t.launchgoodTitle}</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">{t.launchgoodDesc}</p>
+              <Button
+                asChild
+                size="lg"
+                className="w-full sm:w-auto bg-islamic-gold hover:bg-islamic-gold-light text-islamic-green-dark font-bold text-lg px-8 py-6 shadow-lg"
+              >
+                <a href="https://www.launchgood.com/start" target="_blank" rel="noopener noreferrer">
+                  {t.launchgoodButton}
+                  <ExternalLink className="h-5 w-5 ml-2" />
+                </a>
+              </Button>
+              <p className="text-xs text-islamic-gold font-medium mt-3">{t.launchgoodNote}</p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Crypto Options */}
+        <Card className="p-6 sm:p-8 border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-white shadow-xl rounded-2xl">
+          <div className="flex items-start gap-5">
+            <div className="bg-blue-500 text-white p-4 rounded-2xl shadow-md">
+              <Wallet className="h-7 w-7" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display font-bold text-2xl text-islamic-green mb-2">{t.cryptoTitle}</h3>
+              <p className="text-gray-600 mb-5 leading-relaxed">{t.cryptoDesc}</p>
+
+              <div className="space-y-4">
+                {/* TON Address */}
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-blue-700 text-sm">{t.tonLabel}</span>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-blue-300 text-blue-600 hover:bg-blue-100"
+                      onClick={() => copyToClipboard(CRYPTO_ADDRESSES.ton, 'ton')}
+                    >
+                      {copiedAddress === 'ton' ? (
+                        <><Check className="h-4 w-4 mr-1" /> {t.copied}</>
+                      ) : (
+                        <><Copy className="h-4 w-4 mr-1" /> {t.copyAddress}</>
+                      )}
+                    </Button>
+                  </div>
+                  <code className="text-xs sm:text-sm text-blue-800 break-all font-mono bg-white/50 p-2 rounded block">
+                    {CRYPTO_ADDRESSES.ton}
+                  </code>
+                </div>
+
+                {/* USDC Address */}
+                <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-green-700 text-sm">{t.usdcLabel}</span>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-green-300 text-green-600 hover:bg-green-100"
+                      onClick={() => copyToClipboard(CRYPTO_ADDRESSES.usdc, 'usdc')}
+                    >
+                      {copiedAddress === 'usdc' ? (
+                        <><Check className="h-4 w-4 mr-1" /> {t.copied}</>
+                      ) : (
+                        <><Copy className="h-4 w-4 mr-1" /> {t.copyAddress}</>
+                      )}
+                    </Button>
+                  </div>
+                  <code className="text-xs sm:text-sm text-green-800 break-all font-mono bg-white/50 p-2 rounded block">
+                    {CRYPTO_ADDRESSES.usdc}
+                  </code>
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-500 mt-4 italic">{t.cryptoNote}</p>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      {/* OTHER OPTIONS HEADER */}
+      <div className="text-center mb-6">
+        <h3 className="font-display text-xl font-bold text-islamic-green">{t.otherOptions}</h3>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
