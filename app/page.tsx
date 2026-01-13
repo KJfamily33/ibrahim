@@ -166,10 +166,10 @@ export default function Home() {
       {/* ==================== STORY - HE GAVE WATER ==================== */}
       <section id="story" className="relative min-h-screen flex items-center justify-center py-24">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className={`absolute inset-0 bg-cover bg-center ${!isMobile ? 'bg-fixed' : ''}`}
           style={{ backgroundImage: `url(/images/journey/${isMobile ? 'section-story-portrait' : 'section-story-desktop'}.jpg)` }}
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-[#c9a227] mb-4 ${isRTL ? "font-arabic" : ""}`}>
@@ -187,10 +187,10 @@ export default function Home() {
       {/* ==================== MEDICAL - NOW HE THIRSTS ==================== */}
       <section className="relative min-h-screen flex items-center justify-center py-24">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className={`absolute inset-0 bg-cover bg-center ${!isMobile ? 'bg-fixed' : ''}`}
           style={{ backgroundImage: `url(/images/journey/${isMobile ? 'section-medical-portrait' : 'section-medical-desktop'}.jpg)` }}
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-red-500 mb-4 ${isRTL ? "font-arabic" : ""}`}>
@@ -208,13 +208,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== DOCS - THE TRUST ==================== */}
+      <section className="relative min-h-[80vh] flex items-center justify-center py-24">
+        <div
+          className={`absolute inset-0 bg-cover bg-center ${!isMobile ? 'bg-fixed' : ''}`}
+          style={{ backgroundImage: `url(/images/journey/${isMobile ? 'section-docs-portrait' : 'section-docs-desktop'}.jpg)` }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-[#c9a227] mb-4 ${isRTL ? "font-arabic" : ""}`}>
+            {isRTL ? "الأمانة" : "THE TRUST"}
+          </h2>
+          <p className={`text-xl text-white/80 mb-8 ${isRTL ? "font-arabic" : ""}`}>
+            {isRTL ? "كل شيء موثق وشفاف" : "Everything documented and transparent"}
+          </p>
+          <p className={`text-lg text-white/70 ${isRTL ? "font-arabic" : ""}`}>
+            {isRTL
+              ? "تقارير طبية، خطابات رسمية، وثائق من المستشفى — كل شيء متاح للاطلاع"
+              : "Medical reports, official letters, hospital documents — everything available for review"}
+          </p>
+        </div>
+      </section>
+
       {/* ==================== DONATE - BE HIS ZAMZAM ==================== */}
       <section id="donate" className="relative min-h-screen flex items-center justify-center py-24">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className={`absolute inset-0 bg-cover bg-center ${!isMobile ? 'bg-fixed' : ''}`}
           style={{ backgroundImage: `url(/images/journey/${isMobile ? 'section-donate-portrait' : 'section-donate-desktop'}.jpg)` }}
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 max-w-xl mx-auto px-6 text-center">
           <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-[#c9a227] mb-4 ${isRTL ? "font-arabic" : ""}`}>
