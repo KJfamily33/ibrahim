@@ -25,12 +25,13 @@ import { DocumentGallery } from "@/components/document-gallery"
 import { TasbihCounter } from "@/components/tasbih-counter"
 import { DuaCircle } from "@/components/dua-circle"
 import { SolidarityDashboard } from "@/components/solidarity-dashboard"
-// PrayerTimes removed - was requesting user location
 import { PilgrimageCarriers } from "@/components/pilgrimage-carriers"
 import { SponsorGrid } from "@/components/sponsor-grid"
 import { QuranKhatm } from "@/components/quran-khatm"
 import { HealingDuas } from "@/components/healing-duas"
 import { DirectSponsor } from "@/components/direct-sponsor"
+import { JourneySection } from "@/components/journey-section"
+import { IslamicDivider } from "@/components/islamic-divider"
 
 export default function Home() {
   const [lang, setLang] = useState<"ar" | "en">("en")
@@ -194,76 +195,88 @@ export default function Home() {
       {/* FEATHER WINGS - Community Support Visualization */}
       <FeatherWings lang={lang} />
 
-      {/* Story Section - The Falcon's Tale */}
-      <section id="story" className="py-20 sm:py-32 bg-desert-cream relative overflow-hidden">
-        <div className="absolute inset-0 sacred-geometry opacity-5" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block px-5 py-1.5 rounded-full bg-royal-gold/10 text-royal-gold text-sm font-medium mb-6 border border-royal-gold/20">
-              {t.storyTitle}
-            </span>
-            <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-sacred-teal mb-6 ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
-              {t.aboutTitle}
-            </h2>
-          </div>
-
-          <Card className="border-0 shadow-2xl overflow-hidden bg-white rounded-2xl">
-            <CardContent className="p-8 sm:p-12">
-              <p className={`text-gray-700 leading-relaxed text-lg sm:text-xl mb-10 ${lang === "ar" ? "font-arabic leading-loose" : ""}`}>
-                {t.aboutDesc}
+      {/* Story Section - He Gave Water */}
+      <JourneySection
+        id="story"
+        headline={{ ar: "أعطى الماء", en: "HE GAVE WATER" }}
+        subheadline={{ ar: "عشرون عامًا في خدمة الأمة", en: "Twenty years serving the Ummah" }}
+        lang={lang}
+        desktopImage="/images/journey/section-story-desktop.jpg"
+        mobileImage="/images/journey/section-story-portrait.jpg"
+        overlay="dark"
+      >
+        <Card className="border-0 shadow-2xl overflow-hidden bg-white/95 backdrop-blur-sm rounded-2xl">
+          <CardContent className="p-8 sm:p-12">
+            <p className={`text-gray-700 leading-relaxed text-lg sm:text-xl mb-10 ${lang === "ar" ? "font-arabic leading-loose" : ""}`}>
+              {t.aboutDesc}
+            </p>
+            <div className="relative py-8 mb-10">
+              <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-royal-gold/30 to-transparent" />
+              <p className={`relative bg-white px-6 mx-auto w-fit text-royal-gold font-medium text-xl sm:text-2xl text-center ${lang === "ar" ? "font-arabic-display" : "font-display italic"} rumi-quote`}>
+                "{t.aboutQuote}"
               </p>
-              <div className="relative py-8 mb-10">
-                <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-royal-gold/30 to-transparent" />
-                <p className={`relative bg-white px-6 mx-auto w-fit text-royal-gold font-medium text-xl sm:text-2xl text-center ${lang === "ar" ? "font-arabic-display" : "font-display italic"} rumi-quote`}>
-                  "{t.aboutQuote}"
-                </p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {t.achievements.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 p-5 bg-gradient-to-br from-desert-cream to-desert-sand rounded-xl border border-desert-stone/50 transition-all hover:border-royal-gold/40 hover:shadow-lg group"
-                  >
-                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-royal-gold to-royal-gold-light rounded-xl flex items-center justify-center shadow-md group-hover:shadow-royal-gold/30">
-                      <Star className="h-5 w-5 text-sacred-teal-deep" />
-                    </div>
-                    <p className={`text-gray-700 ${lang === "ar" ? "font-arabic" : ""}`}>{achievement}</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {t.achievements.map((achievement, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-5 bg-gradient-to-br from-desert-cream to-desert-sand rounded-xl border border-desert-stone/50 transition-all hover:border-royal-gold/40 hover:shadow-lg group"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-royal-gold to-royal-gold-light rounded-xl flex items-center justify-center shadow-md group-hover:shadow-royal-gold/30">
+                    <Star className="h-5 w-5 text-sacred-teal-deep" />
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Medical Urgency - The Broken Wing */}
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-desert-cream via-desert-sand to-desert-warm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-0 bg-white shadow-2xl overflow-hidden relative rounded-2xl">
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-red-500 to-red-600" />
-            <CardHeader className="pb-2">
-              <CardTitle className={`text-2xl sm:text-3xl text-red-700 flex items-center gap-4 ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-100 to-red-50 flex items-center justify-center heartbeat shadow-lg shadow-red-100">
-                  <AlertCircle className="h-6 w-6 text-red-600" />
+                  <p className={`text-gray-700 ${lang === "ar" ? "font-arabic" : ""}`}>{achievement}</p>
                 </div>
-                {t.medicalTitle}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-8 sm:p-10">
-              <p className={`text-gray-700 leading-relaxed text-lg sm:text-xl mb-8 ${lang === "ar" ? "font-arabic leading-loose" : ""}`}>
-                {t.medicalDesc}
-              </p>
-              <div className="p-6 bg-gradient-to-br from-red-50 to-white rounded-xl border border-red-200/50 shadow-inner">
-                <p className="text-sm text-red-700 font-semibold mb-3 flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500 heartbeat" />
-                  {t.diagnosis}
-                </p>
-                <p className={`text-gray-600 ${lang === "ar" ? "font-arabic" : ""}`}>{t.diagnosisDesc}</p>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </JourneySection>
+
+      {/* Islamic Divider */}
+      <div className="bg-desert-cream">
+        <IslamicDivider variant="wave" color="gold" height="md" />
+      </div>
+
+      {/* Medical Section - Now He Thirsts */}
+      <JourneySection
+        id="medical"
+        headline={{ ar: "الآن يعطش", en: "NOW HE THIRSTS" }}
+        subheadline={{ ar: "المُعطي يحتاج الآن", en: "The giver now needs" }}
+        lang={lang}
+        desktopImage="/images/journey/section-medical-desktop.jpg"
+        mobileImage="/images/journey/section-medical-portrait.jpg"
+        overlay="dark"
+      >
+        <Card className="border-0 bg-white/95 backdrop-blur-sm shadow-2xl overflow-hidden relative rounded-2xl">
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-red-500 to-red-600" />
+          <CardHeader className="pb-2">
+            <CardTitle className={`text-2xl sm:text-3xl text-red-700 flex items-center gap-4 ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-100 to-red-50 flex items-center justify-center heartbeat shadow-lg shadow-red-100">
+                <AlertCircle className="h-6 w-6 text-red-600" />
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+              {t.medicalTitle}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-8 sm:p-10">
+            <p className={`text-gray-700 leading-relaxed text-lg sm:text-xl mb-8 ${lang === "ar" ? "font-arabic leading-loose" : ""}`}>
+              {t.medicalDesc}
+            </p>
+            <div className="p-6 bg-gradient-to-br from-red-50 to-white rounded-xl border border-red-200/50 shadow-inner">
+              <p className="text-sm text-red-700 font-semibold mb-3 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500 heartbeat" />
+                {t.diagnosis}
+              </p>
+              <p className={`text-gray-600 ${lang === "ar" ? "font-arabic" : ""}`}>{t.diagnosisDesc}</p>
+            </div>
+          </CardContent>
+        </Card>
+      </JourneySection>
+
+      {/* Islamic Divider */}
+      <div className="bg-desert-cream">
+        <IslamicDivider variant="geometric" color="teal" height="md" />
+      </div>
 
       {/* Solidarity Dashboard */}
       <SolidarityDashboard lang={lang} />
@@ -275,28 +288,38 @@ export default function Home() {
 
       {/* Prayer Times removed - was requesting user location */}
 
-      {/* Documents */}
-      <section id="documents" className="py-20 sm:py-28 bg-desert-cream">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-royal-gold/20 to-royal-gold/10 flex items-center justify-center border border-royal-gold/20">
-                <FileText className="h-6 w-6 text-royal-gold" />
-              </div>
-              <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-sacred-teal ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
-                {t.documentsTitle}
-              </h2>
-            </div>
-            <p className={`text-gray-600 text-lg ${lang === "ar" ? "font-arabic" : ""}`}>{t.documentsDesc}</p>
-          </div>
+      {/* Documents Section - The Trust */}
+      <JourneySection
+        id="documents"
+        headline={{ ar: "الأمانة", en: "THE TRUST" }}
+        subheadline={{ ar: "كل شيء موثق وشفاف", en: "Everything documented and transparent" }}
+        lang={lang}
+        desktopImage="/images/journey/section-docs-desktop.jpg"
+        mobileImage="/images/journey/section-docs-portrait.jpg"
+        overlay="gradient"
+      >
+        <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-2xl">
           <DocumentGallery lang={lang} />
         </div>
-      </section>
+      </JourneySection>
 
-      {/* Sponsor Grid - Ways to Help */}
-      <section id="donate">
+      {/* Islamic Divider */}
+      <div className="bg-desert-cream">
+        <IslamicDivider variant="arabesque" color="gold" height="md" />
+      </div>
+
+      {/* Donate Section - Be His Zamzam */}
+      <JourneySection
+        id="donate"
+        headline={{ ar: "كن زمزمه", en: "BE HIS ZAMZAM" }}
+        subheadline={{ ar: "كن الماء الذي ينقذه", en: "Be the water that saves him" }}
+        lang={lang}
+        desktopImage="/images/journey/section-donate-desktop.jpg"
+        mobileImage="/images/journey/section-donate-portrait.jpg"
+        overlay="dark"
+      >
         <SponsorGrid lang={lang} />
-      </section>
+      </JourneySection>
 
       {/* Direct Sponsor - For Major Donors */}
       <DirectSponsor lang={lang} />
