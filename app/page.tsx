@@ -119,14 +119,14 @@ export default function Home() {
 
   return (
     <div
-      className={`min-h-screen ${lang === "ar" ? "font-arabic" : "font-sans"}`}
+      className={`min-h-screen bg-desert-cream ${lang === "ar" ? "font-arabic" : "font-body"}`}
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
       {/* Floating Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-islamic-green-dark/95 backdrop-blur-md py-2 shadow-lg"
+            ? "bg-sacred-teal-deep/95 backdrop-blur-md py-2 shadow-xl border-b border-royal-gold/10"
             : "bg-transparent py-4"
         }`}
       >
@@ -195,34 +195,39 @@ export default function Home() {
       <FeatherWings lang={lang} />
 
       {/* Story Section - The Falcon's Tale */}
-      <section id="story" className="py-16 sm:py-24 bg-cream relative overflow-hidden">
-        <div className="absolute inset-0 sacred-geometry opacity-10" />
+      <section id="story" className="py-20 sm:py-32 bg-desert-cream relative overflow-hidden">
+        <div className="absolute inset-0 sacred-geometry opacity-5" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 rounded-full bg-islamic-gold/20 text-islamic-gold text-sm font-medium mb-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-5 py-1.5 rounded-full bg-royal-gold/10 text-royal-gold text-sm font-medium mb-6 border border-royal-gold/20">
               {t.storyTitle}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-islamic-green mb-4">{t.aboutTitle}</h2>
+            <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-sacred-teal mb-6 ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
+              {t.aboutTitle}
+            </h2>
           </div>
 
-          <Card className="border-islamic-green/20 shadow-xl overflow-hidden">
-            <CardContent className="p-6 sm:p-10">
-              <p className="text-gray-700 leading-relaxed text-lg mb-8">
+          <Card className="border-0 shadow-2xl overflow-hidden bg-white rounded-2xl">
+            <CardContent className="p-8 sm:p-12">
+              <p className={`text-gray-700 leading-relaxed text-lg sm:text-xl mb-10 ${lang === "ar" ? "font-arabic leading-loose" : ""}`}>
                 {t.aboutDesc}
               </p>
-              <p className="text-islamic-gold font-medium text-xl text-center italic rumi-quote mb-8">
-                "{t.aboutQuote}"
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="relative py-8 mb-10">
+                <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-royal-gold/30 to-transparent" />
+                <p className={`relative bg-white px-6 mx-auto w-fit text-royal-gold font-medium text-xl sm:text-2xl text-center ${lang === "ar" ? "font-arabic-display" : "font-display italic"} rumi-quote`}>
+                  "{t.aboutQuote}"
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {t.achievements.map((achievement, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 p-4 bg-islamic-green/5 rounded-xl border border-islamic-green/10 transition-all hover:border-islamic-gold/30"
+                    className="flex items-start gap-4 p-5 bg-gradient-to-br from-desert-cream to-desert-sand rounded-xl border border-desert-stone/50 transition-all hover:border-royal-gold/40 hover:shadow-lg group"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 bg-islamic-gold rounded-lg flex items-center justify-center">
-                      <Star className="h-4 w-4 text-islamic-green-dark" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-royal-gold to-royal-gold-light rounded-xl flex items-center justify-center shadow-md group-hover:shadow-royal-gold/30">
+                      <Star className="h-5 w-5 text-sacred-teal-deep" />
                     </div>
-                    <p className="text-gray-700 text-sm">{achievement}</p>
+                    <p className={`text-gray-700 ${lang === "ar" ? "font-arabic" : ""}`}>{achievement}</p>
                   </div>
                 ))}
               </div>
@@ -232,28 +237,28 @@ export default function Home() {
       </section>
 
       {/* Medical Urgency - The Broken Wing */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-cream to-cream-dark">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-desert-cream via-desert-sand to-desert-warm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-red-300 bg-gradient-to-br from-white to-red-50 shadow-xl overflow-hidden relative">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-red-600" />
-            <CardHeader>
-              <CardTitle className="text-2xl sm:text-3xl text-red-700 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center heartbeat">
-                  <AlertCircle className="h-5 w-5 text-red-600" />
+          <Card className="border-0 bg-white shadow-2xl overflow-hidden relative rounded-2xl">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-red-500 to-red-600" />
+            <CardHeader className="pb-2">
+              <CardTitle className={`text-2xl sm:text-3xl text-red-700 flex items-center gap-4 ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-100 to-red-50 flex items-center justify-center heartbeat shadow-lg shadow-red-100">
+                  <AlertCircle className="h-6 w-6 text-red-600" />
                 </div>
                 {t.medicalTitle}
               </CardTitle>
             </CardHeader>
-            <CardContent className="p-6 sm:p-8">
-              <p className="text-gray-700 leading-relaxed text-lg mb-6">
+            <CardContent className="p-8 sm:p-10">
+              <p className={`text-gray-700 leading-relaxed text-lg sm:text-xl mb-8 ${lang === "ar" ? "font-arabic leading-loose" : ""}`}>
                 {t.medicalDesc}
               </p>
-              <div className="p-5 bg-white rounded-xl border border-red-200 shadow-inner">
-                <p className="text-sm text-red-700 font-semibold mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-500 heartbeat" />
+              <div className="p-6 bg-gradient-to-br from-red-50 to-white rounded-xl border border-red-200/50 shadow-inner">
+                <p className="text-sm text-red-700 font-semibold mb-3 flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500 heartbeat" />
                   {t.diagnosis}
                 </p>
-                <p className="text-gray-600">{t.diagnosisDesc}</p>
+                <p className={`text-gray-600 ${lang === "ar" ? "font-arabic" : ""}`}>{t.diagnosisDesc}</p>
               </div>
             </CardContent>
           </Card>
@@ -271,18 +276,18 @@ export default function Home() {
       {/* Prayer Times removed - was requesting user location */}
 
       {/* Documents */}
-      <section id="documents" className="py-16 sm:py-24 bg-cream">
+      <section id="documents" className="py-20 sm:py-28 bg-desert-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-islamic-gold/20 flex items-center justify-center">
-                <FileText className="h-5 w-5 text-islamic-gold" />
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-royal-gold/20 to-royal-gold/10 flex items-center justify-center border border-royal-gold/20">
+                <FileText className="h-6 w-6 text-royal-gold" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-islamic-green">
+              <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-sacred-teal ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
                 {t.documentsTitle}
               </h2>
             </div>
-            <p className="text-gray-600">{t.documentsDesc}</p>
+            <p className={`text-gray-600 text-lg ${lang === "ar" ? "font-arabic" : ""}`}>{t.documentsDesc}</p>
           </div>
           <DocumentGallery lang={lang} />
         </div>
@@ -316,71 +321,71 @@ export default function Home() {
       <PilgrimageCarriers lang={lang} />
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 falcon-sky relative overflow-hidden">
-        <div className="absolute inset-0 sacred-geometry opacity-20" />
+      <section id="contact" className="py-20 sm:py-28 bg-sacred-night relative overflow-hidden">
+        <div className="absolute inset-0 sacred-geometry opacity-10" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-10">
+          <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-white mb-12 ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
             {t.contactSectionTitle}
           </h2>
 
-          <Card className="glass-card text-white">
-            <CardContent className="p-6 sm:p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
-                    <Phone className="h-5 w-5 text-islamic-green-dark" />
+          <Card className="luminous-card text-white rounded-2xl">
+            <CardContent className="p-8 sm:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="flex items-center gap-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-royal-gold/40 transition-all group">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-royal-gold to-royal-gold-light rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-royal-gold/30">
+                    <Phone className="h-6 w-6 text-sacred-teal-deep" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream/80">{t.phone}</p>
+                    <p className={`text-sm text-white/60 ${lang === "ar" ? "font-arabic" : ""}`}>{t.phone}</p>
                     <p className="font-bold text-lg" dir="ltr">+218 91-669-5689</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-islamic-green-dark" />
+                <div className="flex items-center gap-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-royal-gold/40 transition-all group">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-royal-gold to-royal-gold-light rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-royal-gold/30">
+                    <Mail className="h-6 w-6 text-sacred-teal-deep" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream/80">{t.email}</p>
+                    <p className={`text-sm text-white/60 ${lang === "ar" ? "font-arabic" : ""}`}>{t.email}</p>
                     <p className="font-bold text-base break-all">Abraabre731@gmail.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
-                    <MessageCircle className="h-5 w-5 text-islamic-green-dark" />
+                <div className="flex items-center gap-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-royal-gold/40 transition-all group">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-royal-gold to-royal-gold-light rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-royal-gold/30">
+                    <MessageCircle className="h-6 w-6 text-sacred-teal-deep" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream/80">{t.whatsapp}</p>
+                    <p className={`text-sm text-white/60 ${lang === "ar" ? "font-arabic" : ""}`}>{t.whatsapp}</p>
                     <p className="font-bold text-lg" dir="ltr">+218 91-669-5689</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-islamic-gold/30 transition-all">
-                  <div className="flex-shrink-0 w-12 h-12 bg-islamic-gold rounded-xl flex items-center justify-center">
-                    <MapPin className="h-5 w-5 text-islamic-green-dark" />
+                <div className="flex items-center gap-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-royal-gold/40 transition-all group">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-royal-gold to-royal-gold-light rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-royal-gold/30">
+                    <MapPin className="h-6 w-6 text-sacred-teal-deep" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-cream/80">{t.location}</p>
-                    <p className="font-bold text-lg">{t.locationValue}</p>
+                    <p className={`text-sm text-white/60 ${lang === "ar" ? "font-arabic" : ""}`}>{t.location}</p>
+                    <p className={`font-bold text-lg ${lang === "ar" ? "font-arabic" : ""}`}>{t.locationValue}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                <Button asChild size="lg" className="bg-islamic-gold hover:bg-islamic-gold/90 text-islamic-green-dark font-semibold golden-glow">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
+                <Button asChild size="lg" className="bg-gradient-to-r from-royal-gold to-royal-gold-light hover:from-royal-gold-light hover:to-royal-gold text-sacred-teal-deep font-semibold rounded-xl py-6 shadow-lg hover:shadow-royal-gold/30">
                   <a href="tel:+218916695689">
                     <Phone className="h-5 w-5 mr-2" />
                     {t.callNow}
                   </a>
                 </Button>
-                <Button asChild size="lg" className="bg-islamic-gold hover:bg-islamic-gold/90 text-islamic-green-dark font-semibold">
+                <Button asChild size="lg" className="bg-gradient-to-r from-royal-gold to-royal-gold-light hover:from-royal-gold-light hover:to-royal-gold text-sacred-teal-deep font-semibold rounded-xl py-6">
                   <a href="mailto:Abraabre731@gmail.com">
                     <Mail className="h-5 w-5 mr-2" />
                     {t.sendEmail}
                   </a>
                 </Button>
-                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white font-semibold">
+                <Button asChild size="lg" className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-semibold rounded-xl py-6">
                   <a href="https://wa.me/218916695689" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5 mr-2" />
                     {t.openWhatsApp}
@@ -393,9 +398,9 @@ export default function Home() {
       </section>
 
       {/* Share */}
-      <section id="share" className="py-16 sm:py-24 bg-cream">
+      <section id="share" className="py-20 sm:py-28 bg-desert-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-islamic-green text-center mb-10">
+          <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-sacred-teal text-center mb-12 ${lang === "ar" ? "font-arabic-display" : "font-display"}`}>
             {t.shareTitle}
           </h2>
           <ShareButtons lang={lang} />
@@ -403,37 +408,39 @@ export default function Home() {
       </section>
 
       {/* Sacred Footer */}
-      <footer className="falcon-sky text-white py-12 relative overflow-hidden">
-        <div className="absolute inset-0 sacred-geometry opacity-10" />
+      <footer className="bg-sacred-night text-white py-16 relative overflow-hidden">
+        <div className="absolute inset-0 sacred-geometry opacity-5" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Falcon Icon */}
-          <div className="mb-6">
-            <svg viewBox="0 0 60 40" className="w-16 h-10 mx-auto text-islamic-gold opacity-50">
+          {/* Decorative Line */}
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-royal-gold/50" />
+            <svg viewBox="0 0 60 40" className="w-12 h-8 text-royal-gold opacity-60">
               <path
                 fill="currentColor"
                 d="M30,5 L20,12 L5,10 L15,18 L2,22 L18,22 L10,32 L22,25 L30,38 L38,25 L50,32 L42,22 L58,22 L45,18 L55,10 L40,12 Z"
               />
             </svg>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-royal-gold/50" />
           </div>
 
-          <p className="text-islamic-gold font-arabic-script text-xl mb-4 rumi-quote">
+          <p className={`text-royal-gold text-xl sm:text-2xl mb-6 ${lang === "ar" ? "font-arabic-script" : "font-display italic"} rumi-quote`}>
             {t.footerQuote}
           </p>
 
-          <div className="flex items-center justify-center gap-6 text-cream/70 text-sm mb-6">
-            <span>{t.footerTagline}</span>
-            <span className="text-islamic-gold">•</span>
+          <div className="flex items-center justify-center gap-6 text-white/60 text-sm mb-8">
+            <span className={lang === "ar" ? "font-arabic" : ""}>{t.footerTagline}</span>
+            <span className="text-royal-gold/50">•</span>
             <a
               href="https://islamland.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-islamic-gold flex items-center gap-1 transition-colors"
+              className="hover:text-royal-gold flex items-center gap-1.5 transition-colors"
             >
               islamland.com <ExternalLink className="h-3 w-3" />
             </a>
           </div>
 
-          <p className="text-cream/60 text-xs">
+          <p className="text-white/40 text-xs tracking-wide">
             ibrahim.help — The Pilgrim Falcon's Journey
           </p>
         </div>

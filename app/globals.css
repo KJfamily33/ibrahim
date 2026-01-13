@@ -1,8 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Google Fonts - Refined Typography */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+/* Premium Typography Suite */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+
+/* Premium Arabic Typography - Scheherazade for sacred text, Tajawal for UI */
+@import url("https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&family=Aref+Ruqaa:wght@400;700&display=swap");
 
 /* Uthmani Quran Font - Traditional Arabic Calligraphy */
 @font-face {
@@ -15,109 +18,113 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================
+   ROYAL PILGRIMAGE PALETTE
+   For the discerning Gulf patron
+   ============================================ */
+
 :root {
-  /* Islamic Green & Gold Theme - Enhanced for contrast */
-  --islamic-green: #0a5c40;
-  --islamic-green-dark: #063d2a;
-  --islamic-green-light: #0d7a55;
-  --islamic-green-deep: #042e1f;
-  --islamic-gold: #d4a012;
-  --islamic-gold-light: #f0c342;
-  --islamic-gold-glow: #ffd54f;
-  --cream: #fdfbf7;
-  --cream-light: #ffffff;
-  --cream-warm: #f8f4ec;
-  --cream-dark: #ede6d9;
+  /* Primary: Deep Sacred Teal - evoking night prayer */
+  --sacred-teal: #0a3d3d;
+  --sacred-teal-deep: #052a2a;
+  --sacred-teal-light: #0f5555;
+  --sacred-teal-glow: #147272;
 
-  --background: oklch(0.98 0.01 85);
-  --foreground: oklch(0.15 0.02 165);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.02 165);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 165);
-  --primary: oklch(0.35 0.12 165);
-  --primary-foreground: oklch(0.99 0.01 85);
-  --secondary: oklch(0.97 0.01 85);
-  --secondary-foreground: oklch(0.2 0.02 165);
-  --muted: oklch(0.97 0.01 85);
-  --muted-foreground: oklch(0.5 0.02 165);
-  --accent: oklch(0.65 0.15 85);
-  --accent-foreground: oklch(0.15 0.02 165);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0.01 85);
-  --border: oklch(0.92 0.01 165);
-  --input: oklch(0.92 0.01 165);
-  --ring: oklch(0.35 0.12 165);
-  --chart-1: oklch(0.35 0.12 165);
-  --chart-2: oklch(0.65 0.15 85);
-  --chart-3: oklch(0.5 0.1 120);
-  --chart-4: oklch(0.7 0.12 60);
-  --chart-5: oklch(0.45 0.1 200);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+  /* Accent: Royal Amber Gold - wealth and warmth */
+  --royal-gold: #c9a227;
+  --royal-gold-light: #e8c547;
+  --royal-gold-muted: #9a7b1c;
+  --royal-gold-glow: #ffd666;
 
-.dark {
-  --background: oklch(0.15 0.02 165);
-  --foreground: oklch(0.98 0.01 85);
-  --card: oklch(0.18 0.02 165);
-  --card-foreground: oklch(0.98 0.01 85);
-  --popover: oklch(0.15 0.02 165);
-  --popover-foreground: oklch(0.98 0.01 85);
-  --primary: oklch(0.98 0.01 85);
-  --primary-foreground: oklch(0.2 0.02 165);
-  --secondary: oklch(0.25 0.02 165);
-  --secondary-foreground: oklch(0.98 0.01 85);
-  --muted: oklch(0.25 0.02 165);
-  --muted-foreground: oklch(0.7 0.02 165);
-  --accent: oklch(0.65 0.15 85);
-  --accent-foreground: oklch(0.98 0.01 85);
-  --destructive: oklch(0.45 0.2 27);
-  --destructive-foreground: oklch(0.98 0.01 85);
-  --border: oklch(0.25 0.02 165);
-  --input: oklch(0.25 0.02 165);
-  --ring: oklch(0.5 0.1 165);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Neutral: Desert Sand Palette */
+  --desert-cream: #faf8f3;
+  --desert-sand: #f0ebe0;
+  --desert-warm: #e5ddd0;
+  --desert-stone: #d4c9b8;
+
+  /* Accent: Midnight Blue - for depth */
+  --midnight: #1a2744;
+  --midnight-soft: #2d3a52;
+
+  /* Urgency Red - medical emphasis */
+  --urgency: #b91c1c;
+  --urgency-soft: #dc2626;
+
+  /* Typography colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #7a7a7a;
+  --text-light: #faf8f3;
+
+  /* System variables */
+  --background: var(--desert-cream);
+  --foreground: var(--text-primary);
+  --card: #ffffff;
+  --card-foreground: var(--text-primary);
+  --primary: var(--sacred-teal);
+  --primary-foreground: var(--desert-cream);
+  --secondary: var(--desert-sand);
+  --secondary-foreground: var(--text-primary);
+  --accent: var(--royal-gold);
+  --accent-foreground: var(--sacred-teal-deep);
+  --destructive: var(--urgency);
+  --destructive-foreground: #ffffff;
+  --border: var(--desert-stone);
+  --input: var(--desert-warm);
+  --ring: var(--sacred-teal);
+  --radius: 0.5rem;
 }
 
 @theme inline {
-  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
-  --font-arabic: "Noto Kufi Arabic", "Amiri", "Traditional Arabic", serif;
-  --font-arabic-script: "Amiri", "Traditional Arabic", serif;
+  /* Typography System */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-sans: "Source Serif 4", system-ui, sans-serif;
+
+  /* Arabic Typography */
+  --font-arabic: "Tajawal", "Traditional Arabic", sans-serif;
+  --font-arabic-display: "Aref Ruqaa", "Traditional Arabic", serif;
+  --font-arabic-sacred: "Scheherazade New", "Traditional Arabic", serif;
+
+  /* Colors */
+  --color-sacred-teal: var(--sacred-teal);
+  --color-sacred-teal-deep: var(--sacred-teal-deep);
+  --color-sacred-teal-light: var(--sacred-teal-light);
+  --color-sacred-teal-glow: var(--sacred-teal-glow);
+  --color-royal-gold: var(--royal-gold);
+  --color-royal-gold-light: var(--royal-gold-light);
+  --color-royal-gold-muted: var(--royal-gold-muted);
+  --color-royal-gold-glow: var(--royal-gold-glow);
+  --color-desert-cream: var(--desert-cream);
+  --color-desert-sand: var(--desert-sand);
+  --color-desert-warm: var(--desert-warm);
+  --color-desert-stone: var(--desert-stone);
+  --color-midnight: var(--midnight);
+  --color-midnight-soft: var(--midnight-soft);
+  --color-urgency: var(--urgency);
+  --color-urgency-soft: var(--urgency-soft);
+
+  /* Legacy mappings for compatibility */
+  --color-islamic-green: var(--sacred-teal);
+  --color-islamic-green-dark: var(--sacred-teal-deep);
+  --color-islamic-green-light: var(--sacred-teal-light);
+  --color-islamic-green-deep: var(--sacred-teal-deep);
+  --color-islamic-gold: var(--royal-gold);
+  --color-islamic-gold-light: var(--royal-gold-light);
+  --color-islamic-gold-glow: var(--royal-gold-glow);
+  --color-cream: var(--desert-cream);
+  --color-cream-light: #ffffff;
+  --color-cream-warm: var(--desert-sand);
+  --color-cream-dark: var(--desert-warm);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
@@ -125,124 +132,205 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
 
-  --color-islamic-green: #0a5c40;
-  --color-islamic-green-dark: #063d2a;
-  --color-islamic-green-light: #0d7a55;
-  --color-islamic-green-deep: #042e1f;
-  --color-islamic-gold: #d4a012;
-  --color-islamic-gold-light: #f0c342;
-  --color-islamic-gold-glow: #ffd54f;
-  --color-cream: #fdfbf7;
-  --color-cream-light: #ffffff;
-  --color-cream-warm: #f8f4ec;
-  --color-cream-dark: #ede6d9;
-
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
 }
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
-/* Proper 8-point Islamic star pattern */
-.bg-islamic-pattern {
-  background-color: var(--color-islamic-green);
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpolygon points='40,5 45,25 65,20 50,35 65,50 45,45 40,65 35,45 15,50 30,35 15,20 35,25'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* Arabic Font Support */
-@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap");
-
-.font-arabic {
-  font-family: var(--font-arabic);
-}
-
-.font-arabic-script {
-  font-family: var(--font-arabic-script);
-}
-
-/* Smooth transitions */
-* {
-  @apply transition-colors duration-200;
-}
-
-/* Better text rendering */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* RTL Support - Fixed to not reverse all flex containers */
-[dir="rtl"] {
-  direction: rtl;
-}
-
-/* Only reverse specific navigation elements, not all flex containers */
-[dir="rtl"] .flex-row-reverse-rtl {
-  flex-direction: row-reverse;
-}
-
-/* Responsive Typography */
-@media (max-width: 640px) {
   html {
-    font-size: 14px;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-desert-cream text-foreground;
+    font-family: var(--font-body);
+    font-feature-settings: "kern" 1, "liga" 1;
+    line-height: 1.7;
+  }
+
+  /* Premium Typography Scale */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+  h2 { font-size: clamp(1.875rem, 4vw, 2.5rem); }
+  h3 { font-size: clamp(1.5rem, 3vw, 1.875rem); }
+
+  /* Arabic Typography */
+  [lang="ar"], [dir="rtl"] {
+    font-family: var(--font-arabic);
+  }
+
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 {
+    font-family: var(--font-arabic-display);
+    letter-spacing: 0;
   }
 }
 
 /* ============================================
-   THE PILGRIM FALCON THEME
-   "Beating your wings and feathers,
-    you broke free from this cage." - Rumi
+   RTL SUPPORT
    ============================================ */
 
-/* Sacred Night Sky Gradient */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="rtl"] .flex-row-reverse-rtl {
+  flex-direction: row-reverse;
+}
+
+/* ============================================
+   SACRED GEOMETRY PATTERNS
+   Authentic Islamic 8-fold star tessellation
+   ============================================ */
+
+.sacred-geometry {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='0.12' stroke-width='0.5'%3E%3Ccircle cx='50' cy='50' r='45'/%3E%3Ccircle cx='50' cy='50' r='30'/%3E%3Ccircle cx='50' cy='50' r='15'/%3E%3Cpath d='M50,5 L50,95 M5,50 L95,50'/%3E%3Cpath d='M14.6,14.6 L85.4,85.4 M85.4,14.6 L14.6,85.4'/%3E%3Cpolygon points='50,5 61.8,35 95,35 68.8,55 77.3,88 50,68 22.7,88 31.2,55 5,35 38.2,35'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.sacred-geometry-dense {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='0.08' stroke-width='0.3'%3E%3Cpolygon points='30,3 37,20 55,20 41,32 46,50 30,39 14,50 19,32 5,20 23,20'/%3E%3Ccircle cx='30' cy='30' r='25'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.bg-islamic-pattern {
+  background-color: var(--sacred-teal);
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpolygon points='40,8 46,26 64,26 50,38 55,56 40,45 25,56 30,38 16,26 34,26'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Crescent Moon Motif */
+.crescent-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60,40 A20,20 0 1,1 60,40.01 A15,15 0 1,0 60,40' fill='%23c9a227' fill-opacity='0.06'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   GRADIENT SYSTEMS
+   ============================================ */
+
+/* Sacred Night Sky - for dark sections */
+.bg-sacred-night {
+  background: linear-gradient(
+    180deg,
+    #052a2a 0%,
+    #0a3d3d 40%,
+    #0f5555 80%,
+    #147272 100%
+  );
+}
+
+/* Desert Dawn - golden hour warmth */
+.bg-desert-dawn {
+  background: linear-gradient(
+    135deg,
+    var(--desert-cream) 0%,
+    var(--desert-sand) 50%,
+    var(--desert-warm) 100%
+  );
+}
+
+/* Royal Gradient - for CTAs and emphasis */
+.bg-royal-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--royal-gold) 0%,
+    var(--royal-gold-light) 50%,
+    var(--royal-gold) 100%
+  );
+}
+
+/* Midnight Depth - for premium cards */
+.bg-midnight-depth {
+  background: linear-gradient(
+    180deg,
+    var(--midnight) 0%,
+    var(--midnight-soft) 100%
+  );
+}
+
+/* Legacy gradient names */
 .falcon-sky {
   background: linear-gradient(
     180deg,
-    #051a14 0%,
-    #0a2e24 25%,
-    #094d36 50%,
-    #0d6b4b 75%,
-    #10805a 100%
+    #052a2a 0%,
+    #0a3d3d 40%,
+    #0f5555 80%,
+    #147272 100%
   );
 }
 
-/* Golden Hour Gradient */
-.falcon-dawn {
-  background: linear-gradient(
-    135deg,
-    #094d36 0%,
-    #0d6b4b 30%,
-    #c9a227 70%,
-    #e8c547 100%
-  );
+/* ============================================
+   ANIMATION SYSTEM
+   Subtle, refined movements
+   ============================================ */
+
+/* Gentle Float - for hero elements */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-/* Falcon Feather Shimmer */
+.animate-float {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+/* Golden Shimmer - for accents */
+@keyframes golden-shimmer {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.animate-shimmer {
+  animation: golden-shimmer 3s ease-in-out infinite;
+}
+
+/* Heartbeat - medical urgency */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.08); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.05); }
+  56% { transform: scale(1); }
+}
+
+.heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Fade Rise - section entrances */
+@keyframes fade-rise {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-rise {
+  animation: fade-rise 0.8s ease-out forwards;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Feather animations (legacy) */
 @keyframes feather-shimmer {
   0%, 100% { opacity: 0.6; transform: translateY(0) rotate(0deg); }
   50% { opacity: 1; transform: translateY(-5px) rotate(2deg); }
@@ -252,20 +340,6 @@ body {
   animation: feather-shimmer 3s ease-in-out infinite;
 }
 
-/* Heartbeat Urgency Pulse */
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  14% { transform: scale(1.1); opacity: 0.9; }
-  28% { transform: scale(1); opacity: 1; }
-  42% { transform: scale(1.08); opacity: 0.9; }
-  56% { transform: scale(1); opacity: 1; }
-}
-
-.heartbeat {
-  animation: heartbeat 2s ease-in-out infinite;
-}
-
-/* Falcon Soaring Animation */
 @keyframes falcon-soar {
   0% { transform: translateY(0) translateX(0) rotate(0deg); }
   25% { transform: translateY(-10px) translateX(5px) rotate(2deg); }
@@ -278,7 +352,6 @@ body {
   animation: falcon-soar 6s ease-in-out infinite;
 }
 
-/* Star Twinkle */
 @keyframes twinkle {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.2); }
@@ -288,7 +361,6 @@ body {
   animation: twinkle 2s ease-in-out infinite;
 }
 
-/* Golden Glow Pulse */
 @keyframes golden-pulse {
   0%, 100% { box-shadow: 0 0 20px rgba(201, 162, 39, 0.3); }
   50% { box-shadow: 0 0 40px rgba(201, 162, 39, 0.6), 0 0 60px rgba(201, 162, 39, 0.3); }
@@ -298,17 +370,33 @@ body {
   animation: golden-pulse 3s ease-in-out infinite;
 }
 
-/* Sacred Geometry Pattern - 8-fold star */
-.sacred-geometry {
-  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='0.15' stroke-width='0.5'%3E%3Ccircle cx='60' cy='60' r='50'/%3E%3Ccircle cx='60' cy='60' r='35'/%3E%3Ccircle cx='60' cy='60' r='20'/%3E%3Cpath d='M60,10 L60,110 M10,60 L110,60 M18,18 L102,102 M102,18 L18,102'/%3E%3Cpolygon points='60,10 75,35 110,35 85,55 95,90 60,70 25,90 35,55 10,35 45,35'/%3E%3C/g%3E%3C/svg%3E");
+@keyframes wing-spread {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.05); }
 }
 
-/* Crescent Moon Accent */
-.crescent-bg {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45,30 A20,20 0 1,1 45,30.01 A15,15 0 1,0 45,30' fill='%23c9a227' fill-opacity='0.1'/%3E%3C/svg%3E");
+.wing-spread {
+  animation: wing-spread 4s ease-in-out infinite;
 }
 
-/* Floating Particles (Stars) */
+@keyframes feather-arrive {
+  0% { transform: translateY(-50px) rotate(-45deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+
+.feather-arrive {
+  animation: feather-arrive 0.8s ease-out forwards;
+}
+
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); color: var(--royal-gold); }
+}
+
+.count-pulse {
+  animation: count-pulse 0.5s ease-out;
+}
+
 @keyframes float-up {
   0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
   10% { opacity: 1; }
@@ -320,115 +408,166 @@ body {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: var(--color-islamic-gold);
+  background: var(--royal-gold);
   border-radius: 50%;
   animation: float-up linear infinite;
 }
 
-/* Text Shadow for Rumi Quotes */
-.rumi-quote {
-  text-shadow: 0 2px 20px rgba(201, 162, 39, 0.3);
-  font-style: italic;
-}
+/* ============================================
+   GLASSMORPHISM CARDS
+   Premium translucent surfaces
+   ============================================ */
 
-/* Falcon Wing Spread Effect */
-@keyframes wing-spread {
-  0%, 100% { transform: scaleX(1); }
-  50% { transform: scaleX(1.05); }
-}
-
-.wing-spread {
-  animation: wing-spread 4s ease-in-out infinite;
-}
-
-/* Journey Path Glow */
-.journey-path {
-  filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.5));
-}
-
-/* Supporter Feather Entry */
-@keyframes feather-arrive {
-  0% { transform: translateY(-50px) rotate(-45deg); opacity: 0; }
-  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
-}
-
-.feather-arrive {
-  animation: feather-arrive 0.8s ease-out forwards;
-}
-
-/* Glassmorphism Cards - Enhanced contrast */
 .glass-card {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 160, 18, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* High contrast card variant for dark backgrounds */
-.glass-card-solid {
-  background: rgba(4, 46, 31, 0.95);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 160, 18, 0.4);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-}
-
-/* Luminous card for featured content */
-.luminous-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 160, 18, 0.35);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 162, 39, 0.2);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Progress Bar Glow */
+.glass-card-solid {
+  background: rgba(5, 42, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+.luminous-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
+   BORDER & GLOW EFFECTS
+   ============================================ */
+
+.border-gold {
+  border: 1px solid rgba(201, 162, 39, 0.4);
+}
+
+.border-gold-glow {
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
+}
+
+.ethereal-border {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--sacred-teal-deep), var(--sacred-teal-deep)) padding-box,
+              linear-gradient(135deg, var(--royal-gold) 0%, transparent 50%, var(--royal-gold) 100%) border-box;
+}
+
 .progress-glow {
   box-shadow: 0 0 20px rgba(201, 162, 39, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Ethereal Border */
-.ethereal-border {
-  border: 1px solid transparent;
-  background: linear-gradient(var(--color-islamic-green-dark), var(--color-islamic-green-dark)) padding-box,
-              linear-gradient(135deg, var(--color-islamic-gold), transparent, var(--color-islamic-gold)) border-box;
+.gold-glow {
+  box-shadow:
+    0 0 30px rgba(201, 162, 39, 0.35),
+    0 0 60px rgba(201, 162, 39, 0.15);
 }
 
-/* Scroll-triggered fade in */
-@keyframes fade-rise {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.fade-rise {
-  animation: fade-rise 0.8s ease-out forwards;
-}
-
-/* Counter Number Animation */
-@keyframes count-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); color: var(--color-islamic-gold); }
-}
-
-.count-pulse {
-  animation: count-pulse 0.5s ease-out;
+/* Journey path glow */
+.journey-path {
+  filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.5));
 }
 
 /* ============================================
-   ENHANCED CONTRAST UTILITIES
+   TYPOGRAPHY UTILITIES
    ============================================ */
 
-/* High contrast text on dark backgrounds */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.font-arabic-display {
+  font-family: var(--font-arabic-display);
+}
+
+.font-arabic-script {
+  font-family: var(--font-arabic-sacred);
+}
+
+/* Sacred text styling for Quranic/Hadith quotes */
+.sacred-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+}
+
+[dir="rtl"] .sacred-text {
+  font-family: var(--font-arabic-sacred);
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: 2;
+}
+
+.rumi-quote {
+  text-shadow: 0 2px 20px rgba(201, 162, 39, 0.25);
+  font-style: italic;
+}
+
+/* High contrast text utilities */
 .text-contrast-high {
   color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .text-contrast-cream {
-  color: #fdfbf7;
+  color: var(--desert-cream);
 }
 
-/* Category badge styles with proper contrast */
+/* ============================================
+   SECTION BACKGROUNDS
+   ============================================ */
+
+.section-cream {
+  background: linear-gradient(180deg, var(--desert-cream) 0%, var(--desert-sand) 100%);
+}
+
+.section-green {
+  background: linear-gradient(180deg, var(--sacred-teal) 0%, var(--sacred-teal-deep) 100%);
+}
+
+.bg-cream {
+  background-color: var(--desert-cream);
+}
+
+.bg-cream-dark {
+  background-color: var(--desert-warm);
+}
+
+/* ============================================
+   STAT & BADGE CARDS
+   ============================================ */
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
 .badge-travel {
   background: rgba(59, 130, 246, 0.9);
   color: #ffffff;
@@ -436,87 +575,80 @@ body {
 }
 
 .badge-medical {
-  background: rgba(239, 68, 68, 0.9);
+  background: rgba(185, 28, 28, 0.9);
   color: #ffffff;
-  border: 1px solid rgba(252, 165, 165, 0.5);
+  border: 1px solid rgba(239, 68, 68, 0.5);
 }
 
 .badge-stay {
-  background: rgba(168, 85, 247, 0.9);
+  background: rgba(126, 34, 206, 0.9);
   color: #ffffff;
-  border: 1px solid rgba(196, 181, 253, 0.5);
+  border: 1px solid rgba(168, 85, 247, 0.5);
 }
 
 .badge-care {
-  background: rgba(212, 160, 18, 0.95);
-  color: #042e1f;
-  border: 1px solid rgba(240, 195, 66, 0.5);
+  background: rgba(201, 162, 39, 0.95);
+  color: var(--sacred-teal-deep);
+  border: 1px solid rgba(232, 197, 71, 0.5);
 }
 
-/* Display font utility */
-.font-display {
-  font-family: "Cormorant Garamond", Georgia, serif;
-}
+/* ============================================
+   HOVER & INTERACTION EFFECTS
+   ============================================ */
 
-/* Stat card gradient backgrounds */
-.stat-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Enhanced gold glow effect */
-.gold-glow {
-  box-shadow:
-    0 0 20px rgba(212, 160, 18, 0.4),
-    0 0 40px rgba(212, 160, 18, 0.2);
-}
-
-/* Subtle entrance animation */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
-}
-
-/* Staggered animation delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-
-/* Card hover lift effect */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
 }
 
-/* Sacred text styling for Quranic/Hadith quotes */
-.sacred-text {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  letter-spacing: 0.02em;
-  line-height: 1.8;
+.hover-glow {
+  transition: box-shadow 0.3s ease;
 }
 
-/* Refined section backgrounds */
-.section-cream {
-  background: linear-gradient(180deg, #fdfbf7 0%, #f8f4ec 100%);
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
 }
 
-.section-green {
-  background: linear-gradient(180deg, #0a5c40 0%, #063d2a 100%);
+/* Subtle color transitions */
+* {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .glass-card,
+  .luminous-card {
+    background: white;
+    backdrop-filter: none;
+    border: 1px solid #ddd;
+  }
+
+  .animate-float,
+  .heartbeat,
+  .golden-glow {
+    animation: none;
+  }
 }
