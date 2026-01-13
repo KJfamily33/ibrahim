@@ -48,10 +48,15 @@ export function FalconHero({ lang }: FalconHeroProps) {
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Full Background Image */}
+      {/* Full Background Image - Desktop */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden sm:block"
         style={{ backgroundImage: "url('/images/hero-main.png')" }}
+      />
+      {/* Full Background Image - Mobile */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:hidden"
+        style={{ backgroundImage: "url('/images/hero-mobile.png')" }}
       />
 
       {/* Gradient Overlays for text readability */}
