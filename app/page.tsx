@@ -9,6 +9,8 @@ export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [formState, setFormState] = useState({ name: "", email: "", company: "", message: "" })
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [formError, setFormError] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
   const [isLoading, setIsLoading] = useState(true)
   const [activeSection, setActiveSection] = useState("hero")
@@ -65,10 +67,30 @@ export default function Home() {
     }
   }
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setFormSubmitted(true)
-    setTimeout(() => setFormSubmitted(false), 3000)
+    setIsSubmitting(true)
+    setFormError("")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to send message")
+      }
+
+      setFormSubmitted(true)
+      setFormState({ name: "", email: "", company: "", message: "" })
+      setTimeout(() => setFormSubmitted(false), 5000)
+    } catch (error) {
+      setFormError("Failed to send message. Please try again or email us directly.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   // FIX 1: Changed "Signed" to "Advised"
@@ -657,15 +679,28 @@ export default function Home() {
                     className="w-full bg-midnight border border-warm-gray/30 rounded-lg px-4 py-3 text-cream placeholder-warm-gray/60 focus:border-gold focus:outline-none transition-colors resize-none"
                   />
                 </div>
+                {formError && (
+                  <div className="text-red-400 text-sm bg-red-900/20 border border-red-500/30 rounded-lg px-4 py-3">
+                    {formError}
+                  </div>
+                )}
                 <button
                   type="submit"
-                  disabled={formSubmitted}
-                  className="w-full bg-gold hover:bg-gold-light text-deep-navy font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-70"
+                  disabled={formSubmitted || isSubmitting}
+                  className="w-full bg-gold hover:bg-gold-light text-deep-navy font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {formSubmitted ? (
                     <>
                       <Check className="w-5 h-5" />
-                      <span>Message Sent</span>
+                      <span>Message Sent!</span>
+                    </>
+                  ) : isSubmitting ? (
+                    <>
+                      <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      <span>Sending...</span>
                     </>
                   ) : (
                     <>
