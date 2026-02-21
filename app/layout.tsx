@@ -1,17 +1,25 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
+import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import "../styles/globals.css"
+import "./globals.css"
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
 })
 
-const playfair = Playfair_Display({
+const ibmPlex = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-serif",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-body",
+})
+
+const ibmPlexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-arabic",
 })
 
 export const viewport: Viewport = {
@@ -19,22 +27,19 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0d6b4b" },
-    { media: "(prefers-color-scheme: dark)", color: "#094d36" },
-  ],
+  themeColor: "#C8A44E",
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ibrahim.help"),
-  title: "Help Ibrahim Ali | Urgent Cancer Surgery for Islamic Scholar | ibrahim.help",
+  title: "Ibrahim Energy Partners | شركاء إبراهيم للطاقة",
   description:
-    "Ibrahim Ali, founder of islamland.com serving 140+ languages, needs urgent rectal cancer surgery. 20 years of unpaid dawah work. Libya banking crisis prevents access to savings. Help save his life.",
+    "North African Oil & Gas Opportunity Facilitation. Bridging Western capital with North African energy assets. Libya, Tunisia, Algeria.",
   keywords:
-    "Ibrahim Ali, islamland.com, medical fundraising, Islamic charity, cancer surgery, rectal tumor, Libya, Kuwait, dawah, Islamic scholar, medical emergency, Muslim charity, humanitarian aid, Dr Munqith Al-Saqqar",
-  authors: [{ name: "Ibrahim Ali Support Campaign" }],
-  creator: "Ibrahim Ali Support Team",
-  publisher: "ibrahim.help",
+    "Ibrahim Energy Partners, North Africa, oil and gas, Libya, Tunisia, Algeria, energy consulting, upstream opportunities, E&P, petroleum, Gulf investment, MENA energy",
+  authors: [{ name: "Ibrahim Energy Partners" }],
+  creator: "iPurpose Group",
+  publisher: "Ibrahim Energy Partners",
   formatDetection: {
     email: false,
     address: false,
@@ -43,30 +48,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    alternateLocale: ["ar_SA", "ar_EG", "ar_KW", "ar_LY"],
+    alternateLocale: ["ar_SA", "ar_LY"],
     url: "https://ibrahim.help",
-    siteName: "امش مع إبراهيم | Walk With Ibrahim",
-    title: "امش مع إبراهيم | Walk With Ibrahim - The Ummah Carries Its Scholar",
+    siteName: "Ibrahim Energy Partners",
+    title: "Ibrahim Energy Partners | شركاء إبراهيم للطاقة",
     description:
-      "For 20 years, Ibrahim served the Ummah through islamland.com (140+ languages). Now he needs surgery in Tunisia. The Ummah carries its own. Join us.",
+      "North African Oil & Gas Opportunity Facilitation. Bridging Western capital with North African energy assets.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image-1200x630.png",
         width: 1200,
         height: 630,
-        alt: "امش مع إبراهيم - Walk With Ibrahim - The Ummah Carries Ibrahim",
+        alt: "Ibrahim Energy Partners - North Africa Is Open for Business",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "امش مع إبراهيم | Walk With Ibrahim",
+    title: "Ibrahim Energy Partners | شركاء إبراهيم للطاقة",
     description:
-      "For 20 years, Ibrahim served the Ummah through islamland.com. Now he needs surgery. The Ummah carries its own.",
-    images: ["/og-image.png"],
-    site: "@islamlovers",
-    creator: "@islamlovers",
+      "North African Oil & Gas Opportunity Facilitation. Bridging Western capital with North African energy assets.",
+    images: ["/og-image-1200x630.png"],
   },
   robots: {
     index: true,
@@ -81,27 +84,47 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://ibrahim.help",
-    languages: {
-      "en-US": "https://ibrahim.help",
-      "ar-SA": "https://ibrahim.help",
-      "ar-LY": "https://ibrahim.help",
-    },
   },
   icons: {
     icon: [
-      { url: "/favicon.png?v=2", type: "image/png" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icons/icon-192x192.png", type: "image/png", sizes: "192x192" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/favicon.png?v=2",
+    apple: [{ url: "/icons/icon-192x192.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
   },
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
-    title: "Help Ibrahim Ali",
+    statusBarStyle: "black-translucent",
+    title: "Ibrahim Energy Partners",
   },
-    generator: 'v0.app'
+}
+
+// Organization structured data for SEO
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Ibrahim Energy Partners",
+  alternateName: "شركاء إبراهيم للطاقة",
+  url: "https://ibrahim.help",
+  logo: "https://ibrahim.help/icons/icon-512x512.png",
+  description: "North African Oil & Gas Opportunity Facilitation. Bridging Western capital with North African energy assets.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Victoria",
+    addressRegion: "BC",
+    addressCountry: "CA"
+  },
+  email: "info@ibrahim.help",
+  parentOrganization: {
+    "@type": "Organization",
+    name: "iPurpose Group",
+    url: "https://ipurpose.group"
+  },
+  areaServed: ["Libya", "Tunisia", "Algeria", "North Africa", "MENA"],
+  knowsAbout: ["Oil and Gas", "Upstream Petroleum", "E&P", "Energy Consulting", "North Africa"]
 }
 
 export default function RootLayout({
@@ -112,13 +135,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to Google Fonts for Arabic */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" type="image/png" href="/favicon.png?v=2" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${cormorant.variable} ${ibmPlex.variable} ${ibmPlexArabic.variable} font-body antialiased`}>
         {children}
         <Analytics />
       </body>

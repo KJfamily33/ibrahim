@@ -1,0 +1,19 @@
+{
+  "name": "Ibrahim Energy Partners",
+  "short_name": "IEP",
+  "description": "North African Oil & Gas Opportunity Facilitation | شركاء إبراهيم للطاقة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0E17",
+  "theme_color": "#C8A44E",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icons/icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "categories": ["business", "energy", "consulting"],
+  "lang": "en",
+  "dir": "auto",
+  "id": "https://ibrahim.help",
+  "scope": "/"
+}
