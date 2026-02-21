@@ -441,13 +441,13 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Key Stats (FIX 3: larger numbers, better styling) */}
+          {/* Key Stats */}
           <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 ${visibleSections.has("opportunity") ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
             {[
               { stat: "48.4B", unit: "bbl", label: "Proven Oil Reserves" },
               { stat: "40+", unit: "", label: "Undeveloped Fields" },
-              { stat: "1.2M", unit: "bopd", label: "Current Production" },
-              { stat: "New", unit: "", label: "Licensing Rounds" },
+              { stat: "1.4M", unit: "bopd", label: "Current Production" },
+              { stat: "2M", unit: "bopd", label: "2030 Target" },
             ].map((item, index) => (
               <div
                 key={index}
@@ -464,22 +464,35 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Description */}
+          {/* February 2026 Context */}
           <div className={`max-w-3xl mx-auto text-center ${visibleSections.has("opportunity") ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
-            <p className="text-lg text-cream leading-relaxed">
-              Libya holds 48.4 billion barrels of proven oil reserves with 40+ undeveloped fields
-              containing discovered resources. Production currently stands at ~1.2M bopd, near
-              post-revolution highs. New upstream licensing rounds are underway under
-              internationally recognized frameworks.
+            <p className="text-lg text-cream leading-relaxed mb-6">
+              Libya holds Africa&apos;s largest proven oil reserves. In February 2026, the NOC completed
+              its first licensing round in 17 years — yet only 5 of 22 blocks were awarded despite
+              44 companies expressing interest.
             </p>
-            {/* FIX 4: Operators as styled text, not links */}
-            <div className="mt-8 p-6 rounded-xl bg-black/20 border border-gold/30">
-              <p className="text-cream leading-relaxed">
-                Major international operators — <strong className="text-gold font-semibold">TotalEnergies</strong>,{" "}
-                <strong className="text-gold font-semibold">Eni</strong>,{" "}
-                <strong className="text-gold font-semibold">Repsol</strong>,{" "}
-                <strong className="text-gold font-semibold">ConocoPhillips</strong> — are actively expanding or
-                re-entering. The window for strategic positioning is now.
+            <p className="text-base text-cream/80 leading-relaxed">
+              The gap between interest and commitment reveals a critical truth: <em className="text-gold">relationships
+              and local alignment determine success</em>. Companies with existing operations, regional
+              partnerships, and on-ground intelligence secured positions. Those without sat out.
+            </p>
+          </div>
+
+          {/* Winners Box */}
+          <div className={`mt-10 max-w-4xl mx-auto ${visibleSections.has("opportunity") ? "animate-fade-in-up delay-400" : "opacity-0"}`}>
+            <div className="p-6 rounded-xl bg-black/20 border border-gold/30">
+              <p className="text-center text-warm-gray text-sm uppercase tracking-wider mb-4">
+                February 2026 Block Awards
+              </p>
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+                {["Chevron", "Eni", "QatarEnergy", "Repsol", "TotalEnergies", "TPAO"].map((company) => (
+                  <span key={company} className="text-gold font-semibold text-sm sm:text-base">
+                    {company}
+                  </span>
+                ))}
+              </div>
+              <p className="text-center text-cream/60 text-sm mt-4">
+                A second licensing round is in preparation. The window remains open.
               </p>
             </div>
           </div>
