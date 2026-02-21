@@ -93,10 +93,9 @@ export default function Home() {
     }
   }
 
-  // FIX 1: Changed "Signed" to "Advised"
   const stats = [
-    { value: "$20B+", label: "Advised" },
-    { value: "48.4B", label: "bbl Reserves" },
+    { value: "1B+", label: "bbl Access" },
+    { value: "48.4B", label: "Reserves" },
     { value: "40+", label: "Fields" },
     { value: "30yr", label: "Expertise" },
   ]
