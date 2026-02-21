@@ -512,25 +512,25 @@ export default function Home() {
           </p>
 
           {/* Process Steps */}
-          <div className="relative">
+          <div className="relative ml-6 sm:ml-0">
             {/* Connecting Line (desktop only) */}
             <div className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-gold/20 via-gold to-gold/20 z-0" />
 
             {/* Vertical line for mobile/tablet */}
-            <div className="lg:hidden absolute top-0 bottom-0 left-8 w-[2px] bg-gradient-to-b from-gold/20 via-gold to-gold/20 z-0" />
+            <div className="lg:hidden absolute top-0 bottom-0 left-2 sm:left-8 w-[2px] bg-gradient-to-b from-gold/20 via-gold to-gold/20 z-0" />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-8 relative z-10">
               {processSteps.map((step, index) => (
                 <div
                   key={index}
-                  className={`lg:text-center pl-16 lg:pl-0 relative group ${
+                  className={`lg:text-center pl-20 sm:pl-16 lg:pl-0 relative group ${
                     visibleSections.has("process") ? "animate-fade-in-up" : "opacity-0"
                   }`}
                   style={{ animationDelay: `${(index + 1) * 100}ms` }}
                 >
                   {/* Icon Circle - positioned differently for mobile vs desktop */}
-                  <div className="absolute left-0 lg:relative lg:mx-auto w-16 h-16 rounded-full bg-navy border-2 border-gold flex items-center justify-center mb-4 transition-all duration-300 group-hover:border-gold-light group-hover:shadow-lg group-hover:shadow-gold/20">
-                    <step.icon className="w-7 h-7 text-gold group-hover:text-gold-light transition-colors" />
+                  <div className="absolute -left-4 sm:left-0 lg:relative lg:mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-navy border-2 border-gold flex items-center justify-center mb-4 transition-all duration-300 group-hover:border-gold-light group-hover:shadow-lg group-hover:shadow-gold/20">
+                    <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-gold group-hover:text-gold-light transition-colors" />
                   </div>
 
                   {/* Step Number */}
