@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     // Send email to Jesse
     const { data, error } = await getResend().emails.send({
       from: "Ibrahim Energy Partners <onboarding@resend.dev>",
-      to: ["jesse@vicare.ca"],
+      to: ["jesse@ibrahim.help"],
       replyTo: email,
       subject: `[IEP Lead] ${company ? `${company} - ` : ""}${name}`,
       html: `
