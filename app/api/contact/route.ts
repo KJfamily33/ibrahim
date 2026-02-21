@@ -1,6 +1,28 @@
 import { Resend } from "resend"
 import { NextRequest, NextResponse } from "next/server"
 
+/**
+ * ============================================================
+ * IBRAHIM ENERGY PARTNERS - OFFICIAL TEAM EMAIL DIRECTORY
+ * ============================================================
+ *
+ * All emails route through Resend to the team. These addresses
+ * are for professional appearance and routing purposes.
+ *
+ * PUBLIC (displayed on website):
+ *   info@ibrahim.help      — General inquiries
+ *
+ * TEAM MEMBERS:
+ *   jesse@ibrahim.help     — Jesse James, CEO & Western Bridge
+ *   ibrahim@ibrahim.help   — Ibrahim Ali, Co-Founder & Relationships
+ *   nasser@ibrahim.help    — Senior Technical Team Lead
+ *
+ * INTERNAL (never displayed publicly):
+ *   leads@ibrahim.help     — Form submissions backup/archive
+ *
+ * ============================================================
+ */
+
 // Defer initialization to runtime
 let resend: Resend | null = null
 function getResend() {
@@ -32,10 +54,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Send email to Jesse
+    // Send email to Jesse + backup to leads archive
     const { data, error } = await getResend().emails.send({
-      from: "Ibrahim Energy Partners <onboarding@resend.dev>",
-      to: ["jesse@ibrahim.help"],
+      from: "Ibrahim Energy Partners <info@ibrahim.help>",
+      to: ["jesse@ibrahim.help", "leads@ibrahim.help"],
       replyTo: email,
       subject: `[IEP Lead] ${company ? `${company} - ` : ""}${name}`,
       html: `

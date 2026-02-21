@@ -735,7 +735,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-6">
+          <div className="text-center mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+            <a
+              href="mailto:info@ibrahim.help"
+              className="text-warm-gray text-xs hover:text-gold transition-colors"
+            >
+              info@ibrahim.help
+            </a>
+            <span className="hidden sm:inline text-warm-gray/40">|</span>
             <a
               href="https://gprkinetic.pro/"
               target="_blank"
