@@ -120,8 +120,8 @@ const organizationSchema = {
   email: "info@ibrahim.help",
   parentOrganization: {
     "@type": "Organization",
-    name: "iPurpose Group",
-    url: "https://ipurpose.group"
+    name: "GPR Kinetic",
+    url: "https://gprkinetic.pro"
   },
   areaServed: ["Libya", "Tunisia", "Algeria", "North Africa", "MENA"],
   knowsAbout: ["Oil and Gas", "Upstream Petroleum", "E&P", "Energy Consulting", "North Africa"]
