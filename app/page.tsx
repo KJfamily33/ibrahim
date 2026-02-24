@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, ArrowUp, ChevronDown, Mail, MapPin, Globe, Check, Search, Shield, Handshake, HeartHandshake, Phone, Linkedin, Calendar } from "lucide-react"
+import { Menu, X, ArrowUp, ChevronDown, Mail, MapPin, Check, Search, Shield, Handshake, HeartHandshake, Phone, Linkedin, Calendar, Download } from "lucide-react"
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -367,6 +367,19 @@ export default function Home() {
           <p className="font-arabic text-center text-warm-gray/50 text-xs mt-1" dir="rtl" lang="ar">
             مدعومة بأكبر احتياطيات نفطية مؤكدة في أفريقيا.
           </p>
+
+          {/* Download Button */}
+          <div className="mt-6 flex justify-center">
+            <a
+              href="/Ibrahim_Energy_Partners_Overview.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gold/10 border border-gold/40 rounded-lg text-gold hover:bg-gold/20 hover:border-gold transition-all duration-300"
+            >
+              <Download className="w-4 h-4" />
+              <span className="text-sm font-medium">Download Overview</span>
+              <span className="text-xs text-gold/70">PDF</span>
+            </a>
+          </div>
         </div>
 
         {/* Scroll indicator */}
@@ -728,29 +741,16 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <Globe className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                  <div>
-                    <div className="text-warm-gray text-sm mb-1">Web</div>
-                    <a
-                      href="https://ibrahim.help"
-                      className="text-cream hover:text-gold transition-colors"
-                    >
-                      ibrahim.help
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
                   <Linkedin className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
                   <div>
                     <div className="text-warm-gray text-sm mb-1">LinkedIn</div>
                     <a
-                      href="https://www.linkedin.com/in/jessecares/"
+                      href="https://www.linkedin.com/company/ibrahim-energy-partners/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-cream hover:text-gold transition-colors"
                     >
-                      Jesse James
+                      Ibrahim Energy Partners
                     </a>
                   </div>
                 </div>

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   keywords:
     "Ibrahim Energy Partners, North Africa, oil and gas, Libya, Tunisia, Algeria, energy consulting, upstream opportunities, E&P, petroleum, Gulf investment, MENA energy",
   authors: [{ name: "Ibrahim Energy Partners" }],
-  creator: "iPurpose Group",
+  creator: "Ibrahim Energy Partners",
   publisher: "Ibrahim Energy Partners",
   formatDetection: {
     email: false,
@@ -114,16 +114,13 @@ const organizationSchema = {
   description: "North African Oil & Gas Opportunity Facilitation. Bridging Western capital with North African energy assets.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Victoria",
+    streetAddress: "333 Seymour Street",
+    addressLocality: "Vancouver",
     addressRegion: "BC",
+    postalCode: "V6B 5A6",
     addressCountry: "CA"
   },
   email: "info@ibrahim.help",
-  parentOrganization: {
-    "@type": "Organization",
-    name: "GPR Kinetic",
-    url: "https://gprkinetic.pro"
-  },
   areaServed: ["Libya", "Tunisia", "Algeria", "North Africa", "MENA"],
   knowsAbout: ["Oil and Gas", "Upstream Petroleum", "E&P", "Energy Consulting", "North Africa"]
 }
