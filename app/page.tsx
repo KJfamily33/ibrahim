@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, ArrowUp, ChevronDown, Mail, MapPin, Globe, ExternalLink, Check, Search, Shield, Handshake, HeartHandshake } from "lucide-react"
+import { Menu, X, ArrowUp, ChevronDown, Mail, MapPin, Globe, Check, Search, Shield, Handshake, HeartHandshake, Phone, Linkedin, Calendar } from "lucide-react"
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -94,27 +94,35 @@ export default function Home() {
   }
 
   const stats = [
-    { value: "1B+", label: "bbl Access" },
-    { value: "48.4B", label: "Reserves" },
+    { value: "48.4B", label: "bbl Reserves" },
     { value: "40+", label: "Fields" },
     { value: "30yr", label: "Expertise" },
+    { value: "2026", label: "Licensing Round" },
   ]
 
   const teamCards = [
     {
       name: "Ibrahim Ali",
-      role: "Trust & Relationships",
-      description: "Founder of islamland.com. 20 years building trust networks across the Islamic world.",
+      role: "Founder & Regional Director",
+      roleAr: "المؤسس والمدير الإقليمي",
+      description: "20+ years building commercial trust networks across the MENA region. Deep relationships with Libyan business leaders, government stakeholders, and regional partners. Based in Libya.",
+      descriptionAr: "أكثر من 20 عامًا في بناء شبكات الثقة التجارية عبر منطقة الشرق الأوسط وشمال أفريقيا. علاقات عميقة مع قادة الأعمال الليبيين وأصحاب المصلحة الحكوميين والشركاء الإقليميين. مقره في ليبيا.",
     },
     {
-      name: "Senior Technical Team",
-      role: "On-Ground Intelligence",
-      description: "30+ years advisory to the Libyan Ministry of Petroleum. Verified access to 40+ undeveloped fields.",
+      name: "Senior Technical Advisor",
+      role: "Upstream Technical Lead",
+      roleAr: "قائد الفريق الفني للمنبع",
+      description: "30+ years upstream exploration and advisory experience across North Africa. 11 exploration discoveries across the Illizi, Ghadames, and Sirte basins. Direct advisory to national petroleum authorities in Libya, Algeria, and Tunisia.",
+      descriptionAr: "أكثر من 30 عامًا من الخبرة في الاستكشاف والاستشارات في مجال المنبع عبر شمال أفريقيا. 11 اكتشافًا استكشافيًا في أحواض إليزي وغدامس وسرت. استشارات مباشرة للسلطات البترولية الوطنية في ليبيا والجزائر وتونس.",
+      badge: "Identity disclosed under executed NCNDA",
+      badgeAr: "يتم الكشف عن الهوية بموجب اتفاقية عدم الإفصاح الموقعة",
     },
     {
       name: "Jesse James",
-      role: "Western Bridge",
-      description: "CEO, iPurpose Group. AI-powered due diligence. 18,000+ contacts across MENA and North America.",
+      role: "Managing Director, Western Operations",
+      roleAr: "المدير الإداري، العمليات الغربية",
+      description: "Business development and capital markets interface for IEP. Background in enterprise technology, AI-driven research, and strategic communications. 18,000+ professional network across energy, government, and MENA markets.",
+      descriptionAr: "تطوير الأعمال وواجهة أسواق رأس المال لشركة IEP. خلفية في تقنية المؤسسات والأبحاث المدعومة بالذكاء الاصطناعي والاتصالات الاستراتيجية. شبكة مهنية تضم أكثر من 18,000 جهة اتصال عبر قطاعات الطاقة والحكومة وأسواق الشرق الأوسط وشمال أفريقيا.",
     },
   ]
 
@@ -352,6 +360,13 @@ export default function Home() {
               </div>
             ))}
           </div>
+          {/* Caption line */}
+          <p className="text-center text-warm-gray/70 text-sm mt-4 italic">
+            Backed by the largest proven oil reserves in Africa.
+          </p>
+          <p className="font-arabic text-center text-warm-gray/50 text-xs mt-1" dir="rtl" lang="ar">
+            مدعومة بأكبر احتياطيات نفطية مؤكدة في أفريقيا.
+          </p>
         </div>
 
         {/* Scroll indicator */}
@@ -387,16 +402,16 @@ export default function Home() {
           {/* Description */}
           <div className={`max-w-3xl mx-auto text-center mb-16 ${visibleSections.has("about") ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
             <p className="text-lg text-cream leading-relaxed mb-6">
-              Ibrahim Energy Partners facilitates introductions between qualified Western E&P
-              companies and verified North African upstream opportunities. Our team combines 30+
-              years of direct advisory experience to the Libyan Ministry of Petroleum with Western
-              capital markets expertise and AI-powered due diligence.
+              Ibrahim Energy Partners connects qualified Western E&P companies with verified North
+              African upstream opportunities. Our team combines decades of direct advisory experience
+              across Libyan, Algerian, and Tunisian petroleum sectors with Western capital markets
+              expertise and rigorous, AI-driven due diligence.
             </p>
             <p className="font-arabic text-base text-warm-gray leading-loose text-right" dir="rtl" lang="ar">
-              شركاء إبراهيم للطاقة تسهّل التقديم بين شركات التنقيب والإنتاج الغربية المؤهلة والفرص
-              المعتمدة في شمال أفريقيا. يجمع فريقنا بين أكثر من 30 عامًا من الخبرة الاستشارية
-              المباشرة لوزارة النفط الليبية وخبرة أسواق رأس المال الغربية والعناية الواجبة المدعومة
-              بالذكاء الاصطناعي.
+              شركاء إبراهيم للطاقة تربط شركات التنقيب والإنتاج الغربية المؤهلة بفرص المنبع المعتمدة
+              في شمال أفريقيا. يجمع فريقنا بين عقود من الخبرة الاستشارية المباشرة في قطاعات النفط
+              الليبية والجزائرية والتونسية مع خبرة أسواق رأس المال الغربية والعناية الواجبة الصارمة
+              المدعومة بالذكاء الاصطناعي.
             </p>
           </div>
 
@@ -411,8 +426,17 @@ export default function Home() {
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}
               >
                 <h3 className="font-display text-xl text-white mb-2">{card.name}</h3>
-                <p className="text-gold text-sm font-medium mb-4">{card.role}</p>
-                <p className="text-cream text-sm leading-relaxed flex-grow">{card.description}</p>
+                <p className="text-gold text-sm font-medium mb-1">{card.role}</p>
+                <p className="font-arabic text-gold/70 text-xs mb-4" dir="rtl" lang="ar">{card.roleAr}</p>
+                <p className="text-cream text-sm leading-relaxed mb-3">{card.description}</p>
+                <p className="font-arabic text-warm-gray/70 text-xs leading-relaxed mb-3" dir="rtl" lang="ar">{card.descriptionAr}</p>
+                {card.badge && (
+                  <div className="mt-auto pt-3 border-t border-gold/20">
+                    <span className="inline-block text-xs text-gold/80 bg-gold/10 px-3 py-1 rounded-full">
+                      {card.badge}
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -447,7 +471,7 @@ export default function Home() {
               { stat: "48.4B", unit: "bbl", label: "Proven Oil Reserves" },
               { stat: "40+", unit: "", label: "Undeveloped Fields" },
               { stat: "1.4M", unit: "bopd", label: "Current Production" },
-              { stat: "2M", unit: "bopd", label: "2030 Target" },
+              { stat: "1.6M", unit: "bopd", label: "2026 Target" },
             ].map((item, index) => (
               <div
                 key={index}
@@ -492,10 +516,85 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-center text-cream/60 text-sm mt-4">
-                A second licensing round is in preparation. The window remains open.
+                A second licensing round is in preparation. The window remains open — but the majors are already moving. The $20B ConocoPhillips-TotalEnergies deal signed in January 2026 through Massad Boulos confirms the trajectory.
+              </p>
+              <p className="font-arabic text-center text-cream/50 text-xs mt-2" dir="rtl" lang="ar">
+                النافذة لا تزال مفتوحة — لكن الشركات الكبرى تتحرك بالفعل. صفقة كونوكو فيليبس وتوتال إنرجي بقيمة 20 مليار دولار الموقعة في يناير 2026 عبر مسعد بولص تؤكد المسار.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Section Divider */}
+      <div className="flex justify-center py-4 bg-deep-navy">
+        <div className="w-48 h-[1px] bg-gold/40" />
+      </div>
+
+      {/* ==================== RECENT DEVELOPMENTS SECTION ==================== */}
+      <section id="developments" className="py-24 px-6 bg-deep-navy" style={{
+        background: "radial-gradient(ellipse at center, #0F1A2E 0%, #0A0E17 100%)"
+      }}>
+        <div className="max-w-4xl mx-auto">
+          <div className={`text-center mb-12 ${visibleSections.has("developments") ? "animate-fade-in-up" : "opacity-0"}`}>
+            <h2 className="font-display text-4xl sm:text-5xl text-gold mb-4">
+              Recent Developments
+            </h2>
+            <p className="font-arabic text-2xl text-warm-gray" dir="rtl" lang="ar">
+              التطورات الأخيرة
+            </p>
+          </div>
+
+          <div className={`space-y-4 ${visibleSections.has("developments") ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
+            {[
+              {
+                date: "Feb 2026",
+                text: "LEES 2026 summit in Tripoli — PM Dbeibah confirms 2025 production reached 1.37M bopd, highest in 12 years",
+                textAr: "قمة LEES 2026 في طرابلس — رئيس الوزراء الدبيبة يؤكد وصول إنتاج 2025 إلى 1.37 مليون برميل يوميًا، الأعلى في 12 عامًا",
+              },
+              {
+                date: "Feb 2026",
+                text: "NOC awards 5 blocks in first licensing round since 2007; second round in preparation",
+                textAr: "المؤسسة الوطنية للنفط تمنح 5 قطع في أول جولة تراخيص منذ 2007؛ الجولة الثانية قيد الإعداد",
+              },
+              {
+                date: "Jan 2026",
+                text: "TotalEnergies and ConocoPhillips amend Waha fields framework — $20B, 25-year commitment",
+                textAr: "توتال إنرجيز وكونوكو فيليبس تعدلان إطار حقول الواحة — التزام بقيمة 20 مليار دولار لمدة 25 عامًا",
+              },
+              {
+                date: "2025",
+                text: "Production begins at Iravn, Mutahandush, al-Khayr, Hamada 47, and Sinawan fields",
+                textAr: "بدء الإنتاج في حقول إيرافن ومتحندوش والخير وحمادة 47 وسيناون",
+              },
+              {
+                date: "2025",
+                text: "Two offshore natural gas field development agreements signed at LEES summit",
+                textAr: "توقيع اتفاقيتين لتطوير حقول الغاز الطبيعي البحرية في قمة LEES",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex gap-4 p-4 rounded-lg bg-midnight/50 border border-gold/20 hover:border-gold/40 transition-colors"
+              >
+                <div className="flex-shrink-0">
+                  <Calendar className="w-5 h-5 text-gold" />
+                </div>
+                <div className="flex-grow">
+                  <div className="flex flex-wrap items-baseline gap-2 mb-1">
+                    <span className="text-gold font-semibold text-sm">{item.date}</span>
+                    <span className="text-cream/60 text-xs">—</span>
+                  </div>
+                  <p className="text-cream text-sm leading-relaxed mb-2">{item.text}</p>
+                  <p className="font-arabic text-warm-gray/60 text-xs leading-relaxed" dir="rtl" lang="ar">{item.textAr}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className={`text-center text-warm-gray/60 text-xs mt-8 ${visibleSections.has("developments") ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
+            All items publicly verifiable via Reuters, NOC statements, and official summit communications.
+          </p>
         </div>
       </section>
 
@@ -608,10 +707,23 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-start gap-4">
+                  <Phone className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="text-warm-gray text-sm mb-1">Phone</div>
+                    <a
+                      href="tel:+12504155678"
+                      className="text-cream hover:text-gold transition-colors"
+                    >
+                      +1 (250) 415-5678
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
                   <MapPin className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
                   <div>
                     <div className="text-warm-gray text-sm mb-1">Location</div>
-                    <span className="text-cream">Victoria, BC, Canada</span>
+                    <span className="text-cream">333 Seymour Street, Vancouver, BC V6B 5A6, Canada</span>
                   </div>
                 </div>
 
@@ -627,19 +739,23 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
+
+                <div className="flex items-start gap-4">
+                  <Linkedin className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="text-warm-gray text-sm mb-1">LinkedIn</div>
+                    <a
+                      href="https://www.linkedin.com/in/jessecares/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cream hover:text-gold transition-colors"
+                    >
+                      Jesse James
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-gold/20">
-                <a
-                  href="https://gprkinetic.pro/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gold hover:text-gold-light transition-colors"
-                >
-                  <span>GPR Kinetic</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
             </div>
 
             {/* Contact Form (FIX 6: better styling) */}
@@ -744,21 +860,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+          <div className="text-center mt-6">
             <a
               href="mailto:info@ibrahim.help"
               className="text-warm-gray text-xs hover:text-gold transition-colors"
             >
               info@ibrahim.help
-            </a>
-            <span className="hidden sm:inline text-warm-gray/40">|</span>
-            <a
-              href="https://gprkinetic.pro/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-warm-gray text-xs hover:text-gold transition-colors"
-            >
-              A division of GPR Kinetic
             </a>
           </div>
         </div>
