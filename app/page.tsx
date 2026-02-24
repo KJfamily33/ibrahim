@@ -94,19 +94,19 @@ export default function Home() {
   }
 
   const stats = [
-    { value: "48.4B", label: "bbl Reserves" },
-    { value: "40+", label: "Fields" },
-    { value: "30yr", label: "Expertise" },
-    { value: "2026", label: "Licensing Round" },
+    { value: "48.4B", label: "Reserves (bbl)" },
+    { value: "40+", label: "Undeveloped Fields" },
+    { value: "1.4M", label: "bopd Production" },
+    { value: "30yr", label: "Advisory Experience" },
   ]
 
   const teamCards = [
     {
       name: "Ibrahim Ali",
-      role: "Founder & Regional Director",
-      roleAr: "المؤسس والمدير الإقليمي",
-      description: "20+ years building commercial trust networks across the MENA region. Deep relationships with Libyan business leaders, government stakeholders, and regional partners. Based in Libya.",
-      descriptionAr: "أكثر من 20 عامًا في بناء شبكات الثقة التجارية عبر منطقة الشرق الأوسط وشمال أفريقيا. علاقات عميقة مع قادة الأعمال الليبيين وأصحاب المصلحة الحكوميين والشركاء الإقليميين. مقره في ليبيا.",
+      role: "Institutional Relationships",
+      roleAr: "العلاقات المؤسسية",
+      description: "20+ years building trust networks across North Africa and the Gulf. Direct relationships with ministry-level decision makers.",
+      descriptionAr: "أكثر من 20 عامًا في بناء شبكات الثقة عبر شمال أفريقيا والخليج. علاقات مباشرة مع صناع القرار على مستوى الوزارات.",
     },
     {
       name: "Senior Technical Advisor",
@@ -484,7 +484,7 @@ export default function Home() {
               { stat: "48.4B", unit: "bbl", label: "Proven Oil Reserves" },
               { stat: "40+", unit: "", label: "Undeveloped Fields" },
               { stat: "1.4M", unit: "bopd", label: "Current Production" },
-              { stat: "1.6M", unit: "bopd", label: "2026 Target" },
+              { stat: "2M", unit: "bopd", label: "2030 Target" },
             ].map((item, index) => (
               <div
                 key={index}
@@ -505,7 +505,7 @@ export default function Home() {
           <div className={`max-w-3xl mx-auto text-center ${visibleSections.has("opportunity") ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
             <p className="text-lg text-cream leading-relaxed mb-6">
               Libya holds Africa&apos;s largest proven oil reserves. In February 2026, the NOC completed
-              its first licensing round in 17 years — yet only 5 of 22 blocks were awarded despite
+              its first licensing round in 17 years — yet only 5 of 20 blocks were awarded despite
               44 companies expressing interest.
             </p>
             <p className="text-base text-cream/80 leading-relaxed">
@@ -522,14 +522,14 @@ export default function Home() {
                 February 2026 Block Awards
               </p>
               <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
-                {["Chevron", "Eni", "QatarEnergy", "Repsol", "TotalEnergies", "TPAO"].map((company) => (
+                {["Chevron", "Eni", "QatarEnergy", "Repsol", "TPAO", "MOL", "Aiteo"].map((company) => (
                   <span key={company} className="text-gold font-semibold text-sm sm:text-base">
                     {company}
                   </span>
                 ))}
               </div>
               <p className="text-center text-cream/60 text-sm mt-4">
-                A second licensing round is in preparation. The window remains open — but the majors are already moving. The $20B ConocoPhillips-TotalEnergies deal signed in January 2026 through Massad Boulos confirms the trajectory.
+                The NOC is reviewing terms for remaining unawarded blocks. The window remains open — but the majors are already moving. The $20B ConocoPhillips-TotalEnergies deal signed in January 2026 confirms the trajectory.
               </p>
               <p className="font-arabic text-center text-cream/50 text-xs mt-2" dir="rtl" lang="ar">
                 النافذة لا تزال مفتوحة — لكن الشركات الكبرى تتحرك بالفعل. صفقة كونوكو فيليبس وتوتال إنرجي بقيمة 20 مليار دولار الموقعة في يناير 2026 عبر مسعد بولص تؤكد المسار.
@@ -567,8 +567,8 @@ export default function Home() {
               },
               {
                 date: "Feb 2026",
-                text: "NOC awards 5 blocks in first licensing round since 2007; second round in preparation",
-                textAr: "المؤسسة الوطنية للنفط تمنح 5 قطع في أول جولة تراخيص منذ 2007؛ الجولة الثانية قيد الإعداد",
+                text: "NOC awards 5 blocks in first licensing round since 2007; reviewing terms for remaining blocks",
+                textAr: "المؤسسة الوطنية للنفط تمنح 5 قطع في أول جولة تراخيص منذ 2007؛ مراجعة الشروط للقطع المتبقية",
               },
               {
                 date: "Jan 2026",
