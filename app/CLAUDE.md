@@ -42,6 +42,8 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
+| #14541 | 5:22 AM | 🔴 | Hero section bottom padding added to fix scroll indicator overlap | ~319 |
+| #14540 | 5:21 AM | 🔵 | Ibrahim Energy Partners design system reviewed in globals.css | ~445 |
 | #14538 | 4:49 AM | ✅ | Opportunity section stats updated to match hero section Waha Deal reference | ~320 |
 | #14537 | " | ✅ | Hero stats bar updated to feature $20B Waha Deal instead of undeveloped fields count | ~310 |
 | #14536 | " | ✅ | Production statistics updated in Recent Developments timeline | ~346 |

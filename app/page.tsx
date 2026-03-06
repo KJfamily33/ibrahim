@@ -221,7 +221,7 @@ export default function Home() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative text-sm tracking-wide transition-colors py-2 ${
+                className={`group relative text-sm tracking-wide transition-colors py-2 ${
                   activeSection === item.id ? "text-gold" : "text-warm-gray hover:text-gold"
                 }`}
               >
@@ -246,9 +246,17 @@ export default function Home() {
           </button>
         </div>
 
+        {/* Mobile Menu Backdrop */}
+        {mobileMenuOpen && (
+          <div
+            className="md:hidden fixed inset-0 top-[64px] bg-black/50 z-0"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+
         {/* Mobile Menu - slide from right */}
         <div
-          className={`md:hidden fixed top-[64px] right-0 h-[calc(100vh-64px)] w-64 bg-navy border-l border-gold/20 transform transition-transform duration-300 ${
+          className={`md:hidden fixed top-[64px] right-0 h-[calc(100vh-64px)] w-64 bg-navy border-l border-gold/20 transform transition-transform duration-300 z-10 ${
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -271,7 +279,7 @@ export default function Home() {
       {/* ==================== HERO SECTION (FIX 9: radial gradient + pattern) ==================== */}
       <section
         id="hero"
-        className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20"
+        className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-24"
         style={{
           background: "radial-gradient(ellipse at center, #1A2640 0%, #0A0E17 70%)"
         }}
