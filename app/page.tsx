@@ -95,7 +95,7 @@ export default function Home() {
 
   const stats = [
     { value: "48.4B", label: "Reserves (bbl)" },
-    { value: "40+", label: "Undeveloped Fields" },
+    { value: "$20B", label: "Waha Deal (2026)" },
     { value: "1.4M", label: "bopd Production" },
     { value: "30yr", label: "Advisory Experience" },
   ]
@@ -112,8 +112,8 @@ export default function Home() {
       name: "Senior Technical Advisor",
       role: "Upstream Technical Lead",
       roleAr: "قائد الفريق الفني للمنبع",
-      description: "30+ years upstream exploration and advisory experience across North Africa. 11 exploration discoveries across the Illizi, Ghadames, and Sirte basins. Direct advisory to national petroleum authorities in Libya, Algeria, and Tunisia.",
-      descriptionAr: "أكثر من 30 عامًا من الخبرة في الاستكشاف والاستشارات في مجال المنبع عبر شمال أفريقيا. 11 اكتشافًا استكشافيًا في أحواض إليزي وغدامس وسرت. استشارات مباشرة للسلطات البترولية الوطنية في ليبيا والجزائر وتونس.",
+      description: "30+ years upstream exploration and advisory experience across North Africa. 11 exploration discoveries across the Illizi and Murzuq basins and in Tunisia. Direct advisory to national petroleum authorities in Libya, Algeria, and Tunisia.",
+      descriptionAr: "أكثر من 30 عامًا من الخبرة في الاستكشاف والاستشارات في مجال المنبع عبر شمال أفريقيا. 11 اكتشافًا استكشافيًا في أحواض إليزي والمرزق وفي تونس. استشارات مباشرة للسلطات البترولية الوطنية في ليبيا والجزائر وتونس.",
       badge: "Identity disclosed under executed NCNDA",
       badgeAr: "يتم الكشف عن الهوية بموجب اتفاقية عدم الإفصاح الموقعة",
     },
@@ -121,8 +121,8 @@ export default function Home() {
       name: "Jesse James",
       role: "Managing Director, Western Operations",
       roleAr: "المدير الإداري، العمليات الغربية",
-      description: "Business development and capital markets interface for IEP. Background in enterprise technology, AI-driven research, and strategic communications. 18,000+ professional network across energy, government, and MENA markets.",
-      descriptionAr: "تطوير الأعمال وواجهة أسواق رأس المال لشركة IEP. خلفية في تقنية المؤسسات والأبحاث المدعومة بالذكاء الاصطناعي والاتصالات الاستراتيجية. شبكة مهنية تضم أكثر من 18,000 جهة اتصال عبر قطاعات الطاقة والحكومة وأسواق الشرق الأوسط وشمال أفريقيا.",
+      description: "Commercial screening and AI-powered counterparty analysis. Background in enterprise technology, strategic communications, and due diligence automation. 18,000+ professional network across energy, government, and MENA markets.",
+      descriptionAr: "الفحص التجاري وتحليل الأطراف المقابلة المدعوم بالذكاء الاصطناعي. خلفية في تقنية المؤسسات والاتصالات الاستراتيجية وأتمتة العناية الواجبة. شبكة مهنية تضم أكثر من 18,000 جهة اتصال عبر قطاعات الطاقة والحكومة وأسواق الشرق الأوسط وشمال أفريقيا.",
     },
   ]
 
@@ -417,14 +417,14 @@ export default function Home() {
             <p className="text-lg text-cream leading-relaxed mb-6">
               Ibrahim Energy Partners connects qualified Western E&P companies with verified North
               African upstream opportunities. Our team combines decades of direct advisory experience
-              across Libyan, Algerian, and Tunisian petroleum sectors with Western capital markets
-              expertise and rigorous, AI-driven due diligence.
+              across Libyan, Algerian, and Tunisian petroleum sectors with
+              technology-driven commercial screening and rigorous counterparty analysis.
             </p>
             <p className="font-arabic text-base text-warm-gray leading-loose text-right" dir="rtl" lang="ar">
               شركاء إبراهيم للطاقة تربط شركات التنقيب والإنتاج الغربية المؤهلة بفرص المنبع المعتمدة
               في شمال أفريقيا. يجمع فريقنا بين عقود من الخبرة الاستشارية المباشرة في قطاعات النفط
-              الليبية والجزائرية والتونسية مع خبرة أسواق رأس المال الغربية والعناية الواجبة الصارمة
-              المدعومة بالذكاء الاصطناعي.
+              الليبية والجزائرية والتونسية مع
+              الفحص التجاري المدعوم بالتكنولوجيا وتحليل الأطراف المقابلة الدقيق.
             </p>
           </div>
 
@@ -482,7 +482,7 @@ export default function Home() {
           <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 ${visibleSections.has("opportunity") ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
             {[
               { stat: "48.4B", unit: "bbl", label: "Proven Oil Reserves" },
-              { stat: "40+", unit: "", label: "Undeveloped Fields" },
+              { stat: "$20B", unit: "", label: "Waha Deal (2026)" },
               { stat: "1.4M", unit: "bopd", label: "Current Production" },
               { stat: "2M", unit: "bopd", label: "2030 Target" },
             ].map((item, index) => (
@@ -562,8 +562,8 @@ export default function Home() {
             {[
               {
                 date: "Feb 2026",
-                text: "LEES 2026 summit in Tripoli — PM Dbeibah confirms 2025 production reached 1.37M bopd, highest in 12 years",
-                textAr: "قمة LEES 2026 في طرابلس — رئيس الوزراء الدبيبة يؤكد وصول إنتاج 2025 إلى 1.37 مليون برميل يوميًا، الأعلى في 12 عامًا",
+                text: "LEES 2026 summit in Tripoli — PM Dbeibah confirms 2025 production exceeded 1.4M bopd, highest since 2013",
+                textAr: "قمة LEES 2026 في طرابلس — رئيس الوزراء الدبيبة يؤكد تجاوز إنتاج 2025 حاجز 1.4 مليون برميل يوميًا، الأعلى منذ 2013",
               },
               {
                 date: "Feb 2026",
