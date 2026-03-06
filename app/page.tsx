@@ -279,7 +279,7 @@ export default function Home() {
       {/* ==================== HERO SECTION (FIX 9: radial gradient + pattern) ==================== */}
       <section
         id="hero"
-        className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-24"
+        className="relative min-h-screen flex flex-col items-center px-6 pt-20 pb-8"
         style={{
           background: "radial-gradient(ellipse at center, #1A2640 0%, #0A0E17 70%)"
         }}
@@ -289,6 +289,9 @@ export default function Home() {
 
         {/* Gold top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gold" />
+
+        {/* Main content wrapper - vertically centered */}
+        <div className="flex-1 flex flex-col items-center justify-center w-full">
 
         {/* Content */}
         <div className={`relative z-10 text-center max-w-4xl mx-auto ${visibleSections.has("hero") ? "animate-fade-in-up" : "opacity-0"}`}>
@@ -390,10 +393,12 @@ export default function Home() {
           </div>
         </div>
 
+        </div>{/* end main content wrapper */}
+
         {/* Scroll indicator */}
         <button
           onClick={() => scrollToSection("about")}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-warm-gray hover:text-gold flex flex-col items-center gap-2 transition-colors z-10"
+          className="text-warm-gray hover:text-gold flex flex-col items-center gap-2 transition-colors z-10 mt-6 shrink-0"
           aria-label="Scroll to about section"
         >
           <span className="text-xs tracking-widest uppercase">Scroll</span>

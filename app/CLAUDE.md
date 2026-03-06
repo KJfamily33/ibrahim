@@ -42,6 +42,8 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
+| #14543 | 5:31 AM | 🔴 | Hero section layout refactored with flexbox for scroll indicator clearance | ~375 |
+| #14542 | " | 🔴 | Scroll indicator overlap persists after initial padding adjustment | ~298 |
 | #14541 | 5:22 AM | 🔴 | Hero section bottom padding added to fix scroll indicator overlap | ~319 |
 | #14540 | 5:21 AM | 🔵 | Ibrahim Energy Partners design system reviewed in globals.css | ~445 |
 | #14538 | 4:49 AM | ✅ | Opportunity section stats updated to match hero section Waha Deal reference | ~320 |
