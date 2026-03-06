@@ -42,7 +42,10 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #14535 | 4:49 AM | ✅ | Jesse James bio updated to reflect commercial screening and counterparty analysis role | ~418 |
+| #14538 | 4:49 AM | ✅ | Opportunity section stats updated to match hero section Waha Deal reference | ~320 |
+| #14537 | " | ✅ | Hero stats bar updated to feature $20B Waha Deal instead of undeveloped fields count | ~310 |
+| #14536 | " | ✅ | Production statistics updated in Recent Developments timeline | ~346 |
+| #14535 | " | ✅ | Jesse James bio updated to reflect commercial screening and counterparty analysis role | ~418 |
 | #14534 | 4:48 AM | ✅ | About section Arabic translation updated to match English messaging changes | ~340 |
 | #14533 | " | ✅ | About section description updated to emphasize technology-driven screening | ~323 |
 | #14532 | " | ✅ | Senior Technical Advisor bio updated with corrected basin references | ~275 |
