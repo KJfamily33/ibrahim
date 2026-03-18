@@ -120,6 +120,68 @@
         .tab-btn.active-tab .tab-icon {
             background-color: #C8A44E;
         }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-backdrop {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .mobile-backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Responsive chart sizing */
+        @media (max-width: 480px) {
+            .chart-container {
+                height: 220px;
+            }
+        }
+
+        /* Touch-friendly tap targets */
+        @media (max-width: 768px) {
+            .tab-btn {
+                min-height: 52px;
+            }
+            .toggle-btn {
+                min-height: 44px;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+        }
+
+        /* Prevent horizontal overflow */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* Smooth scrolling for all browsers */
+        @media (prefers-reduced-motion: no-preference) {
+            html { scroll-behavior: smooth; }
+        }
+
+        /* Safe area insets for notched phones */
+        @supports (padding: env(safe-area-inset-bottom)) {
+            footer { padding-bottom: calc(3rem + env(safe-area-inset-bottom)); }
+            nav { padding-top: env(safe-area-inset-top); }
+        }
+
+        /* Contact bar link hover */
+        .contact-link {
+            transition: all 0.2s ease;
+        }
+        .contact-link:hover {
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body class="font-body selection:bg-brand-gold selection:text-white">
@@ -127,60 +189,120 @@
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-brand-deep-navy border-b border-brand-midnight shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-4">
-                    <div class="w-10 h-10 border border-brand-gold flex items-center justify-center transform rotate-45">
-                        <span class="font-display text-white text-xl font-bold transform -rotate-45 block mt-1">IE</span>
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center space-x-3 md:space-x-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 border border-brand-gold flex items-center justify-center transform rotate-45 flex-shrink-0">
+                        <span class="font-display text-white text-lg md:text-xl font-bold transform -rotate-45 block mt-0.5 md:mt-1">IE</span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-display text-lg font-bold tracking-widest text-white leading-tight">IBRAHIM ENERGY</span>
-                        <span class="font-display text-sm text-brand-gold tracking-[0.2em] leading-tight">PARTNERS</span>
+                        <span class="font-display text-sm md:text-lg font-bold tracking-widest text-white leading-tight">IBRAHIM ENERGY</span>
+                        <span class="font-display text-xs md:text-sm text-brand-gold tracking-[0.15em] md:tracking-[0.2em] leading-tight">PARTNERS</span>
                     </div>
                 </div>
 
-                <div class="hidden md:flex space-x-6 items-center">
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex space-x-5 xl:space-x-6 items-center">
                     <a href="#crisis" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">The Crisis</a>
                     <a href="#ai-nexus" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">AI Nexus</a>
                     <a href="#korea-strategy" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">ROK Response</a>
                     <a href="#opportunities" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">Libyan Pivot</a>
                     <a href="#convergence" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">The Deal</a>
                 </div>
+
+                <!-- Mobile Hamburger -->
+                <button id="menuToggle" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none" aria-label="Toggle navigation menu">
+                    <span class="block w-6 h-0.5 bg-brand-gold transition-all duration-200" id="bar1"></span>
+                    <span class="block w-6 h-0.5 bg-brand-gold transition-all duration-200" id="bar2"></span>
+                    <span class="block w-4 h-0.5 bg-brand-gold transition-all duration-200 self-end mr-0" id="bar3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Backdrop -->
+        <div id="mobileBackdrop" class="mobile-backdrop fixed inset-0 bg-black/60 z-40"></div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-brand-deep-navy z-50 shadow-2xl border-l border-brand-midnight flex flex-col">
+            <div class="flex justify-between items-center px-6 py-5 border-b border-brand-midnight">
+                <span class="font-display text-brand-gold text-sm font-bold tracking-widest">NAVIGATE</span>
+                <button id="menuClose" class="text-brand-warm-gray hover:text-brand-gold text-2xl leading-none focus:outline-none" aria-label="Close menu">&times;</button>
+            </div>
+            <div class="flex flex-col py-4 flex-1">
+                <a href="#crisis" class="mobile-nav-link px-6 py-4 text-brand-warm-gray hover:text-brand-gold hover:bg-brand-midnight/50 font-body text-sm font-bold uppercase tracking-[0.15em] transition-colors">The Crisis</a>
+                <a href="#ai-nexus" class="mobile-nav-link px-6 py-4 text-brand-warm-gray hover:text-brand-gold hover:bg-brand-midnight/50 font-body text-sm font-bold uppercase tracking-[0.15em] transition-colors">AI Nexus</a>
+                <a href="#korea-strategy" class="mobile-nav-link px-6 py-4 text-brand-warm-gray hover:text-brand-gold hover:bg-brand-midnight/50 font-body text-sm font-bold uppercase tracking-[0.15em] transition-colors">ROK Response</a>
+                <a href="#opportunities" class="mobile-nav-link px-6 py-4 text-brand-warm-gray hover:text-brand-gold hover:bg-brand-midnight/50 font-body text-sm font-bold uppercase tracking-[0.15em] transition-colors">Libyan Pivot</a>
+                <a href="#convergence" class="mobile-nav-link px-6 py-4 text-brand-warm-gray hover:text-brand-gold hover:bg-brand-midnight/50 font-body text-sm font-bold uppercase tracking-[0.15em] transition-colors">The Deal</a>
+            </div>
+            <!-- Mobile contact shortcuts -->
+            <div class="px-6 py-5 border-t border-brand-midnight space-y-3">
+                <a href="mailto:jesse@ibrahim.help" class="flex items-center gap-3 text-brand-warm-gray hover:text-brand-gold text-xs font-body transition-colors">
+                    <span class="text-brand-gold">&#9993;</span> jesse@ibrahim.help
+                </a>
+                <a href="https://wa.me/12504155678" target="_blank" rel="noopener" class="flex items-center gap-3 text-brand-warm-gray hover:text-brand-gold text-xs font-body transition-colors">
+                    <span class="text-brand-gold">&#9742;</span> WhatsApp: +1 250 415 5678
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Header / Hero -->
-    <header class="bg-brand-deep-navy bg-pattern-dark text-white py-24 px-4 relative overflow-hidden border-b-4 border-brand-gold">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold rounded-full mix-blend-overlay filter blur-[120px] opacity-10"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-heritage-green rounded-full mix-blend-overlay filter blur-[120px] opacity-20"></div>
+    <header class="bg-brand-deep-navy bg-pattern-dark text-white py-16 sm:py-20 md:py-24 px-4 relative overflow-hidden border-b-4 border-brand-gold">
+        <div class="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold rounded-full mix-blend-overlay filter blur-[80px] sm:blur-[120px] opacity-10"></div>
+        <div class="absolute bottom-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-brand-heritage-green rounded-full mix-blend-overlay filter blur-[80px] sm:blur-[120px] opacity-20"></div>
 
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <div class="inline-block border border-brand-gold/30 text-brand-gold text-xs font-bold px-4 py-1.5 uppercase tracking-[0.2em] mb-6 font-body">
+            <div class="inline-block border border-brand-gold/30 text-brand-gold text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1.5 uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-4 sm:mb-6 font-body">
                 Confidential Market Intelligence &bull; March 2026
             </div>
-            <h1 class="font-display text-5xl md:text-7xl font-semibold tracking-tight mb-4 leading-tight text-white">
+            <h1 class="font-display text-3xl sm:text-5xl md:text-7xl font-semibold tracking-tight mb-3 sm:mb-4 leading-tight text-white">
                 THE MEDITERRANEAN PIVOT
             </h1>
-            <div class="font-arabic text-2xl md:text-3xl text-brand-gold mb-8 text-center" dir="rtl">
+            <div class="font-arabic text-xl sm:text-2xl md:text-3xl text-brand-gold mb-6 sm:mb-8 text-center" dir="rtl">
                 المحور المتوسطي
             </div>
 
             <div class="gold-line"></div>
 
-            <p class="font-body text-lg md:text-xl text-brand-warm-gray max-w-3xl mx-auto font-light leading-relaxed">
+            <p class="font-body text-base sm:text-lg md:text-xl text-brand-warm-gray max-w-3xl mx-auto font-light leading-relaxed">
                 Securing South Korea's energy supply chain in the post-Hormuz reality.<br>
                 <span class="text-white font-medium">Verification-first. Technical, data-driven, risk-aware.</span>
             </p>
         </div>
     </header>
 
-    <main class="bg-brand-cream bg-pattern-light py-16 space-y-24">
+    <!-- Contact Bar -->
+    <div class="bg-brand-navy border-b border-brand-midnight py-3 overflow-x-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-nowrap min-w-max sm:min-w-0 sm:flex-wrap">
+            <a href="mailto:jesse@ibrahim.help" class="contact-link inline-flex items-center gap-2 text-brand-warm-gray hover:text-brand-gold text-xs sm:text-sm font-body transition-colors whitespace-nowrap">
+                <span class="text-brand-gold text-sm">&#9993;</span>
+                <span>jesse@ibrahim.help</span>
+            </a>
+            <span class="text-brand-midnight hidden sm:inline">|</span>
+            <a href="https://wa.me/12504155678" target="_blank" rel="noopener" class="contact-link inline-flex items-center gap-2 text-brand-warm-gray hover:text-brand-gold text-xs sm:text-sm font-body transition-colors whitespace-nowrap">
+                <span class="text-brand-gold text-sm">&#9742;</span>
+                <span>+1 250 415 5678</span>
+            </a>
+            <span class="text-brand-midnight hidden sm:inline">|</span>
+            <a href="https://www.linkedin.com/in/jessecares/" target="_blank" rel="noopener" class="contact-link inline-flex items-center gap-2 text-brand-warm-gray hover:text-brand-gold text-xs sm:text-sm font-body transition-colors whitespace-nowrap">
+                <span class="text-brand-gold text-xs font-bold">in</span>
+                <span>Jesse James</span>
+            </a>
+            <span class="text-brand-midnight hidden sm:inline">|</span>
+            <a href="https://www.linkedin.com/company/ibrahim-energy-partners/" target="_blank" rel="noopener" class="contact-link inline-flex items-center gap-2 text-brand-warm-gray hover:text-brand-gold text-xs sm:text-sm font-body transition-colors whitespace-nowrap">
+                <span class="text-brand-gold text-xs font-bold">in</span>
+                <span>Ibrahim Energy Partners</span>
+            </a>
+        </div>
+    </div>
+
+    <main class="bg-brand-cream bg-pattern-light py-10 sm:py-16 space-y-16 sm:space-y-24">
 
         <!-- Section 1: The Crisis -->
         <section id="crisis" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
             <div class="mb-12 text-center max-w-3xl mx-auto">
                 <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">الأزمة الكلية</div>
-                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">The Macro Environment</h2>
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-navy mb-4">The Macro Environment</h2>
                 <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
                 <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
                     The March 2, 2026, closure of the Strait of Hormuz has triggered a structural dislocation of the global energy supply chain. Twenty million barrels per day are stranded. This necessitates an immediate pivot to zero-chokepoint Mediterranean crude.
@@ -210,7 +332,7 @@
         <section id="ai-nexus" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
             <div class="mb-12 text-center max-w-3xl mx-auto">
                 <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">العلاقة بين الطاقة والذكاء الاصطناعي</div>
-                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">The AI-Energy Nexus</h2>
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-navy mb-4">The AI-Energy Nexus</h2>
                 <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
                 <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
                     This is not merely an oil crisis. South Korea controls the silicon that makes the global AI revolution physically possible. Without stable energy, the entire semiconductor supply chain — and with it, the AI supercycle — is at risk.
@@ -264,7 +386,7 @@
         <section id="korea-strategy" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
             <div class="mb-12 text-center max-w-3xl mx-auto">
                 <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">استجابة كوريا الجنوبية</div>
-                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">Republic of Korea Response</h2>
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-navy mb-4">Republic of Korea Response</h2>
                 <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
                 <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
                     An analysis of Seoul's unprecedented emergency measures. Understanding these logistical maneuvers is crucial for positioning Libyan assets as the logical next step in Korea's energy security playbook.
@@ -273,18 +395,18 @@
 
             <div class="flex flex-col lg:flex-row gap-6">
                 <div class="lg:w-1/3 flex flex-col space-y-3" id="strategyTabs"></div>
-                <div class="lg:w-2/3 bg-white p-10 shadow-sm border border-brand-warm-gray/20 border-t-4 border-t-brand-gold min-h-[350px]" id="strategyContent"></div>
+                <div class="lg:w-2/3 bg-white p-5 sm:p-8 md:p-10 shadow-sm border border-brand-warm-gray/20 border-t-4 border-t-brand-gold min-h-[300px] sm:min-h-[350px]" id="strategyContent"></div>
             </div>
         </section>
 
     </main>
 
     <!-- Section 3: Libyan Opportunities -->
-    <section id="opportunities" class="bg-brand-deep-navy bg-pattern-dark py-20 scroll-mt-0 border-t border-brand-midnight">
+    <section id="opportunities" class="bg-brand-deep-navy bg-pattern-dark py-14 sm:py-20 scroll-mt-0 border-t border-brand-midnight">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-16 text-center max-w-4xl mx-auto">
                 <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">الفرص الاستثمارية في ليبيا</div>
-                <h2 class="font-display text-4xl font-semibold text-white mb-4">Targeted Libyan Opportunities</h2>
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-4">Targeted Libyan Opportunities</h2>
                 <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
                 <p class="font-body text-brand-warm-gray leading-relaxed text-lg">
                     Libya offers light, sweet crude shipped directly into the Mediterranean with <strong>zero chokepoint exposure</strong>, plus the world's cheapest electricity for AI infrastructure. Four actionable investment avenues tailored for South Korean E&P, EPC, and technology entities.
@@ -300,7 +422,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center max-w-3xl mx-auto">
                 <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">صفقة القرن</div>
-                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">The Energy-for-Technology Framework</h2>
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-brand-navy mb-4">The Energy-for-Technology Framework</h2>
                 <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
                 <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
                     A bilateral exchange of comparative advantages. Korea provides technology transfer, semiconductor expertise, and digital infrastructure. Libya guarantees long-term, preferentially priced hydrocarbons with zero chokepoint exposure.
@@ -326,8 +448,8 @@
             </div>
 
             <!-- Political De-Risking -->
-            <div class="bg-white p-10 rounded-sm shadow-sm border border-brand-warm-gray/20 border-l-4 border-l-brand-heritage-green max-w-4xl mx-auto">
-                <div class="flex items-start gap-6">
+            <div class="bg-white p-6 sm:p-8 md:p-10 rounded-sm shadow-sm border border-brand-warm-gray/20 border-l-4 border-l-brand-heritage-green max-w-4xl mx-auto">
+                <div class="flex items-start gap-4 sm:gap-6">
                     <div class="hidden sm:block">
                         <div class="w-14 h-14 bg-brand-heritage-green flex items-center justify-center text-white font-display text-xl font-bold rounded-sm">✓</div>
                     </div>
@@ -349,37 +471,47 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="bg-brand-heritage-green py-20 text-center border-t-4 border-brand-gold relative overflow-hidden">
+    <section class="bg-brand-heritage-green py-14 sm:py-20 text-center border-t-4 border-brand-gold relative overflow-hidden">
         <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #C8A44E 0, #C8A44E 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
 
         <div class="max-w-4xl mx-auto px-4 relative z-10">
             <div class="font-arabic text-2xl text-brand-gold mb-4" dir="rtl">العلاقات أثمن من الأموال</div>
-            <h2 class="font-display text-4xl font-bold text-white mb-6">Accelerate Your Entry</h2>
+            <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">Accelerate Your Entry</h2>
             <p class="font-body text-lg text-brand-cream/80 mb-10 leading-relaxed max-w-2xl mx-auto">
                 The companies that move in the next 60-90 days will define the competitive landscape for the next decade. Ibrahim Energy Partners is positioned to facilitate verified, authoritative connections. No phantom mandates.
             </p>
 
             <!-- PDF Download -->
             <div class="mb-12">
-                <a href="/rok-briefing/Ibrahim-Energy-Partners-The-Convergence-Libya-Korea-AI.pdf" download class="inline-flex items-center gap-3 bg-brand-gold hover:bg-brand-gold-light text-brand-deep-navy font-body font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 transition-all duration-200 shadow-lg hover:shadow-xl group">
+                <a href="/rok-briefing/Ibrahim-Energy-Partners-The-Convergence-Libya-Korea-AI.pdf" download class="inline-flex items-center gap-3 bg-brand-gold hover:bg-brand-gold-light text-brand-deep-navy font-body font-bold text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.15em] px-5 sm:px-8 py-3.5 sm:py-4 transition-all duration-200 shadow-lg hover:shadow-xl group">
                     <span class="text-lg">&#8595;</span>
                     <span>Download Full Research Report (PDF)</span>
                 </a>
                 <p class="font-body text-brand-cream/50 text-xs mt-3">The Geopolitical Convergence of AI Infrastructure and Energy Security</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto font-body text-sm">
-                <div class="bg-brand-deep-navy/50 p-6 rounded-sm border border-brand-gold/30">
-                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">Web</div>
-                    <div class="text-white font-medium">ibrahim.help</div>
-                </div>
-                <div class="bg-brand-deep-navy/50 p-6 rounded-sm border border-brand-gold/30">
-                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">LinkedIn</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto font-body text-sm mb-8">
+                <a href="mailto:jesse@ibrahim.help" class="contact-link bg-brand-deep-navy/50 p-5 sm:p-6 rounded-sm border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-deep-navy/70 transition-all block text-center">
+                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">Email</div>
+                    <div class="text-white font-medium">jesse@ibrahim.help</div>
+                </a>
+                <a href="https://wa.me/12504155678" target="_blank" rel="noopener" class="contact-link bg-brand-deep-navy/50 p-5 sm:p-6 rounded-sm border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-deep-navy/70 transition-all block text-center">
+                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">WhatsApp</div>
+                    <div class="text-white font-medium">+1 250 415 5678</div>
+                </a>
+                <a href="https://www.linkedin.com/in/jessecares/" target="_blank" rel="noopener" class="contact-link bg-brand-deep-navy/50 p-5 sm:p-6 rounded-sm border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-deep-navy/70 transition-all block text-center">
+                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">Jesse James</div>
+                    <div class="text-white font-medium">LinkedIn Profile</div>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto font-body text-sm">
+                <a href="https://www.linkedin.com/company/ibrahim-energy-partners/" target="_blank" rel="noopener" class="contact-link bg-brand-deep-navy/50 p-5 sm:p-6 rounded-sm border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-deep-navy/70 transition-all block text-center">
+                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">Company LinkedIn</div>
                     <div class="text-white font-medium">Ibrahim Energy Partners</div>
-                </div>
-                <div class="bg-brand-deep-navy/50 p-6 rounded-sm border border-brand-gold/30">
+                </a>
+                <div class="bg-brand-deep-navy/50 p-5 sm:p-6 rounded-sm border border-brand-gold/30 text-center">
                     <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">Offices</div>
-                    <div class="text-white font-medium">Tripoli &bull; Benghazi<br>Victoria, BC</div>
+                    <div class="text-white font-medium">Tripoli &bull; Benghazi &bull; Victoria, BC</div>
                 </div>
             </div>
         </div>
@@ -786,6 +918,29 @@
                     }
                 }]
             });
+
+            // --- MOBILE MENU ---
+            const menuToggle = document.getElementById('menuToggle');
+            const menuClose = document.getElementById('menuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileBackdrop = document.getElementById('mobileBackdrop');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function openMenu() {
+                mobileMenu.classList.add('open');
+                mobileBackdrop.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                mobileMenu.classList.remove('open');
+                mobileBackdrop.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', openMenu);
+            menuClose.addEventListener('click', closeMenu);
+            mobileBackdrop.addEventListener('click', closeMenu);
+            mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
 
             // --- NAVIGATION HIGHLIGHTING ---
             const sections = document.querySelectorAll("section");
