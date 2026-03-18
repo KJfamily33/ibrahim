@@ -138,10 +138,12 @@
                     </div>
                 </div>
 
-                <div class="hidden md:flex space-x-8 items-center">
+                <div class="hidden md:flex space-x-6 items-center">
                     <a href="#crisis" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">The Crisis</a>
+                    <a href="#ai-nexus" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">AI Nexus</a>
                     <a href="#korea-strategy" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">ROK Response</a>
                     <a href="#opportunities" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">Libyan Pivot</a>
+                    <a href="#convergence" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">The Deal</a>
                 </div>
             </div>
         </div>
@@ -204,7 +206,61 @@
             </div>
         </section>
 
-        <!-- Section 2: South Korea's Strategy -->
+        <!-- Section 2: The AI-Energy Nexus -->
+        <section id="ai-nexus" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+            <div class="mb-12 text-center max-w-3xl mx-auto">
+                <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">العلاقة بين الطاقة والذكاء الاصطناعي</div>
+                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">The AI-Energy Nexus</h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
+                    This is not merely an oil crisis. South Korea controls the silicon that makes the global AI revolution physically possible. Without stable energy, the entire semiconductor supply chain — and with it, the AI supercycle — is at risk.
+                </p>
+            </div>
+
+            <!-- HBM Dominance -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20 border-t-4 border-t-brand-gold">
+                    <div class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] mb-4">Memory Monopoly</div>
+                    <h3 class="font-display text-2xl font-semibold text-brand-navy mb-3">HBM Supercycle</h3>
+                    <p class="font-body text-brand-navy/80 text-sm leading-relaxed mb-4">The global HBM market reaches <strong>$54.6B in 2026</strong> — a 58% YoY surge. SK Hynix controls 57-62% of the market. Samsung holds most of the remainder.</p>
+                    <div class="bg-brand-cream p-4 border-l-2 border-brand-gold">
+                        <span class="font-body text-brand-navy text-sm font-semibold">Korea's share of NVIDIA HBM4 orders:</span>
+                        <span class="font-display text-3xl text-brand-gold font-bold block mt-1">~70%</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20 border-t-4 border-t-brand-navy">
+                    <div class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] mb-4">Compute Demands</div>
+                    <h3 class="font-display text-2xl font-semibold text-brand-navy mb-3">NVIDIA Vera Rubin</h3>
+                    <p class="font-body text-brand-navy/80 text-sm leading-relaxed mb-4">Unveiled at GTC 2026. The Rubin GPU packs <strong>336 billion transistors</strong> with up to 288 GB HBM4 per GPU and 22 TB/s bandwidth.</p>
+                    <div class="bg-brand-cream p-4 border-l-2 border-brand-navy">
+                        <span class="font-body text-brand-navy text-sm font-semibold">A single NVL72 rack:</span>
+                        <span class="font-body text-brand-navy/70 text-sm block mt-1">20.7 TB HBM4 &bull; 1,580 TB/s bandwidth &bull; 14,400 TFLOPS</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20 border-t-4 border-t-brand-heritage-green">
+                    <div class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em] mb-4">Power Crisis</div>
+                    <h3 class="font-display text-2xl font-semibold text-brand-navy mb-3">The Thermodynamic Limit</h3>
+                    <p class="font-body text-brand-navy/80 text-sm leading-relaxed mb-4">A single hyperscale AI data center draws <strong>100-300 MW</strong> continuously. By 2030, data centers will consume 4-5% of global electricity.</p>
+                    <div class="bg-brand-cream p-4 border-l-2 border-brand-heritage-green">
+                        <span class="font-body text-brand-navy text-sm font-semibold">200MW facility annual cost:</span>
+                        <span class="font-body text-brand-navy/70 text-sm block mt-1">USA: $280M &bull; Germany: $720M &bull; <strong class="text-brand-gold">Libya: $12M</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Electricity Cost Comparison Chart -->
+            <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20 max-w-3xl mx-auto">
+                <h3 class="font-display text-2xl font-semibold mb-2 text-brand-navy">Global Electricity Cost Comparison</h3>
+                <p class="font-body text-sm text-brand-warm-gray mb-6">Average cost per kWh — Libya's subsidized grid represents a 95% reduction vs. the United States.</p>
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="electricityChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: South Korea's Strategy -->
         <section id="korea-strategy" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
             <div class="mb-12 text-center max-w-3xl mx-auto">
                 <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">استجابة كوريا الجنوبية</div>
@@ -231,11 +287,64 @@
                 <h2 class="font-display text-4xl font-semibold text-white mb-4">Targeted Libyan Opportunities</h2>
                 <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
                 <p class="font-body text-brand-warm-gray leading-relaxed text-lg">
-                    Libya offers light, sweet crude shipped directly into the Mediterranean with <strong>zero chokepoint exposure</strong>. These are three actionable investment and operational avenues tailored specifically for South Korean E&P and EPC entities.
+                    Libya offers light, sweet crude shipped directly into the Mediterranean with <strong>zero chokepoint exposure</strong>, plus the world's cheapest electricity for AI infrastructure. Four actionable investment avenues tailored for South Korean E&P, EPC, and technology entities.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="opportunitiesGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="opportunitiesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Convergence Framework & De-Risking -->
+    <section id="convergence" class="bg-brand-cream bg-pattern-light py-20 scroll-mt-24 border-t border-brand-warm-gray/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center max-w-3xl mx-auto">
+                <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">صفقة القرن</div>
+                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">The Energy-for-Technology Framework</h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
+                    A bilateral exchange of comparative advantages. Korea provides technology transfer, semiconductor expertise, and digital infrastructure. Libya guarantees long-term, preferentially priced hydrocarbons with zero chokepoint exposure.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20">
+                    <div class="w-10 h-10 bg-brand-navy flex items-center justify-center mb-4 text-brand-gold text-sm font-bold">01</div>
+                    <h3 class="font-display text-xl font-semibold text-brand-navy mb-3">Energy Security</h3>
+                    <p class="font-body text-brand-navy/80 text-sm leading-relaxed">KEXIM's Supply Chain Stabilization Fund directly finances Korean participation in Libyan upstream developments and physical off-take contracts, permanently insulating Korea's industrial base from Middle Eastern kinetic risks.</p>
+                </div>
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20">
+                    <div class="w-10 h-10 bg-brand-navy flex items-center justify-center mb-4 text-brand-gold text-sm font-bold">02</div>
+                    <h3 class="font-display text-xl font-semibold text-brand-navy mb-3">Mediterranean AI Hubs</h3>
+                    <p class="font-body text-brand-navy/80 text-sm leading-relaxed">Korean tech giants deploy AI data centers on Libya's $0.007/kWh grid, connected to Europe via the Medusa submarine cable. Equipped with Korean HBM chips, servicing EU and African cloud markets at a fraction of operational cost.</p>
+                </div>
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20">
+                    <div class="w-10 h-10 bg-brand-navy flex items-center justify-center mb-4 text-brand-gold text-sm font-bold">03</div>
+                    <h3 class="font-display text-xl font-semibold text-brand-navy mb-3">Industrial Modernization</h3>
+                    <p class="font-body text-brand-navy/80 text-sm leading-relaxed">Korea exports smart manufacturing, automation, and smart grid expertise to upgrade GECOL's infrastructure and transition Libya toward a knowledge-based digital economy. A structural peace through economic integration.</p>
+                </div>
+            </div>
+
+            <!-- Political De-Risking -->
+            <div class="bg-white p-10 rounded-sm shadow-sm border border-brand-warm-gray/20 border-l-4 border-l-brand-heritage-green max-w-4xl mx-auto">
+                <div class="flex items-start gap-6">
+                    <div class="hidden sm:block">
+                        <div class="w-14 h-14 bg-brand-heritage-green flex items-center justify-center text-white font-display text-xl font-bold rounded-sm">✓</div>
+                    </div>
+                    <div>
+                        <div class="font-arabic text-lg text-brand-gold mb-1" dir="rtl">الاستقرار المؤسسي</div>
+                        <h3 class="font-display text-2xl font-semibold text-brand-navy mb-3">Political De-Risking: The Unified Development Program</h3>
+                        <p class="font-body text-brand-navy/80 text-sm leading-relaxed mb-4">In November 2025, Libya's rival factions signed the "Unified Development Program" — a US-brokered landmark agreement establishing joint nationwide development spending. This unlocked <strong>$5 billion in previously frozen funds</strong> and empowers the Central Bank and NOC to operate with nationwide coherence.</p>
+                        <p class="font-body text-brand-navy/80 text-sm leading-relaxed mb-4">The UN Security Council has forcefully endorsed the program. For highly risk-averse South Korean financial institutions, this unified budget structure guarantees that multi-billion dollar bilateral agreements will be honored by a cohesive state entity — not fractured regional factions.</p>
+                        <div class="flex flex-wrap gap-3 mt-4">
+                            <span class="inline-block bg-brand-heritage-green/10 text-brand-heritage-green text-xs font-bold px-3 py-1.5 uppercase tracking-wider">US-Brokered</span>
+                            <span class="inline-block bg-brand-heritage-green/10 text-brand-heritage-green text-xs font-bold px-3 py-1.5 uppercase tracking-wider">UN-Endorsed</span>
+                            <span class="inline-block bg-brand-heritage-green/10 text-brand-heritage-green text-xs font-bold px-3 py-1.5 uppercase tracking-wider">$5B Unlocked</span>
+                            <span class="inline-block bg-brand-heritage-green/10 text-brand-heritage-green text-xs font-bold px-3 py-1.5 uppercase tracking-wider">Unified CBL & NOC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -249,6 +358,15 @@
             <p class="font-body text-lg text-brand-cream/80 mb-10 leading-relaxed max-w-2xl mx-auto">
                 The companies that move in the next 60-90 days will define the competitive landscape for the next decade. Ibrahim Energy Partners is positioned to facilitate verified, authoritative connections. No phantom mandates.
             </p>
+
+            <!-- PDF Download -->
+            <div class="mb-12">
+                <a href="/rok-briefing/Ibrahim-Energy-Partners-The-Convergence-Libya-Korea-AI.pdf" download class="inline-flex items-center gap-3 bg-brand-gold hover:bg-brand-gold-light text-brand-deep-navy font-body font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 transition-all duration-200 shadow-lg hover:shadow-xl group">
+                    <span class="text-lg">&#8595;</span>
+                    <span>Download Full Research Report (PDF)</span>
+                </a>
+                <p class="font-body text-brand-cream/50 text-xs mt-3">The Geopolitical Convergence of AI Infrastructure and Energy Security</p>
+            </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto font-body text-sm">
                 <div class="bg-brand-deep-navy/50 p-6 rounded-sm border border-brand-gold/30">
@@ -351,11 +469,40 @@
                     `
                 },
                 {
+                    id: 'kexim',
+                    title: 'KEXIM Crisis Fund (₩20.3T)',
+                    content: `
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">05</div>
+                            <h4 class="font-display text-3xl font-bold text-brand-navy">Institutional Defense</h4>
+                        </div>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">Seoul mobilized a massive <strong>₩20.3 trillion (~$15 billion)</strong> financial support package to protect SMEs and stabilize export-driven industries.</p>
+                        <div class="overflow-x-auto mb-4">
+                            <table class="w-full text-sm font-body">
+                                <thead><tr class="border-b-2 border-brand-gold">
+                                    <th class="text-left py-2 text-brand-navy font-semibold">Institution</th>
+                                    <th class="text-right py-2 text-brand-navy font-semibold">Allocation (₩)</th>
+                                </tr></thead>
+                                <tbody class="text-brand-navy/80">
+                                    <tr class="border-b border-brand-warm-gray/20"><td class="py-2">KEXIM</td><td class="text-right py-2 font-semibold">7 Trillion</td></tr>
+                                    <tr class="border-b border-brand-warm-gray/20"><td class="py-2">Korea Development Bank</td><td class="text-right py-2 font-semibold">8 Trillion</td></tr>
+                                    <tr class="border-b border-brand-warm-gray/20"><td class="py-2">Industrial Bank of Korea</td><td class="text-right py-2 font-semibold">2.3 Trillion</td></tr>
+                                    <tr><td class="py-2">Korea Credit Guarantee Fund</td><td class="text-right py-2 font-semibold">3 Trillion</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4 p-5 bg-brand-cream border-l-2 border-brand-gold">
+                            <strong class="font-body text-brand-navy text-xs uppercase tracking-[0.15em] block mb-2">Strategic Implication:</strong>
+                            <span class="font-body text-brand-navy/70 text-sm">KEXIM's Supply Chain Stabilization Fund is <strong>explicitly tasked</strong> with funding alternative energy procurement. Preferential interest rate reductions of up to 2.2% are available for companies affected by the Middle East situation.</span>
+                        </div>
+                    `
+                },
+                {
                     id: 'lng',
                     title: 'Regional LNG Swaps',
                     content: `
                         <div class="flex items-center mb-4">
-                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">05</div>
+                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">06</div>
                             <h4 class="font-display text-3xl font-bold text-brand-navy">Cross-Border Alliances</h4>
                         </div>
                         <p class="font-body text-brand-navy/80 leading-relaxed mb-4">Korea Gas Corp (KOGAS) has signed a strategic Memorandum of Understanding with Japan's JERA.</p>
@@ -386,6 +533,12 @@
                     target: 'HD Hyundai / Hanwha / Samsung',
                     summary: 'Secure massive EPCI contracts for the Zone E offshore platform.',
                     details: 'South Korea\'s "Big 3" shipbuilders are shortlisted in a fierce bidding war for a $3B-$4B EPCI contract for the 90,000-ton Zone E offshore platform ("Structures A&E" project by Mellitah Oil & Gas - NOC/Eni). <strong>Action:</strong> Facilitate financing or operational partnerships to secure this deal, tying Korean engineering directly to Libyan gas.',
+                },
+                {
+                    title: 'Mediterranean AI Computing Hub',
+                    target: 'SK C&C / Samsung SDS / Naver',
+                    summary: 'Build hyperscale AI data centers on $0.007/kWh Libyan power with direct fiber to Europe.',
+                    details: 'Libya offers the cheapest electricity on Earth ($0.007/kWh) — a <strong>95% cost reduction</strong> vs. the US for a 200MW facility ($12M/yr vs. $280M/yr). The Medusa submarine cable (8,700km, 20 Tbps/pair) provides direct fiber links from Tripoli, Misrata, and Benghazi to Marseille and Italy. GECOL completed 148 infrastructure projects eliminating eastern power shortages, plus TotalEnergies\' 500MW Sadada solar plant provides renewable baseline capacity. <strong>Action:</strong> Structure JV with Korean tech giants to deploy modular, liquid-cooled AI training clusters on the Libyan coast, servicing European and African cloud markets.',
                 }
             ];
 
@@ -504,6 +657,52 @@
                                     if (label) { label += ': '; }
                                     label += context.parsed + 'M BPD';
                                     return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Electricity Cost Chart (Bar)
+            const ctxElec = document.getElementById('electricityChart').getContext('2d');
+            new Chart(ctxElec, {
+                type: 'bar',
+                data: {
+                    labels: ['Libya', 'Angola', 'South Korea', 'United States', 'Germany'],
+                    datasets: [{
+                        label: 'USD/kWh',
+                        data: [0.007, 0.013, 0.110, 0.170, 0.410],
+                        backgroundColor: ['#C8A44E', '#9A9589', '#0F1A2E', '#1A2640', '#1A2640'],
+                        borderWidth: 0,
+                        borderRadius: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(154, 149, 137, 0.15)' },
+                            ticks: { callback: function(value) { return '$' + value.toFixed(3); } }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { font: { weight: 'bold' } }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0F1A2E',
+                            bodyFont: { family: '"IBM Plex Sans", sans-serif', size: 14, weight: 'bold' },
+                            displayColors: false,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    return '$' + context.parsed.x.toFixed(3) + ' /kWh';
                                 }
                             }
                         }
