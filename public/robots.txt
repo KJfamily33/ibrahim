@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /rok-briefing
 
 Sitemap: https://ibrahim.help/sitemap.xml

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mediterranean Pivot: South Korea & Libya | Ibrahim Energy Partners</title>
+
+    <!-- CRITICAL: Prevents Google/Bing from showing this page in public search results -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts: Cormorant Garamond (Display), IBM Plex Sans (Body), IBM Plex Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            'deep-navy': '#0A0E17',
+                            'navy': '#0F1A2E',
+                            'midnight': '#1A2640',
+                            'gold': '#C8A44E',
+                            'gold-light': '#D4B76A',
+                            'gold-dark': '#A68A3E',
+                            'heritage-green': '#1A4D2E',
+                            'green-light': '#2A6B40',
+                            'green-dark': '#0F3A1F',
+                            'cream': '#F5F1E8',
+                            'warm-gray': '#9A9589'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', 'serif'],
+                        body: ['"IBM Plex Sans"', 'sans-serif'],
+                        arabic: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            background-color: #F5F1E8;
+            color: #333333;
+        }
+
+        .bg-pattern-dark {
+            background-image: radial-gradient(rgba(200, 164, 78, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .bg-pattern-light {
+            background-image: radial-gradient(rgba(10, 14, 23, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .gold-line {
+            width: 80px;
+            height: 2px;
+            background-color: #C8A44E;
+            margin: 1.5rem auto;
+        }
+
+        .nav-link.active {
+            border-bottom: 2px solid #C8A44E;
+            color: #C8A44E;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 250px;
+            }
+        }
+
+        .css-arrow-right {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 8px solid currentColor;
+            margin-right: 8px;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-btn.active-tab {
+            background-color: #0F1A2E;
+            color: white;
+            border-color: #0F1A2E;
+        }
+
+        .tab-btn.active-tab .tab-icon {
+            background-color: #C8A44E;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-brand-gold selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-brand-deep-navy border-b border-brand-midnight shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 border border-brand-gold flex items-center justify-center transform rotate-45">
+                        <span class="font-display text-white text-xl font-bold transform -rotate-45 block mt-1">IE</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display text-lg font-bold tracking-widest text-white leading-tight">IBRAHIM ENERGY</span>
+                        <span class="font-display text-sm text-brand-gold tracking-[0.2em] leading-tight">PARTNERS</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#crisis" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">The Crisis</a>
+                    <a href="#korea-strategy" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">ROK Response</a>
+                    <a href="#opportunities" class="nav-link text-brand-warm-gray hover:text-brand-gold px-1 py-2 text-xs font-bold uppercase tracking-[0.15em] transition-colors">Libyan Pivot</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="bg-brand-deep-navy bg-pattern-dark text-white py-24 px-4 relative overflow-hidden border-b-4 border-brand-gold">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold rounded-full mix-blend-overlay filter blur-[120px] opacity-10"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-heritage-green rounded-full mix-blend-overlay filter blur-[120px] opacity-20"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-block border border-brand-gold/30 text-brand-gold text-xs font-bold px-4 py-1.5 uppercase tracking-[0.2em] mb-6 font-body">
+                Confidential Market Intelligence &bull; March 2026
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-semibold tracking-tight mb-4 leading-tight text-white">
+                THE MEDITERRANEAN PIVOT
+            </h1>
+            <div class="font-arabic text-2xl md:text-3xl text-brand-gold mb-8 text-center" dir="rtl">
+                المحور المتوسطي
+            </div>
+
+            <div class="gold-line"></div>
+
+            <p class="font-body text-lg md:text-xl text-brand-warm-gray max-w-3xl mx-auto font-light leading-relaxed">
+                Securing South Korea's energy supply chain in the post-Hormuz reality.<br>
+                <span class="text-white font-medium">Verification-first. Technical, data-driven, risk-aware.</span>
+            </p>
+        </div>
+    </header>
+
+    <main class="bg-brand-cream bg-pattern-light py-16 space-y-24">
+
+        <!-- Section 1: The Crisis -->
+        <section id="crisis" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+            <div class="mb-12 text-center max-w-3xl mx-auto">
+                <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">الأزمة الكلية</div>
+                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">The Macro Environment</h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
+                    The March 2, 2026, closure of the Strait of Hormuz has triggered a structural dislocation of the global energy supply chain. Twenty million barrels per day are stranded. This necessitates an immediate pivot to zero-chokepoint Mediterranean crude.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20">
+                    <h3 class="font-display text-2xl font-semibold mb-2 text-brand-navy">20M BPD Supply Deficit</h3>
+                    <p class="font-body text-sm text-brand-warm-gray mb-6">Pipeline bypass capacity covers roughly 5 million of the 20 million barrels lost. Strategic reserves buy weeks, not months.</p>
+                    <div class="chart-container">
+                        <canvas id="supplyChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-sm shadow-sm border border-brand-warm-gray/20">
+                    <h3 class="font-display text-2xl font-semibold mb-2 text-brand-navy">Brent Crude Trajectory</h3>
+                    <p class="font-body text-sm text-brand-warm-gray mb-6">Surging past $100/barrel. Projections indicate $150/bbl if the blockade persists through Q2 2026.</p>
+                    <div class="chart-container">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: South Korea's Strategy -->
+        <section id="korea-strategy" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+            <div class="mb-12 text-center max-w-3xl mx-auto">
+                <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">استجابة كوريا الجنوبية</div>
+                <h2 class="font-display text-4xl font-semibold text-brand-navy mb-4">Republic of Korea Response</h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="font-body text-brand-navy/80 leading-relaxed text-lg">
+                    An analysis of Seoul's unprecedented emergency measures. Understanding these logistical maneuvers is crucial for positioning Libyan assets as the logical next step in Korea's energy security playbook.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-6">
+                <div class="lg:w-1/3 flex flex-col space-y-3" id="strategyTabs"></div>
+                <div class="lg:w-2/3 bg-white p-10 shadow-sm border border-brand-warm-gray/20 border-t-4 border-t-brand-gold min-h-[350px]" id="strategyContent"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Section 3: Libyan Opportunities -->
+    <section id="opportunities" class="bg-brand-deep-navy bg-pattern-dark py-20 scroll-mt-0 border-t border-brand-midnight">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center max-w-4xl mx-auto">
+                <div class="font-arabic text-xl text-brand-gold mb-2" dir="rtl">الفرص الاستثمارية في ليبيا</div>
+                <h2 class="font-display text-4xl font-semibold text-white mb-4">Targeted Libyan Opportunities</h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="font-body text-brand-warm-gray leading-relaxed text-lg">
+                    Libya offers light, sweet crude shipped directly into the Mediterranean with <strong>zero chokepoint exposure</strong>. These are three actionable investment and operational avenues tailored specifically for South Korean E&P and EPC entities.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="opportunitiesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-brand-heritage-green py-20 text-center border-t-4 border-brand-gold relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #C8A44E 0, #C8A44E 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="font-arabic text-2xl text-brand-gold mb-4" dir="rtl">العلاقات أثمن من الأموال</div>
+            <h2 class="font-display text-4xl font-bold text-white mb-6">Accelerate Your Entry</h2>
+            <p class="font-body text-lg text-brand-cream/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+                The companies that move in the next 60-90 days will define the competitive landscape for the next decade. Ibrahim Energy Partners is positioned to facilitate verified, authoritative connections. No phantom mandates.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto font-body text-sm">
+                <div class="bg-brand-deep-navy/50 p-6 rounded-sm border border-brand-gold/30">
+                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">Web</div>
+                    <div class="text-white font-medium">ibrahim.help</div>
+                </div>
+                <div class="bg-brand-deep-navy/50 p-6 rounded-sm border border-brand-gold/30">
+                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">LinkedIn</div>
+                    <div class="text-white font-medium">Ibrahim Energy Partners</div>
+                </div>
+                <div class="bg-brand-deep-navy/50 p-6 rounded-sm border border-brand-gold/30">
+                    <div class="text-brand-gold font-bold mb-2 uppercase tracking-[0.15em] text-xs">Offices</div>
+                    <div class="text-white font-medium">Tripoli &bull; Benghazi<br>Victoria, BC</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-deep-navy py-12 border-t border-brand-midnight text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="font-display text-2xl text-brand-gold mb-4">IBRAHIM ENERGY PARTNERS</div>
+            <div class="font-arabic text-sm text-brand-warm-gray mb-6" dir="rtl">شركاء إبراهيم للطاقة</div>
+            <p class="font-body text-xs text-brand-warm-gray/60 leading-relaxed">
+                DISCLAIMER: This document is provided for informational purposes only and does not constitute investment advice, a solicitation, or an offer to buy or sell any securities or assets. Information contained herein is based on publicly available sources and proprietary analysis and is believed to be reliable but is not guaranteed. Ibrahim Energy Partners makes no representation or warranty as to the accuracy or completeness of any information herein.
+            </p>
+            <p class="font-body text-xs text-brand-warm-gray/40 mt-6 uppercase tracking-wider">
+                Confidential Executive Briefing &bull; March 2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const koreaStrategyData = [
+                {
+                    id: 'reserve',
+                    title: 'Massive Reserve Release',
+                    content: `
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">01</div>
+                            <h4 class="font-display text-3xl font-bold text-brand-navy">Historic Drawdown</h4>
+                        </div>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">The government is executing the largest drawdown in the nation's history, releasing <strong>22.46 million barrels</strong> of oil from its strategic reserves.</p>
+                        <p class="font-body text-brand-navy/80 leading-relaxed">Simultaneously, they are importing an additional <strong>3.35 million barrels</strong> of overseas crude produced directly by the Korea National Oil Corporation (KNOC).</p>
+                        <div class="mt-8 p-5 bg-brand-cream border-l-2 border-brand-gold">
+                            <strong class="font-body text-brand-navy text-xs uppercase tracking-[0.15em] block mb-2">Strategic Implication:</strong>
+                            <span class="font-body text-brand-navy/70 text-sm">Reserves buy weeks, not months. Long-term, secure Mediterranean flows are required to backfill this historic depletion.</span>
+                        </div>
+                    `
+                },
+                {
+                    id: 'controls',
+                    title: 'Export Caps & Price Controls',
+                    content: `
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">02</div>
+                            <h4 class="font-display text-3xl font-bold text-brand-navy">Domestic Market Protection</h4>
+                        </div>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">The Ministry of Trade, Industry and Energy has implemented draconian measures to trap supply domestically.</p>
+                        <ul class="list-none space-y-3 font-body text-brand-navy/80 mb-4 pl-2">
+                            <li class="flex items-start"><span class="css-arrow-right text-brand-gold mt-1.5"></span> <div><strong>Export Caps:</strong> Refined petroleum products (gasoline, diesel, naphtha) capped at 100% of 2025 levels.</div></li>
+                            <li class="flex items-start"><span class="css-arrow-right text-brand-gold mt-1.5"></span> <div><strong>Price Controls:</strong> Domestic fuel prices capped for the first time in nearly 30 years.</div></li>
+                        </ul>
+                        <div class="mt-8 p-5 bg-brand-cream border-l-2 border-brand-gold">
+                            <strong class="font-body text-brand-navy text-xs uppercase tracking-[0.15em] block mb-2">Strategic Implication:</strong>
+                            <span class="font-body text-brand-navy/70 text-sm">Refiners' margins will be severely squeezed. Securing cheaper, direct-route crude is imperative for downstream survival.</span>
+                        </div>
+                    `
+                },
+                {
+                    id: 'logistics',
+                    title: 'Logistics Subsidies (Level 3)',
+                    content: `
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">03</div>
+                            <h4 class="font-display text-3xl font-bold text-brand-navy">Rerouting the Supply Chain</h4>
+                        </div>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">Seoul has activated a <strong>"Crisis Level 3"</strong> protocol.</p>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">State funds are actively being used to subsidize skyrocketing freight costs for tankers forced into the lengthy and expensive diversion around the Cape of Good Hope.</p>
+                        <div class="mt-8 p-5 bg-brand-cream border-l-2 border-brand-gold">
+                            <strong class="font-body text-brand-navy text-xs uppercase tracking-[0.15em] block mb-2">Strategic Implication:</strong>
+                            <span class="font-body text-brand-navy/70 text-sm">The Cape route is financially unsustainable long-term. Libyan crude avoids the Cape entirely, flowing directly through the Mediterranean.</span>
+                        </div>
+                    `
+                },
+                {
+                    id: 'grid',
+                    title: 'Shifting the Power Grid',
+                    content: `
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">04</div>
+                            <h4 class="font-display text-3xl font-bold text-brand-navy">Drastic Fuel Substitution</h4>
+                        </div>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">To minimize reliance on imported LNG, the government is executing a rapid grid overhaul:</p>
+                        <ul class="list-none space-y-3 font-body text-brand-navy/80 mb-4 pl-2">
+                            <li class="flex items-start"><span class="css-arrow-right text-brand-gold mt-1.5"></span> <div><strong>Coal Limit Abolished:</strong> The previous 80% capacity limit on coal-fired power plants has been scrapped.</div></li>
+                            <li class="flex items-start"><span class="css-arrow-right text-brand-gold mt-1.5"></span> <div><strong>Nuclear Surge:</strong> Rushing maintenance on six nuclear reactors to push nuclear power utilization beyond 80%.</div></li>
+                        </ul>
+                    `
+                },
+                {
+                    id: 'lng',
+                    title: 'Regional LNG Swaps',
+                    content: `
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-brand-navy flex items-center justify-center mr-4 text-brand-gold text-sm font-bold">05</div>
+                            <h4 class="font-display text-3xl font-bold text-brand-navy">Cross-Border Alliances</h4>
+                        </div>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">Korea Gas Corp (KOGAS) has signed a strategic Memorandum of Understanding with Japan's JERA.</p>
+                        <p class="font-body text-brand-navy/80 leading-relaxed mb-4">This alliance focuses on optimizing LNG shipping routes, sharing critical supply data, and executing cargo swaps to survive the regional gas shortage.</p>
+                         <div class="mt-8 p-5 bg-brand-cream border-l-2 border-brand-gold">
+                            <strong class="font-body text-brand-navy text-xs uppercase tracking-[0.15em] block mb-2">Strategic Implication:</strong>
+                            <span class="font-body text-brand-navy/70 text-sm">Korea is hungry for Gas. Libyan offshore gas developments (like Mellitah) present a critical opportunity for future swap arrangements.</span>
+                        </div>
+                    `
+                }
+            ];
+
+            const libyanOpportunities = [
+                {
+                    title: 'The "Round Two" Upstream Play',
+                    target: 'Sovereign Consortia',
+                    summary: 'Acquire remaining unawarded exploration blocks from the recent licensing round.',
+                    details: 'Libya concluded its first exploration bidding round in 17 years on Feb 11, 2026, awarding only 5 of 20 blocks. NOC Chairman Masoud Suleiman is reviewing unbid blocks for improved fiscal terms for a new round later this year. <strong>Action:</strong> Assemble a South Korean-backed consortium to secure the remaining 15 blocks before European majors dominate.',
+                },
+                {
+                    title: 'Leverage KNOC\'s Foothold',
+                    target: 'KNOC / KIC / KEXIM',
+                    summary: 'Expand operations in the Murzuq Basin via existing Elephant Field stakes.',
+                    details: 'No need to start from scratch. KNOC maintains a 4% stake in the Korean consortium operating Libya\'s Elephant Field (Block NC-174) in the Murzuq Basin. <strong>Action:</strong> Pitch KIC or KEXIM to provide immediate capital to expand KNOC\'s proven operational footprint into lucrative new brownfield rehabilitations nearby.',
+                },
+                {
+                    title: 'The $4B Offshore Gas Battle',
+                    target: 'HD Hyundai / Hanwha / Samsung',
+                    summary: 'Secure massive EPCI contracts for the Zone E offshore platform.',
+                    details: 'South Korea\'s "Big 3" shipbuilders are shortlisted in a fierce bidding war for a $3B-$4B EPCI contract for the 90,000-ton Zone E offshore platform ("Structures A&E" project by Mellitah Oil & Gas - NOC/Eni). <strong>Action:</strong> Facilitate financing or operational partnerships to secure this deal, tying Korean engineering directly to Libyan gas.',
+                }
+            ];
+
+            // --- RENDER SK STRATEGY TABS ---
+            const tabsContainer = document.getElementById('strategyTabs');
+            const contentContainer = document.getElementById('strategyContent');
+
+            function renderTabs() {
+                koreaStrategyData.forEach((item, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = `tab-btn text-left px-5 py-4 border border-brand-warm-gray/20 font-body text-sm transition-all duration-200 focus:outline-none flex items-center bg-white ${index === 0 ? 'active-tab' : 'text-brand-navy hover:bg-brand-cream'}`;
+
+                    const iconColorClass = index === 0 ? 'bg-brand-gold' : 'bg-brand-warm-gray/30';
+                    btn.innerHTML = `<div class="tab-icon w-2 h-2 rounded-full ${iconColorClass} mr-3 transition-colors"></div> <span class="font-medium">${item.title}</span>`;
+
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.tab-btn').forEach(b => {
+                            b.classList.remove('active-tab');
+                            b.classList.add('text-brand-navy', 'bg-white', 'hover:bg-brand-cream');
+                            b.querySelector('.tab-icon').classList.remove('bg-brand-gold');
+                            b.querySelector('.tab-icon').classList.add('bg-brand-warm-gray/30');
+                        });
+                        btn.classList.add('active-tab');
+                        btn.classList.remove('text-brand-navy', 'bg-white', 'hover:bg-brand-cream');
+                        btn.querySelector('.tab-icon').classList.remove('bg-brand-warm-gray/30');
+                        btn.querySelector('.tab-icon').classList.add('bg-brand-gold');
+
+                        contentContainer.innerHTML = item.content;
+                        contentContainer.classList.remove('fade-in');
+                        void contentContainer.offsetWidth;
+                        contentContainer.classList.add('fade-in');
+                    });
+
+                    tabsContainer.appendChild(btn);
+                });
+                contentContainer.innerHTML = koreaStrategyData[0].content;
+            }
+            renderTabs();
+
+            // --- RENDER LIBYAN OPPORTUNITIES ---
+            const oppGrid = document.getElementById('opportunitiesGrid');
+
+            libyanOpportunities.forEach(opp => {
+                const card = document.createElement('div');
+                card.className = `bg-brand-navy border border-brand-midnight rounded-sm shadow-xl p-8 flex flex-col group relative overflow-hidden`;
+
+                card.innerHTML = `
+                    <div class="absolute top-0 left-0 w-full h-1 bg-brand-gold transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="font-body text-[10px] font-bold text-brand-gold uppercase tracking-[0.2em] mb-3 border-b border-brand-gold/20 pb-2 inline-block">Target: ${opp.target}</div>
+                    <h3 class="font-display text-2xl font-semibold text-white mb-4 leading-tight">${opp.title}</h3>
+                    <p class="font-body text-brand-cream/80 text-sm mb-6 flex-grow leading-relaxed">${opp.summary}</p>
+
+                    <div class="expandable-content hidden mt-2 pt-6 border-t border-brand-midnight text-brand-warm-gray text-sm leading-relaxed font-body">
+                        ${opp.details}
+                    </div>
+
+                    <button class="toggle-btn mt-6 text-brand-gold font-body font-semibold text-xs uppercase tracking-wider text-left hover:text-white transition-colors focus:outline-none flex items-center justify-between">
+                        <span>View Strategy Details</span>
+                        <span class="transform transition-transform duration-200 group-hover:translate-x-1">&#8594;</span>
+                    </button>
+                `;
+
+                const toggleBtn = card.querySelector('.toggle-btn');
+                const content = card.querySelector('.expandable-content');
+
+                toggleBtn.addEventListener('click', () => {
+                    const isHidden = content.classList.contains('hidden');
+                    if (isHidden) {
+                        content.classList.remove('hidden');
+                        content.classList.add('fade-in');
+                        toggleBtn.innerHTML = `<span>Hide Details</span> <span class="transform rotate-90 inline-block">&#8594;</span>`;
+                    } else {
+                        content.classList.add('hidden');
+                        content.classList.remove('fade-in');
+                        toggleBtn.innerHTML = `<span>View Strategy Details</span> <span class="transform transition-transform duration-200 group-hover:translate-x-1">&#8594;</span>`;
+                    }
+                });
+
+                oppGrid.appendChild(card);
+            });
+
+            // --- CHART.JS ---
+            Chart.defaults.font.family = '"IBM Plex Sans", sans-serif';
+            Chart.defaults.color = '#9A9589';
+
+            const ctxSupply = document.getElementById('supplyChart').getContext('2d');
+            new Chart(ctxSupply, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Stranded Hormuz Supply', 'Active Global Supply', 'Bypass Capacity'],
+                    datasets: [{
+                        data: [15, 80, 5],
+                        backgroundColor: ['#1A2640', '#0F1A2E', '#C8A44E'],
+                        borderWidth: 1,
+                        borderColor: '#F5F1E8',
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { padding: 20, usePointStyle: true, pointStyle: 'circle' }
+                        },
+                        tooltip: {
+                            backgroundColor: '#0F1A2E',
+                            titleFont: { family: '"Cormorant Garamond", serif', size: 16 },
+                            bodyFont: { family: '"IBM Plex Sans", sans-serif' },
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) { label += ': '; }
+                                    label += context.parsed + 'M BPD';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const ctxPrice = document.getElementById('priceChart').getContext('2d');
+            const labels = ['Feb 20', 'Feb 25', 'Feb 28', 'Mar 2', 'Mar 5', 'Mar 10', 'Mar 15'];
+            const priceData = [78, 80, 85, 105, 115, 120, 125];
+
+            new Chart(ctxPrice, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Brent Crude ($/bbl)',
+                        data: priceData,
+                        borderColor: '#C8A44E',
+                        backgroundColor: 'rgba(200, 164, 78, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#0F1A2E',
+                        pointBorderColor: '#C8A44E',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 60,
+                            max: 150,
+                            grid: { color: 'rgba(154, 149, 137, 0.2)' },
+                            ticks: { callback: function(value) { return '$' + value; } }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0F1A2E',
+                            titleFont: { family: '"IBM Plex Sans", sans-serif' },
+                            bodyFont: { family: '"IBM Plex Sans", sans-serif', size: 14, weight: 'bold' },
+                            displayColors: false,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Price: $' + context.parsed.y;
+                                }
+                            }
+                        }
+                    }
+                },
+                plugins: [{
+                    id: 'customLine',
+                    afterDraw: chart => {
+                        const ctx = chart.ctx;
+                        const xAxis = chart.scales.x;
+                        const yAxis = chart.scales.y;
+                        const xPos = xAxis.getPixelForTick(3);
+
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.moveTo(xPos, yAxis.top);
+                        ctx.lineTo(xPos, yAxis.bottom);
+                        ctx.lineWidth = 2;
+                        ctx.strokeStyle = '#1A2640';
+                        ctx.setLineDash([5, 5]);
+                        ctx.stroke();
+
+                        ctx.fillStyle = '#1A2640';
+                        ctx.font = 'bold 11px "IBM Plex Sans", sans-serif';
+                        ctx.fillText('Hormuz Closure', xPos + 8, yAxis.top + 15);
+                        ctx.restore();
+                    }
+                }]
+            });
+
+            // --- NAVIGATION HIGHLIGHTING ---
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 150) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href").includes(current)) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
